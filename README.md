@@ -1,19 +1,26 @@
-# Project Repository
+##Product Vision Statement
+####What and why?
+CodeHunt is a information hub for users in the Computer Science field. In the information age, information overload slows our productivity. There are excessive events/contest occurring on multiple web contest websites, such as LeetCode, CodeForces, Kaggle. It's time-consuming to keep track of all the events by bouncing from website to websites. Our goal is to build a webapp that collects and aggregates information on the user's behalf. All they need to do is login to CodeHunt and see the pages that they have subscribed to and feature events. 
+We want to give Computer Science students the opportunity to receive an offer from their dream company and dream job. Students regularly participating in coding contests and events is one step closer to that dream title. Struggling students are overwhelmed when started searching for contests, and even if they did, keeping up to date with the events and maintaining their schedule is inconvenient and unproductive. Our product distribute the resource that allow users to be educated beyond the classrooms.
 
-This repository will be used for team projects.
+####For whom?
+The end-users are Computer Science enthusiasts and students. Due to limited resources, we provide limited service to CS students at NYU. Narrowing our target will allow us to work with what we are familiar with, so the product best suits the end-users. In the future we will extend the service to anyone interested in CS related events, coding contests, job positions, and the world-wide web.
 
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
+##CodeHunt is maintained by
+- [Charlie Cai](https://github.com/charliecai00)
+- [Diana Zhao](https://github.com/dinanz)
+- [Chengyang Song](https://github.com/b0ub0)
+- [Michael Zhou](https://github.com/kopokopok)
+- [Dana Sun](https://github.com/dana-sun)
+- [Andrew Shin](https://github.com/sid2002CN)
 
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
+###Building and installing CodeHunt
+TBD...
 
-1. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+##Help wanted
+We have several ideas we would like to see in CodeHunt to make it even better. However, we already work on so many things that we do not have the time for all the big ideas.
 
-1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+This can be your way to support and contribute to CodeHunt - extend it to do something cool.
 
-1. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
+For everyone who wants to contribute (and send pull requests), please read our [contributing guidelines](./CONTRIBUTING.md) before you submit.
 
-1. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
-
-1. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
-
-1. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
