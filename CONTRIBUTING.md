@@ -1,2 +1,5 @@
-# Guide to Contributing
-Delete the contents of this file and replace with the contents of a proper guide to contributing to this project, as described in the [instructions](./instructions.md)
+All contributions (pull requests) must be made against our master branch.
+
+Use hyphen in file names
+- Do: UX-DESIGN.md
+- Don't: UX_DESIGN.md
