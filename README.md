@@ -7,12 +7,12 @@ We want to give Computer Science students the opportunity to receive an offer fr
 The end-users are Computer Science enthusiasts and students. Due to limited resources, we provide limited service to CS students at NYU. Narrowing our target will allow us to work with what we are familiar with, so the product best suits the end-users. In the future we will extend the service to anyone interested in CS related events, coding contests, job positions, and the world-wide web.
 
 <h2>CodeHunt is maintained by</h2>
-[Charlie Cai](https://github.com/charliecai00)
-[Diana Zhao](https://github.com/dinanz)
-[Chengyang Song](https://github.com/b0ub0)
-[Michael Zhou](https://github.com/kopokopok)
-[Dana Sun](https://github.com/dana-sun)
-[Andrew Shin](https://github.com/sid2002CN)
+ [Charlie Cai](https://github.com/charliecai00)
+ [Diana Zhao](https://github.com/dinanz)
+ [Chengyang Song](https://github.com/b0ub0)
+ [Michael Zhou](https://github.com/kopokopok)
+ [Dana Sun](https://github.com/dana-sun)
+ [Andrew Shin](https://github.com/sid2002CN)
 
 
 <h2>Building and installing CodeHunt</h2>
