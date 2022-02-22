@@ -8,12 +8,12 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 
 <h2>CodeHunt is maintained by</h2>
 <ul>
-<li>[Charlie Cai](https://github.com/charliecai00)</li>
-<li>[Diana Zhao](https://github.com/dinanz)</li>
-<li>[Chengyang Song](https://github.com/b0ub0)</li>
-<li>[Michael Zhou](https://github.com/kopokopok)</li>
-<li>[Dana Sun](https://github.com/dana-sun)</li>
-<li>[Andrew Shin](https://github.com/sid2002CN)</li>
+<li><a href="https://github.com/charliecai00"> Charlie Cai</a></li>
+<li><a href="https://github.com/dinanz">Diana Zhao</a></li>
+<li><a href="https://github.com/b0ub0">Chengyang Song</a></li>
+<li><a href="https://github.com/kopokopok">Michael Zhou</a></li>
+<li><a href="https://github.com/dana-sun">Dana Sun</a></li>
+<li><a href="https://github.com/sid2002CN">Andrew Shin</a></li>
 </ul>
 
 <h2>Building and installing CodeHunt</h2>
