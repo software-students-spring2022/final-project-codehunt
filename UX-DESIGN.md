@@ -11,10 +11,26 @@ Each box represents a unique design template. The home page should also be the c
 
 # ALL WIREFRAMES SHOULD HAVE THE SAME WIDTH!!!
 
+## Wireframe Home
+
+![My image](./ux-design/wireframe/Wireframe-Home.png)
+
 ## Wireframe Calendar
 
 ![My image](./ux-design/wireframe/Wireframe-Calendar.png)
 
 This is a calendar view. On the top is the setting, logo, and user page, which are in line with the home page. The massive grey boxs represent the time slots. This is the weekly view. The grey box 1-7 represents the days in a week. On the left, a bar indicates the time in each day. 
 
-## Wireframe 2
+## Wireframe User-Settings
+
+![My image](./ux-design/wireframe/Wireframe-User-Settings.png)
+
+
+## Wireframe Signup
+
+![My image](./ux-design/wireframe/Wireframe-Signup.png)
+
+
+## Wireframe Login
+
+![My image](./ux-design/wireframe/Wireframe-Login.png)
