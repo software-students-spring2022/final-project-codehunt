@@ -1,6 +1,6 @@
 # App map
 ## Picture
-![My image](./ux-design/appmap.png)
+![My image](./ux-design/app-map/app-map.png)
 
 ## Design Ideas
 We want to keep the app simple as the purpose of this app is to save people's time. So the app should not bring in some complex functionalities. It should be easy, intuitive to use at first hand.
