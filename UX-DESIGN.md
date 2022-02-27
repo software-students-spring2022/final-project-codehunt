@@ -1,5 +1,5 @@
 #Prototype
-https://d121902.invisionapp.com/console/share/SMBRGPKW5TF
+<a href='https://d121902.invisionapp.com/console/share/SMBRGPKW5TF'>Prototype</a>
 
 # App map
 ![My image](./ux-design/app-map/app-map.png)
