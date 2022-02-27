@@ -1,36 +1,41 @@
+<h1>Prototype</h1>
+<a href='https://d121902.invisionapp.com/console/share/SMBRGPKW5TF'>Prototype</a>
+
 # App map
-## Picture
 ![My image](./ux-design/app-map/app-map.png)
 
-## Design Ideas
-We want to keep the app simple as the purpose of this app is to save people's time. So the app should not bring in some complex functionalities. It should be easy, intuitive to use at first hand.
-
-Each box represents a unique design template. The home page should also be the contest view by default. The contest view has two parts. The count-down view displays the events with count time in the time order. The calendar view displays events on a calendar of each date. The user page and setting is integrated into one view because a lot of functionalities can be hard to distinctly categorized. The about me view displays the information of the team and link to GitHub.
+### Explanation
+Each box represents a unique design template. The home page is the list of feature contests by default. The contest view has two viewing option. The count-down view displays the events in future time accenting order. The calendar view displays events in calendar mode. The user and setting page is integrated under one template. The about me view displays information of the team and link to GitHub.
 
 # Wireframes
 
-# ALL WIREFRAMES SHOULD HAVE THE SAME WIDTH!!!
-
-## Wireframe Home
-
+### Home
 ![My image](./ux-design/wireframe/Wireframe-Home.png)
+### Explanation
+The default page showing feature contests.
 
-## Wireframe Calendar
+### Contests (list view)
+![My image](./ux-design/wireframe/Wireframe-List.png)
 
+### Contests (calendar view)
 ![My image](./ux-design/wireframe/Wireframe-Calendar.png)
+### Explanation
+This is a calendar view. At the top are navigation bar, logo, and user profile, which are consistent. The grey boxes represent the time slots in weekly view. The grey box 1-7 represents the days in a week. On the left, a bar indicates the time in each day. 
 
-This is a calendar view. On the top is the setting, logo, and user page, which are in line with the home page. The massive grey boxs represent the time slots. This is the weekly view. The grey box 1-7 represents the days in a week. On the left, a bar indicates the time in each day. 
-
-## Wireframe User-Settings
-
+### User setting
 ![My image](./ux-design/wireframe/Wireframe-User-Settings.png)
 
-
-## Wireframe Signup
-
+### User sign up
 ![My image](./ux-design/wireframe/Wireframe-Signup.png)
 
-
-## Wireframe Login
-
+### User log in
 ![My image](./ux-design/wireframe/Wireframe-Login.png)
+
+### Password reset
+![My image](./ux-design/wireframe/Wireframe-Forget-Pswd.png)
+
+### About us
+![My_image](./ux-design/wireframe/Wireframe-About-Us.png)
+
+### Navigation bar
+![My_image](./ux-design/wireframe/Wireframe-NavBar.png)
