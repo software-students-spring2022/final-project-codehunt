@@ -1,3 +1,4 @@
+import {BrowserRouter as Router, Routes, Route } from "react-browser-dom"
 import "./Contest.css"
 
 
@@ -5,13 +6,13 @@ import "./Contest.css"
 const Contest = props => {
     // contest has the following attributes:
     // contest name
-    // contest platform
+    // contest platform (logo)
     // contest start - end date
     // contest description
 
     return (
         <article className = "Contest">
-            <img className="Logo" src={props.logo} />
+            <img className="PlatformLogo" src="./images/${props.platform}" />
             <h1 className="ContestName">{props.name}</h1>
             <div className="ContestDetails">
                 <p>{props.date}</p>
