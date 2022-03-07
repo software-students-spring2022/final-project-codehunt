@@ -5,6 +5,12 @@ import './Home.css'
 
 const Home = props => {
 
+
+  const handleClick = e => (
+    //open new tab from contest link
+    <a href={link}/>
+  )
+
   //placeholder contests
   featuredContests = [
     {
@@ -12,12 +18,14 @@ const Home = props => {
       platform: "leetcode",
       date: "3/21/2022 - 4/1/2022",
       description: "lorem ipsum something something",
+      link: "leetcode.com"
     },
     {
       name: "some other contest",
       platform: "hackerrank",
       date: "3/21/2022 - 4/1/2022",
       description: "lorem ipsum something something",
+      link: "hackerrank.com"
     },
 
   ]
@@ -32,6 +40,7 @@ const Home = props => {
             platform = {contest.platform}
             date = {contest.date}
             description = {contest.description}
+            handleClick = {handleClick}
           />
         ))}
       </section>
