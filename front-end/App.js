@@ -22,7 +22,6 @@ const App = props => {
               <Route path="/Login" element={<Login />}></Route>
               <Route path="/SignUp" element={<SignUp />}></Route>
               <Route path="/ForgetPassword" element={<ForgetPassword />}></Route>
-
             </Routes>
           </main>
         </Router>
