@@ -11,7 +11,7 @@ const Contest = props => {
     // contest description
 
     return (
-        <article className = "Contest">
+        <article className = "Contest" Link to={props.link}>
             <img className="PlatformLogo" src="./images/${props.platform}" />
             <h1 className="ContestName">{props.name}</h1>
             <div className="ContestDetails">
