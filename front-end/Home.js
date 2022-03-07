@@ -3,13 +3,9 @@ import Contest from './Contest'
 import './Home.css'
 
 
+
 const Home = props => {
 
-
-  const handleClick = e => (
-    //open new tab from contest link
-    <a href={link}/>
-  )
 
   //placeholder contests
   featuredContests = [
@@ -30,6 +26,7 @@ const Home = props => {
 
   ]
 
+
   return (
     <>
       <h1>Featured Contests</h1>
@@ -40,12 +37,14 @@ const Home = props => {
             platform = {contest.platform}
             date = {contest.date}
             description = {contest.description}
-            handleClick = {handleClick}
+            link = {contest.link}
           />
         ))}
       </section>
     </>
   )
 }
+
+
 
 export default Home
