@@ -1,0 +1,9 @@
+.ContestsHome {
+    margin: 30px;
+}
+
+
+.ContestsBlock {
+    display: flex;
+    flex-direction: column;
+}

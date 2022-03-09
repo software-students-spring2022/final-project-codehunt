@@ -1,12 +1,11 @@
 .Contest {
-
-    
+    background-color: rgb(85, 85, 85);
+    flex-wrap: wrap;
 }
 
 .PlatformLogo {
-
-
-
+    width: 20%;
+    align-self: flex-start;
 }
 
 

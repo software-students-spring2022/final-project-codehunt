@@ -13,10 +13,10 @@ const Contest = props => {
     return (
         <article className = "Contest">
             <Link to = {props.link}>
-                <img className="PlatformLogo" src="./images/${props.platform}" />
+                <img className="PlatformLogo" src="./../images/${props.platform}" />
                 <h1 className="ContestName">{props.name}</h1>
                 <div className="ContestDetails">
-                    <p>{props.date}</p>
+                    <p>Date: {props.startDate} - {props.endDate}</p>
                     <p>{props.description}</p>
                 </div>
             </Link>
