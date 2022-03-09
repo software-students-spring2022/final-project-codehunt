@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import './Header.css'
-import logo from '../public/img/Code}{unt-logos_transparent.png'
-import nav_icon from '../public/img/Code}{unt-nav-icon_transparent.png'
-import profile_icon from '../public/img/Code}{unt-profile-icon_transparent.png'
+import logo from './Code}{unt-logos_transparent.png'
+import nav_icon from './Code}{unt-nav-icon_transparent.png'
+import profile_icon from './Code}{unt-profile-icon_transparent.png'
 
 const Header = props => {
     return (
@@ -29,3 +29,5 @@ const Header = props => {
         </Header>
     )
 }
+
+export default Header
