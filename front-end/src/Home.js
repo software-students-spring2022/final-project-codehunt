@@ -1,17 +1,17 @@
-import {BrowserRouter as Router, Routes, Route } from "react-browser-dom"
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Contest from './Contest'
 import './Home.css'
 
 
 
-const Home = props => {
+const Home = async props => {
 
 
 
   const pullContests = await axios("https://mockaroo.com/datasets/183454")
 
 
-  FeaturedContests = pullContests.data
+  featuredContests = pullContests.data
 
   return (
     <main className = "ContestsHome">
