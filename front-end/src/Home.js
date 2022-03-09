@@ -7,25 +7,6 @@ import './Home.css'
 const Home = props => {
 
 
-  //placeholder contests
-  featuredContests = [
-    {
-      name: "some contest",
-      platform: "leetcode",
-      date: "3/21/2022 - 4/1/2022",
-      description: "lorem ipsum something something",
-      link: "leetcode.com",
-    },
-    {
-      name: "some other contest",
-      platform: "hackerrank",
-      date: "3/21/2022 - 4/1/2022",
-      description: "lorem ipsum something something",
-      link: "hackerrank.com",
-    },
-
-  ]
-
 
   const pullContests = await axios("https://mockaroo.com/datasets/183454")
 
