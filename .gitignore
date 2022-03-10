@@ -174,3 +174,4 @@ typings/
 **/_site/
 
 .idea
+./front-end/node_modules
