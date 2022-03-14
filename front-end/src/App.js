@@ -9,7 +9,6 @@ import ForgetPassword from "./ForgetPassword"
 import UserSettings from "./UserSettings"
 import About from "./About"
 import Header from "./Header"
-import Contest from "./Contest"
 
 const App = props => {
     return (
