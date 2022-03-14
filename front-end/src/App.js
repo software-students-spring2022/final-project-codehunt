@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
+import React from 'react';
+import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home"
 import List from "./List"
 import Login from "./Login"
@@ -13,10 +14,9 @@ import Contest from "./Contest"
 const App = props => {
     return (
         <div className="App">
-            <Router>
+            <BrowserRouter>
                 <Header />
-                <main className="App-main">
-                    <Routes>
+                    <Switch>
                         <Route path="/" element={<Home />}/>
                         <Route path="/List" element={<List />}/>
                         <Route path="/Login" element={<Login />}/>
@@ -24,9 +24,8 @@ const App = props => {
                         <Route path="/ForgetPassword" element={<ForgetPassword />}/>
                         <Route path="/UserSettings" element={<UserSettings />}/>
                         <Route path="/About" element={<About />}/>
-                    </Routes>
-                </main>
-            </Router>
+                    </Switch>
+            </BrowserRouter>
         </div>
     )
 };
