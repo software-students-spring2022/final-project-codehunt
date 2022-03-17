@@ -9,6 +9,7 @@ import ForgetPassword from "./ForgetPassword"
 import UserSettings from "./UserSettings"
 import About from "./About"
 import Header from "./Header"
+import Settings from "./Settings.js"
 
 const App = props => {
     return (
@@ -23,6 +24,7 @@ const App = props => {
                         <Route path="/ForgetPassword" element={<ForgetPassword />}/>
                         <Route path="/UserSettings" element={<UserSettings />}/>
                         <Route path="/About" element={<About />}/>
+                        <Route path="/Settings" element={<Settings />}/>
                     </Switch>
             </BrowserRouter>
         </div>
