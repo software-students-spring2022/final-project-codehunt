@@ -1,0 +1,41 @@
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.fs-body1 {
+  font-size: 13px;
+}
+
+.p24 {
+  padding: 24px;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.wmin450 {
+  min-width: 450px;
+}
+
+.bar-lg {
+  border-radius: 7px;
+}
+
+.auth-shadow {
+  box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+.mb24 {
+  margin-bottom: 24px;
+}
