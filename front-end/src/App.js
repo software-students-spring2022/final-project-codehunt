@@ -1,16 +1,15 @@
 import React from "react"
 import "./App.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet"
-import Home from "./Home"
-import List from "./List"
-import Login from "./Login"
-import Signup from "./Signup"
-import ForgetPassword from "./ForgetPassword"
-import UserSettings from "./UserSettings"
-import About from "./About"
 import Header from "./Header"
+import Home from "./Home"
+import List from "./ContestList"
 import Settings from "./Settings"
+import Login from "./Login"
+import SignUp from "./SignUp"
+import ForgetPassword from "./ForgetPassword"
+import About from "./About"
 
 const App = props => {
   return (
@@ -25,7 +24,7 @@ const App = props => {
       </Helmet>
       <BrowserRouter>
         <Header />
-          <Routes>
+          <Route>
             <Route path="/" element={<Home />}/>
             <Route path="/list" element={<List />}/>
             <Route path="/login" element={<Login />}/>
@@ -34,7 +33,7 @@ const App = props => {
             <Route path="/userSettings" element={<UserSettings />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/settings" element={<Settings />}/>
-          </Routes>
+          </Route>
       </BrowserRouter>
     </div>
   )
