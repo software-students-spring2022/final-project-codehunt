@@ -13,7 +13,7 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <li><a href="https://github.com/b0ub0">Chengyang Song</a></li>
 <li><a href="https://github.com/kopokopok">Michael Zhou</a></li>
 <li><a href="https://github.com/dana-sun">Dana Sun</a></li>
-<li><a href="https://github.com/sid2002CN">Andrew Shin</a></li>
+<li><a href="https://github.com/andrewshin02">Andrew Shin</a></li>
 </ul>
 
 <h2>Building and installing CodeHunt</h2>
