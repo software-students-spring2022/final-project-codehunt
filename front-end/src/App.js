@@ -8,7 +8,7 @@ import List from "./ContestList"
 import Settings from "./Settings"
 import Login from "./Login"
 import SignUp from "./SignUp"
-import ForgetPassword from "./ForgetPassword"
+import AccRecovery from "./AccRecovery"
 import About from "./About"
 
 const App = props => {
@@ -30,7 +30,7 @@ const App = props => {
                   <Route path="/settings" element={<Settings />}/>
                   <Route path="/login" element={<Login />}/>
                   <Route path="/signup" element={<SignUp />}/>
-                  <Route path="/forgetPassword" element={<ForgetPassword />}/>
+                  <Route path="/account-recovery" element={<AccRecovery />}/>
                   <Route path="/about" element={<About />}/>
               </Routes>
           </BrowserRouter>
