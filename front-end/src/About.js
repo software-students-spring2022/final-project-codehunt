@@ -6,20 +6,7 @@ const About = props => {
     return (
         <main className = "Home">
             <h1>About CodeHunt</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Eu nisl nunc mi ipsum faucibus vitae aliquet nec. Accumsan lacus vel facilisis volutpat est velit egestas.</p>
-            <p>Consectetur lorem donec massa sapien faucibus et molestie. Donec adipiscing tristique risus nec feugiat in fermentum posuere urna.</p>
-            <p>Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Arcu risus quis varius quam quisque.</p>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            <p>CodeHunt is a platform that assembles and organizes various coding contests’ information and details. Compatible with popular websites (including LeetCode, CodeForces, and Kaggle), CodeHunt eliminates the need to visit each individually to stay updated. Keeping track of competitions has never been easier.</p>
             <p>© 2022 CodeHunt</p>
         </main>
     )
