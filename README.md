@@ -19,11 +19,10 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <h2>Building and installing CodeHunt</h2>
 
 <h3>Get the code</h3>
-Fork this repository
-```shell
-git clone https://github.com/software-assignments-spring2022/final-project-codehunt
-```
-Navigate into the project directory
+<ol>
+  <li>Fork this repository</li>
+  <li>Navigate into the project directory</li>
+</ol>
 
 <h3> Build and launch the front end</h3>
 ```shell
