@@ -26,9 +26,9 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 
 <h3> Build and launch the front end</h3>
 <ol>
-  <li> Navigate into the `cd front-end` directory</li>
-  <li> Run `npm install` to install all dependencies listed in the `package.json` file</li>
-  <li>Run `npm start` to launch the React.js server</li>
+  <li> cd front-end</li>
+  <li>npm install</li>
+  <li>npm start</li>
 </ol>
 
 <h2>Help wanted</h2>
