@@ -1,35 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './ContestList.css'
+import axios from "axios"
 
 // use some manully set data as demostrating the template
-const data = [
-    {
-        name: 'Leetcode weekly',
-        time: '29 Mar 2022 04:00:00 GMT',
-        url: 'https://leetcode.com/contest/',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
-    },
-    {
-        name: 'Leetcode Biweekly',
-        time: '19 Apr 2022 04:00:00 GMT',
-        url: 'https://leetcode.com/contest/',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
-    },
-    {
-        name: 'Kaggle',
-        time: '25 Mar 2022 04:00:00 GMT',
-        url: 'https://www.kaggle.com/competitions',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png'
-    },
-    {
-        name: 'Codeforces Round #779 (Div. 2)',
-        time: '27 Mar 2022 10:35:00 UTC-4',
-        url: 'https://www.kaggle.com/competitions',
-        logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Codeforces_logo.svg'
-    },
-];
+// const data = [
+//     {
+//         name: 'Leetcode weekly',
+//         time: '29 Mar 2022 04:00:00 GMT',
+//         url: 'https://leetcode.com/contest/',
+//         logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
+//     },
+//     {
+//         name: 'Leetcode Biweekly',
+//         time: '19 Apr 2022 04:00:00 GMT',
+//         url: 'https://leetcode.com/contest/',
+//         logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
+//     },
+//     {
+//         name: 'Kaggle',
+//         time: '25 Mar 2022 04:00:00 GMT',
+//         url: 'https://www.kaggle.com/competitions',
+//         logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png'
+//     },
+//     {
+//         name: 'Codeforces Round #779 (Div. 2)',
+//         time: '27 Mar 2022 10:35:00 UTC-4',
+//         url: 'https://www.kaggle.com/competitions',
+//         logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Codeforces_logo.svg'
+//     },
+// ];
 
-data.sort((a, b) => (Date.parse(a.time) > Date.parse(b.time)? 1 : -1))
+
 
 function msToDHM(v) {
     let days = v / 8.64e7 | 0;
@@ -43,14 +44,30 @@ function msToDHM(v) {
 // input should be the data above 
 function ContestList(props) {
     //const { data } = props
+    const [data, setData] = useState([]);
+    
+    const getContestData = () => {
+        axios
+        .get("https://my.api.mockaroo.com/contests.json?key=e9f1c620")
+        .then((data) => {
+            console.log(data.data);
+            setData(data.data);
+        })
+        .catch(error => console.log(error));
+        };
+
+    useEffect(() => {
+        getContestData()
+    }, [])
+
     const [currentTime, setCurrentTime] = useState(Date.now());
     setInterval(() => {
         setCurrentTime(Date.now());
     }, 1000)
+    
     return (
         <div>
             <h1>contests</h1>
-            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
             <div className="cards">
                 {data.map((value, index) => {
                     return (
