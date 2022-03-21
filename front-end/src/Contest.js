@@ -17,7 +17,7 @@ const Contest = props => {
                 <img className="PlatformLogo" src="./../images/${props.platform}.png" />
                 <h1 className="ContestName">{props.details.name}</h1>
                 <div className="ContestDetails">
-                    <p>Date: {props.details.startDate} - {props.details.endDate}</p>
+                    <p>Date: {props.details.start_date} - {props.details.end_date}</p>
                     <p>Host: {props.details.platform}</p>
                     <p>Details: {props.details.description}</p>
                 </div>
