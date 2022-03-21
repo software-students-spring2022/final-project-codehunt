@@ -28,6 +28,10 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
   <li>Navigate into the project directory</li>
 </ol>
 
+```shell
+make source-only
+```
+
 <h3> Build and launch the front end</h3>
 ```shell
 cd front-end
