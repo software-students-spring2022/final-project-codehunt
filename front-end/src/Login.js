@@ -15,7 +15,7 @@ export default function Login() {
           <FloatingLabel controlId="floatingPassword" label="Password">
             <Form.Control type="password" placeholder="Password" />
           </FloatingLabel>
-          <a class="fs-body1" href="/tbd">Forgot your password?</a>
+          <a class="fs-body1" href="/account-recovery">Forgot your password?</a>
         </Form.Group>
         <Button className="w100" variant="primary" type="submit">
           Sign In
