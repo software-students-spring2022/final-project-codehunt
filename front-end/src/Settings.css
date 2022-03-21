@@ -1,0 +1,70 @@
+/* .settings {
+  position: absolute;
+} */
+.settings .setting {
+  display: flex;
+  align-items: left;
+  margin-left: 0px;
+  font-size: 27px;
+}
+
+.settings .info {
+  position: relative;
+  text-align: justify;
+  margin-left: 50px;
+}
+
+.settings .info div {
+  padding-bottom: 15px;
+  font-size: 15px;
+}
+
+.settings .info div br {
+  padding-top: 10px;
+}
+
+.settings .info div a {
+  padding-left: 20px;
+  font-size: 10px;
+}
+.settings .container {
+  display: flex;
+}
+.settings .container .subs {
+  flex: 0 0 65%;
+}
+.settings .container a {
+  flex: 1;
+}
+
+.settings .subs {
+  position: relative;
+  text-align: justify;
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+.settings .container a {
+  font-size: 10px;
+}
+
+.settings .mb-3 {
+  padding-left: 60px;
+}
+.settings .mb-3 .form-check {
+  padding-bottom: 10px;
+}
+
+.notifs {
+  padding-left: 50px;
+}
+
+.settings .bootbutton {
+  padding-left: 60px;
+}
+
+.settings .sign-out {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
