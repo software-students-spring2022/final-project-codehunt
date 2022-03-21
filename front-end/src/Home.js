@@ -1,37 +1,47 @@
-import axios from 'axios'
+import React, { useState, useEffect } from "react"
 import Contest from './Contest'
 import './Home.css'
+import axios from "axios"
 
 
 
-const Home = async props => {
+const Home = () => {
+
+  const [featuredContests, setData] = useState([]);
+  
+  useEffect(() => {
+
+    const getContests = async () => {
+
+      const pullContests = await axios("https://my.api.mockaroo.com/contests.json?key=a36447e0");
+      setData(pullContests.data);
+    }
 
 
+    getContests();
 
-  const pullContests = await axios("https://mockaroo.com/datasets/183454")
-
-
-  let featuredContests = pullContests.data
+  }, []);
+  
 
   return (
-    <main className = "ContestsHome">
+    <div className = "ContestsHome">
+
       <h1>Featured Contests</h1>
+
       <section className = "ContestsBlock">
-        {featuredContests.map((contest, c, featuredContestsArray) => (
-          <Contest
-            name = {contest.name}
-            platform = {contest.platform}
-            startDate = {contest.start_date}
-            endDate = {contest.end_date}
-            description = {contest.description}
-            link = {contest.link}
+
+        {featuredContests.map(contest => (
+          <Contest key={contest.id}
+            details={contest}
           />
         ))}
+
       </section>
-    </main>
+    </div>
   )
-}
+};
 
 
 
 export default Home
+
