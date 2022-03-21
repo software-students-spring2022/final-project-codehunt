@@ -20,7 +20,11 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 
 <h3>Get the code</h3>
 <ol>
-  <li>Fork this repository</li>
+  <li>Fork this repository
+    ```
+    git clone https://github.com/software-assignments-spring2022/final-project-codehunt
+    ```
+  </li>
   <li>Navigate into the project directory</li>
 </ol>
 
