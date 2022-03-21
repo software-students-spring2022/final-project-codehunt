@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import axios from 'axios'
 import Contest from './Contest'
 import './Home.css'
 
@@ -11,7 +11,7 @@ const Home = async props => {
   const pullContests = await axios("https://mockaroo.com/datasets/183454")
 
 
-  featuredContests = pullContests.data
+  let featuredContests = pullContests.data
 
   return (
     <main className = "ContestsHome">
