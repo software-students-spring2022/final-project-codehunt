@@ -17,7 +17,21 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 </ul>
 
 <h2>Building and installing CodeHunt</h2>
-TBD...
+
+<h3>Get the code</h3>
+Fork this repository
+```shell
+git clone https://github.com/software-assignments-spring2022/final-project-codehunt
+```
+Navigate into the project directory
+
+<h3> Build and launch the front end</h3>
+```shell
+cd front-end
+npm install
+npm start
+```
+
 
 <h2>Help wanted</h2>
 We have several ideas we would like to see in CodeHunt to make it even better. However, we already work on so many things that we do not have the time for all the big ideas.
