@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import './settings.css'
+import './Settings.css'
 
-export default function Signup() {
+export default function Settings() {
   return (
     <div class='settings'>
       <h1 class ="setting">User Settings</h1>
