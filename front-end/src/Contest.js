@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import React, { useState, useEffect } from "react";
 import "./Contest.css"
 
 
@@ -13,15 +13,15 @@ const Contest = props => {
 
     return (
         <article className = "Contest">
-            <Link to = {props.link}>
+            <a href = {props.details.link}>
                 <img className="PlatformLogo" src="./../images/${props.platform}.png" />
-                <h1 className="ContestName">{props.name}</h1>
+                <h1 className="ContestName">{props.details.name}</h1>
                 <div className="ContestDetails">
-                    <p>Date: {props.startDate} - {props.endDate}</p>
-                    <p>Host: {props.platform}</p>
-                    <p>Details: {props.description}</p>
+                    <p>Date: {props.details.startDate} - {props.details.endDate}</p>
+                    <p>Host: {props.details.platform}</p>
+                    <p>Details: {props.details.description}</p>
                 </div>
-            </Link>
+            </a>
         </article>
 
     )
