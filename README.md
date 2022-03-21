@@ -19,13 +19,17 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <h2>Building and installing CodeHunt</h2>
 
 <h3>Get the code</h3>
-1. git clone https://github.com/software-assignments-spring2022/final-project-codehunt
-1. Navigate into the project directory
+<ol>
+  <li>git clone https://github.com/software-assignments-spring2022/final-project-codehunt</li>
+  <li>Navigate into the project directory</li>
+</ol>
 
 <h3> Build and launch the front end</h3>
-1. cd front-end
-1. npm install
-1. npm start
+<ol>
+  <li> Navigate into the `cd front-end` directory</li>
+  <li> Run `npm install` to install all dependencies listed in the `package.json` file</li>
+  <li>Run `npm start` to launch the React.js server</li>
+</ol>
 
 <h2>Help wanted</h2>
 We have several ideas we would like to see in CodeHunt to make it even better. However, we already work on so many things that we do not have the time for all the big ideas.
