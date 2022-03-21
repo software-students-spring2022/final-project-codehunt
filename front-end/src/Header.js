@@ -12,7 +12,7 @@ const Header = props => {
         <>
             <Navbar bg="dark" variant="dark" expand="lg">
                 <Container>
-                    <Navbar.Brand href="/home">
+                    <Navbar.Brand href="/">
                         <img
                             alt="site logo"
                             src={logo}
@@ -24,7 +24,7 @@ const Header = props => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/home">
+                            <Nav.Link href="/">
                                 <img
                                     alt="home"
                                     src={home}
