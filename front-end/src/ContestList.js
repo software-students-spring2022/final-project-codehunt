@@ -65,10 +65,12 @@ function ContestList(props) {
         setCurrentTime(Date.now());
     }, 1000)
     
+    data.sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
+    
     return (
         <div>
             <h1>contests</h1>
-            <div className="cards">
+            <div className="ContestList">
                 {data.map((value, index) => {
                     return (
                         <div className={`card card-${index % 5}`}>

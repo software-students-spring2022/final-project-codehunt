@@ -1,52 +1,52 @@
-* {
+.ContestList * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  body {
+  .ContestList body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
   
-  .main-container {
+  .ContestList .main-container {
     padding: 30px;
   }
   
   /* HEADING */
   
-  .heading {
+  .ContestList .heading {
     text-align: center;
   }
   
-  .heading__title {
+  .ContestList .heading__title {
     font-weight: 600;
   }
   
-  .heading__credits {
+  .ContestList .heading__credits {
     margin: 10px 0px;
     color: #888888;
     font-size: 25px;
     transition: all 0.5s;
   }
   
-  .heading__link {
+  .ContestList .heading__link {
     text-decoration: none;
   }
   
-  .heading__credits .heading__link {
+  .ContestList .heading__credits .heading__link {
     color: inherit;
   }
   
   /* CARDS */
   
-  .cards {
+  .ContestList .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
   
-  .card {
+  .ContestList .card {
     margin: 20px;
     padding: 20px;
     width: 500px;
@@ -59,13 +59,13 @@
     transition: all 0.2s;
   }
   
-  .card:hover {
+  .ContestList .card:hover {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
     transform: scale(1.01);
   }
   
-  .card__link,
-  .card__icon {
+  .ContestList .card__link,
+  .ContestList .card__icon {
     position: relative;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
@@ -73,7 +73,7 @@
     height: 80px;
   }
 
-  .card__exit {
+  .ContestList .card__exit {
     position: relative;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.9);
@@ -81,12 +81,12 @@
     height: 0px;
   }
 
-  .card__icon img {
+  .ContestList .card__icon img {
     width: 100%;
     height: auto;
   }
   
-  .card__link::after {
+  .ContestList .card__link::after {
     position: absolute;
     top: 25px;
     left: 0;
@@ -97,66 +97,66 @@
     transition: all 0.5s;
   }
   
-  .card__link:hover::after {
+  .ContestList .card__link:hover::after {
     width: 100%;
   }
   
-  .card__exit {
+  .ContestList .card__exit {
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
   }
   
-  .card__icon {
+  .ContestList .card__icon {
     grid-row: 2;
     font-size: 30px;
   }
   
-  .card__title {
+  .ContestList .card__title {
     grid-row: 2;
     grid-column: 2;
     font-weight: 400;
     color: #ffffff;
   }
 
-  .card__content {
+  .ContestList .card__content {
     grid-column: 2;
     grid-row: 3;
     font-weight: 400;
     color: #ffffff;
   }
   
-  .card__apply {
+  .ContestList .card__apply {
     grid-row: 4;
     align-self: center;
   }
   
   /* CARD BACKGROUNDS */
   
-  .card-0 {
+  .ContestList .card-0 {
     background: radial-gradient(#1fe4f5, #3fbafe);
   }
   
-  .card-1 {
+  .ContestList .card-1 {
     background: radial-gradient(#fbc1cc, #fa99b2);
   }
   
-  .card-2 {
+  .ContestList .card-2 {
     background: radial-gradient(#76b2fe, #b69efe);
   }
   
-  .card-3 {
+  .ContestList .card-3 {
     background: radial-gradient(#60efbc, #58d5c9);
   }
   
-  .card-4 {
+  .ContestList .card-4 {
     background: radial-gradient(#f588d8, #c0a3e5);
   }
   
   /* RESPONSIVE */
   
   @media (max-width: 1600px) {
-    .cards {
+    .ContestList .cards {
       justify-content: center;
     }
   }
