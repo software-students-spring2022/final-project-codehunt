@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import './Settings.css'
+import BootstrapSwitchButton from 'bootstrap-switch-button-react';
+import './Settings.css';
 
 export default function Settings() {
   return (
-    <div class='settings'>
-      <h1 class ="setting">User Settings</h1>
+    <div className='settings'>
+      <h1 className ="setting">User Settings</h1>
       <Form className="info">
         <Form.Group controlId='name-info' size='lg'>
           <Form.Label className="name">Name</Form.Label>
@@ -29,14 +29,14 @@ export default function Settings() {
         </Form.Group>
       </Form>
       <Form>
-        <section class="container">
-          <h2 class="subs">Subscriptions</h2>
+        <section className="container">
+          <h2 className="subs">Subscriptions</h2>
           <a href="/">Manage</a>
         </section>
-        
+
         {['radio'].map((type) => (
           <div key={`default-${type}`} className="mb-3">
-            <Form.Check 
+            <Form.Check
               type={type}
               id={`default-${type}`}
               label={`LeetCode`}
@@ -51,11 +51,11 @@ export default function Settings() {
           </div>
         ))}
       </Form>
-      <h3 class="notifs">Email Notifications</h3>
-      <div class="bootbutton">
+      <h3 className="notifs">Email Notifications</h3>
+      <div className="bootbutton">
         <BootstrapSwitchButton checked={true} size="sm"/>
       </div>
-      <div class="sign-out"><a href="/">Sign Out</a></div>
+      <div className="sign-out"><a href="/">Sign Out</a></div>
     </div>
   );
 }
