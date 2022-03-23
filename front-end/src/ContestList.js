@@ -16,12 +16,13 @@ function msToDHM(v) {
 function ContestList(props) {
     // const { data } = props
     const [data, setData] = useState([]);
+    const [currentTime, setCurrentTime] = useState(Date.now());
 
     const getContestData = () => {
-        axios
-            .get('https://my.api.mockaroo.com/contests.json?key=e9f1c620')
+        axios.get('https://my.api.mockaroo.com/contests.json?key=e9f1c620')
             .then((data) => {
                 console.log(data.data);
+                data.data.sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
                 setData(data.data);
             })
             .catch((error) => console.log(error));
@@ -29,18 +30,15 @@ function ContestList(props) {
 
     useEffect(() => {
         getContestData();
+        setInterval(() => {
+            setCurrentTime(Date.now());
+        }, 1000);
     }, []);
 
-    const [currentTime, setCurrentTime] = useState(Date.now());
-    setInterval(() => {
-        setCurrentTime(Date.now());
-    }, 1000);
-
-    data.sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
-
+    
     return (
         <div>
-            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <meta className="viewport" content="width=device-width, initial-scale=1"></meta>
             <div className="contestlist-cards">
                 {data.map((value, index) => {
                     return (
@@ -65,4 +63,4 @@ function ContestList(props) {
     );
 }
 
-                                                    export default ContestList;
+export default ContestList;
