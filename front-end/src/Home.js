@@ -27,7 +27,12 @@ const Home = () => {
 
         {featuredContests.map((contest) => (
           <Contest key={contest.id}
-            details={contest}
+            name = {contest.name}
+            platform={contest.platform}
+            start_date={contest.start_date}
+            end_date={contest.end_date}
+            description={contest.description}
+            link={contest.link}
           />
         ))}
 
