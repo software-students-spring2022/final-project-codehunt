@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
 import './Contest.css';
 
 
@@ -10,28 +9,25 @@ const Contest = (props) => {
   // contest start_date
   // contest end_date
   // contest description
-
   return (
-    <div className="card">
-      <div className="card__icon">
-        <img alt="logo" src="./../images/${props.details.platform}.png" ></img>
+    <div>
+      <meta className="viewport" content="width=device-width, initial-scale=1"></meta>
+      <div className="contestlist-cards"></div>
+      <div className={`contestlist-card contestlist-card-0`}>
+        <div className="contestlist-card__icon">
+          <img alt="logo" src="./../images/${props.platform}" ></img>
+        </div>
+        <p className="contestlist-card__exit"><i className="fas fa-times"></i></p>
+        <h2 className="contestlist-card__title">{props.name}</h2>
+        <div className="contestlist-card__content">
+          <p>Time: {props.start_date} - {props.end_date}</p>
+        </div>
+        <p className="contestlist-card__apply">
+          <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={props.link}>Goto Website<i className="fas fa-arrow-right"></i></a>
+        </p>
       </div>
-      <p className="card__exit"><i className="fas fa-times"></i></p>
-      <h2 className="card__title">{props.details.name}</h2>
-      <div className="card__content">
-        <p>Date: {props.details.start_date} - {props.details.end_date}</p>
-        <p>Host: {props.details.platform}</p>
-        <p>Details: {props.details.description}</p>
-      </div>
-
-      <p className="card__apply">
-        <a className="card__link" target="_blank" rel="noopener noreferrer" href={props.details.link}>Go to Website<i className="fas fa-arrow-right"></i></a>
-      </p>
     </div>
-
-
   );
 };
-
 
 export default Contest;
