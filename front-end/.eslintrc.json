@@ -24,7 +24,7 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "linebreak-style": "unix",
+        "linebreak-style": 0,
         "react/prop-types": "off",
         "code": 200
     }
