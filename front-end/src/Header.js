@@ -16,8 +16,8 @@ const Header = (props) => {
             <img
               alt="site logo"
               src={logo}
-              width="123"
-              height="50"
+              width="150"
+              height="35"
               className="d-inline-block align-top"
             />{' '}
           </Navbar.Brand>
