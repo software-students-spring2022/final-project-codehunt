@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Helmet} from 'react-helmet';
-import Header from './Header';
-import Home from './Home';
-import List from './ContestList';
-import Settings from './Settings';
-import Login from './Login';
-import SignUp from './Signup';
-import AccRecovery from './AccRecovery';
-import About from './About';
+import React from "react"
+import "./App.css"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {Helmet} from "react-helmet"
+import Header from "./Header"
+import Home from "./Home"
+import List from "./ContestList"
+import Settings from "./Settings"
+import Login from "./Login"
+import SignUp from "./Signup"
+import AccRecovery from "./AccRecovery"
+import About from "./About"
 
 const App = (props) => {
   return (
@@ -35,7 +35,7 @@ const App = (props) => {
         </Routes>
       </BrowserRouter>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

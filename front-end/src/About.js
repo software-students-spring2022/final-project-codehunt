@@ -1,4 +1,4 @@
-import './About.css';
+import "./About.css"
 
 
 const About = (props) => {
@@ -18,8 +18,8 @@ const About = (props) => {
       </div>
       <div className="copyright">© 2022 CodeHunt</div>
     </main>
-  );
-};
+  )
+}
 
 
-export default About;
+export default About
