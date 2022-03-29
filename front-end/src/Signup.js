@@ -6,7 +6,7 @@ import "./Signup.css"
 export default function Signup() {
   return (
     <div className="flex-container flex-center">
-      <Form className="p24 wmin450 bar-lg auth-shadow">
+      <Form className="col-md-4 m24 p24 bar-lg auth-shadow">
         <h3 className="ta-center mb24 c-white">Create an Account</h3>
         <Form.Group className="mb-3" controlId="formSignin">
           <FloatingLabel
