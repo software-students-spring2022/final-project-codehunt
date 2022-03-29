@@ -1,3 +1,7 @@
+input {
+  color: white !important;
+}
+
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -32,6 +36,10 @@
   margin-bottom: 24px;
 }
 
+.wmax450 {
+  max-width: 450px;
+}
+
 .bar-lg {
   border-radius: 7px;
 }
@@ -40,6 +48,11 @@
   box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
 }
 
-.c-white {
-  color: white;
+.form-control {
+  background-color: rgb(41,41,48) !important;
+  border: 1px solid rgb(30,30,30) !important;
+}
+
+#form-container {
+  background-color: rgb(41,45,51) !important;
 }
