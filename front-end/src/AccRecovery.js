@@ -6,11 +6,11 @@ import "./AccRecovery.css"
 export default function Signin() {
   return (
     <div className="flex-container flex-center">
-      <Form className="p24 wmin450 bar-lg auth-shadow">
-        <div className="mb24 wmax450 c-white">
+      <Form className="col-md-4 m24 p24 bar-lg auth-shadow">
+        <p className="mb24 wmax450 c-white">
           Forgot your account’s password or having trouble logging in?
           Enter your email address and we’ll send you a recovery link.
-        </div>
+        </p>
         <Form.Group className="mb-3" controlId="formSignin">
           <FloatingLabel
             controlId="floatingInput"
