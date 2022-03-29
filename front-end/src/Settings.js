@@ -1,7 +1,8 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
-import BootstrapSwitchButton from 'bootstrap-switch-button-react';
-import './Settings.css';
+import React, {useState} from "react"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import BootstrapSwitchButton from "bootstrap-switch-button-react"
+import "./Settings.css"
 
 
 /*
@@ -36,17 +37,18 @@ export default function Settings() {
           <h2 className="subs">Subscriptions</h2>
           <a href="/">Manage</a>
         </section>
-        {['radio'].map((type) => (
+
+        {["radio"].map((type) => (
           <div key={`default-${type}`} className="mb-3">
             <Form.Check
               type={type}
               id={`default-${type}`}
-              label={`LeetCode`}
+              label={"LeetCode"}
             />
             <Form.Check
               disabled
               type={type}
-              label={`HackerRank`}
+              label={"HackerRank"}
               id={`disabled-default-${type}`}
             />
           </div>
@@ -58,5 +60,5 @@ export default function Settings() {
       </div>
       <div className="sign-out"><a href="/">Sign Out</a></div>
     </div>
-  );
+  )
 }

@@ -1,21 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import Contest from './Contest';
-import './Home.css';
-import axios from 'axios';
+import React, {useState, useEffect} from "react"
+import Contest from "./Contest"
+import "./Home.css"
+import axios from "axios"
 
 
 const Home = () => {
-  const [featuredContests, setData] = useState([]);
+  const [featuredContests, setData] = useState([])
 
   useEffect(() => {
     const getContests = async () => {
-      const pullContests = await axios('https://my.api.mockaroo.com/contests.json?key=a36447e0');
-      setData(pullContests.data);
-    };
+      const pullContests = await axios("https://my.api.mockaroo.com/contests.json?key=a36447e0")
+      setData(pullContests.data)
+    }
 
 
-    getContests();
-  }, []);
+    getContests()
+  }, [])
 
 
   return (
@@ -38,9 +38,9 @@ const Home = () => {
 
       </section>
     </div>
-  );
-};
+  )
+}
 
 
-export default Home;
+export default Home
 

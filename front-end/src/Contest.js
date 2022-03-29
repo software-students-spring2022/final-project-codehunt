@@ -1,5 +1,5 @@
-import React from 'react';
-import './Contest.css';
+import React from "react"
+import "./Contest.css"
 
 
 const Contest = (props) => {
@@ -13,7 +13,7 @@ const Contest = (props) => {
     <div>
       <meta className="viewport" content="width=device-width, initial-scale=1"></meta>
       <div className="contestlist-cards"></div>
-      <div className={`contestlist-card contestlist-card-0`}>
+      <div className={"contestlist-card contestlist-card-0"}>
         <div className="contestlist-card__icon">
           <img alt="logo" src="./../images/${props.platform}.png" ></img>
         </div>
@@ -28,7 +28,7 @@ const Contest = (props) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contest;
+export default Contest
