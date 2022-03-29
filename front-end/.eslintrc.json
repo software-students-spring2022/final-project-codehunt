@@ -26,6 +26,6 @@
         "react/react-in-jsx-scope": "off",
         "linebreak-style": 0,
         "react/prop-types": "off",
-        "code": 200
+        "code": 0
     }
 }
