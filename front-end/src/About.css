@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .Home {
     /* some spacing around the entire contents of the app */
     margin: 20px;
@@ -6,8 +10,69 @@
 
 .primary{
     text-align: justify;
+    color: white;
+    padding: 10px;
+}
+
+.credits{
+    padding: 30px;
 }
 
 .name{
     color: white;
+}
+
+.titlelink{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.titlelink:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.link:hover{
+    color: black;
+}
+
+.contributors{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nameButton{
+    border: 0px solid black;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.nameButton:hover{
+    background: lightgray;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.nameButton:active{
+    background: lightslategray;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
