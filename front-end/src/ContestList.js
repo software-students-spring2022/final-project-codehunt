@@ -54,7 +54,8 @@ function ContestList(props) {
               </div>
 
               <p className="contestlist-card__apply">
-                <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={value.url}>Goto Website<i className="fas fa-arrow-right"></i></a>
+                <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={value.url}>
+                  Goto Website<i className="fas fa-arrow-right"></i></a>
               </p>
             </div>)
         })}

@@ -15,7 +15,7 @@ const Contest = (props) => {
       <div className="contestlist-cards"></div>
       <div className={"contestlist-card contestlist-card-0"}>
         <div className="contestlist-card__icon">
-          <img alt="logo" src="./../images/${props.platform}.png" ></img>
+          <img alt="logo" src="./../images/{props.platform}.png" ></img>
         </div>
         <p className="contestlist-card__exit"><i className="fas fa-times"></i></p>
         <h2 className="contestlist-card__title">{props.name}</h2>
@@ -24,7 +24,8 @@ const Contest = (props) => {
           <p>Details: {props.description}</p>
         </div>
         <p className="contestlist-card__apply">
-          <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={props.link}>Go to Website <i className="fas fa-arrow-right"></i></a>
+          <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={props.link}>
+            Go to Website <i className="fas fa-arrow-right"></i></a>
         </p>
       </div>
     </div>
