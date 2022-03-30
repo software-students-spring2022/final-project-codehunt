@@ -1,9 +1,13 @@
-import React, {useState} from "react"
+import React from "react"
 import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
 import BootstrapSwitchButton from "bootstrap-switch-button-react"
+import {Button} from "react-bootstrap"
 import "./Settings.css"
 
+
+/*
+documentation
+*/
 export default function Settings() {
   return (
     <div className='settings'>
@@ -12,20 +16,26 @@ export default function Settings() {
         <Form.Group controlId='name-info' size='lg'>
           <Form.Label className="name">Name</Form.Label>
           <br></br>
-          <Form.Control type='name-change' placeholder="Enter name"/>
-          <a href="/">Edit</a>
+          <div className="name-entry">
+            <Form.Control type='name-change' placeholder="Enter name"/>
+            <Button variant="outline-light" size="sm">Edit</Button>
+          </div>
         </Form.Group>
         <Form.Group controlId='email' size='lg'>
           <Form.Label>Email Address</Form.Label>
           <br></br>
-          <Form.Control type="email" placeholder="Enter email"/>
-          <a href="/">Edit</a>
+          <div className="email-entry">
+            <Form.Control type="email" placeholder="Enter email"/>
+            <Button variant="outline-light" size="sm">Edit</Button>
+          </div>
         </Form.Group>
         <Form.Group controlId='password' size='lg'>
           <Form.Label>Password</Form.Label>
           <br></br>
-          <Form.Control type="password" placeholder="Enter password"/>
-          <a href="/">Reset</a>
+          <div className="password-entry">
+            <Form.Control type="password" placeholder="Enter password"/>
+            <Button variant="outline-light" size="sm">Reset</Button>
+          </div>
         </Form.Group>
       </Form>
       <Form>
@@ -41,7 +51,6 @@ export default function Settings() {
               id={`default-${type}`}
               label={"LeetCode"}
             />
-
             <Form.Check
               disabled
               type={type}

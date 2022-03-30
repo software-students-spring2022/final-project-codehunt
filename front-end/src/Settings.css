@@ -2,19 +2,51 @@
   position: absolute;
 } */
 .settings .setting {
+  color: white;
   display: flex;
   align-items: left;
-  margin-left: 0px;
+  margin-left: 30px;
   font-size: 27px;
 }
 
 .settings .info {
+  color: white;
   position: relative;
   text-align: justify;
   margin-left: 50px;
+  margin-right: 250px;
+}
+
+.settings .name-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .btn-outline-light {
+  display: inline-flex;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.settings .email-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .password-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+.settings .form-control {
+  background-color: rgb(34, 37, 41);
+  border-color: grey;
 }
 
 .settings .info div {
+  color: white;
   padding-bottom: 15px;
   font-size: 15px;
 }
@@ -24,11 +56,13 @@
 }
 
 .settings .info div a {
-  padding-left: 20px;
+  padding-left: 2px;
   font-size: 10px;
 }
+
 .settings .container {
   display: flex;
+  margin-left: 37px;
 }
 .settings .container .subs {
   flex: 0 0 65%;
@@ -38,25 +72,29 @@
 }
 
 .settings .subs {
+  color: white;
   position: relative;
-  text-align: justify;
-  margin-left: 50px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .settings .container a {
+  color: white;
   font-size: 10px;
 }
 
 .settings .mb-3 {
+  color: white;
   padding-left: 60px;
+  font-size: 15px;
 }
 .settings .mb-3 .form-check {
   padding-bottom: 10px;
 }
 
 .notifs {
+  color: white;
   padding-left: 50px;
+  font-size: 15px;
 }
 
 .settings .bootbutton {
