@@ -6,8 +6,8 @@ import "./Signup.css"
 export default function Signup() {
   return (
     <div className="flex-container flex-center">
-      <Form className="col-md-4 m24 p24 bar-lg auth-shadow">
-        <h3 className="ta-center mb24 c-white">Create an Account</h3>
+      <Form id="form-container" className="col-md-4 m24 p24 bar-lg auth-shadow">
+        <h3 className="ta-center mb24">Create an Account</h3>
         <Form.Group className="mb-3" controlId="formSignin">
           <FloatingLabel
             controlId="floatingInput"
@@ -23,7 +23,10 @@ export default function Signup() {
           >
             <Form.Control type="password" placeholder="Password" />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingPassword" label="Confirm Password">
+          <FloatingLabel
+            controlId="floatingPassword"
+            label="Confirm Password"
+          >
             <Form.Control type="password" placeholder="Confirm Password" />
           </FloatingLabel>
         </Form.Group>
