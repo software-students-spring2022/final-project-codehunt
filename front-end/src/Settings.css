@@ -14,7 +14,12 @@
   position: relative;
   text-align: justify;
   margin-left: 50px;
-  margin-right: 100px;
+  margin-right: 250px;
+}
+
+.settings .form-control {
+  background-color: rgb(34, 37, 41);
+  border-color: grey;
 }
 
 .settings .info div {
@@ -31,6 +36,7 @@
   padding-left: 2px;
   font-size: 10px;
 }
+
 .settings .container {
   display: flex;
   margin-left: 37px;

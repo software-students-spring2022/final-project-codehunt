@@ -1,6 +1,5 @@
-import React, {useState} from "react"
+import React from "react"
 import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
 import BootstrapSwitchButton from "bootstrap-switch-button-react"
 import "./Settings.css"
 
@@ -20,7 +19,7 @@ export default function Settings() {
           <a href="/">Edit</a>
         </Form.Group>
         <Form.Group controlId='email' size='lg'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label className="email">Email Address</Form.Label>
           <br></br>
           <Form.Control type="email" placeholder="Enter email"/>
           <a href="/">Edit</a>
