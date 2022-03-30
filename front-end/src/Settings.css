@@ -17,6 +17,29 @@
   margin-right: 250px;
 }
 
+.settings .name-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .btn-outline-light {
+  display: inline-flex;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.settings .email-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .password-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
 .settings .form-control {
   background-color: rgb(34, 37, 41);
   border-color: grey;
