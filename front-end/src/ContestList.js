@@ -38,7 +38,8 @@ function ContestList(props) {
 
   return (
     <div>
-      <meta className="viewport" content="width=device-width, initial-scale=1"></meta>
+      <meta className="viewport" content="width=device-width, initial-scale=1">
+      </meta>
       <div className="contestlist-cards">
         {data.map((value, index) => {
           return (
@@ -46,7 +47,8 @@ function ContestList(props) {
               <div className="contestlist-card__icon">
                 <img alt="logo" src={value.logo} ></img>
               </div>
-              <p className="contestlist-card__exit"><i className="fas fa-times"></i></p>
+              <p className="contestlist-card__exit"><i className="fas fa-times">
+              </i></p>
               <h2 className="contestlist-card__title">{value.name}</h2>
               <div className="contestlist-card__content">
                 <p>Time: {value.time}</p>
@@ -54,8 +56,9 @@ function ContestList(props) {
               </div>
 
               <p className="contestlist-card__apply">
-                <a className="contestlist-card__link" target="_blank" rel="noopener noreferrer" href={value.url}>
-                  Goto Website<i className="fas fa-arrow-right"></i></a>
+                <a className="contestlist-card__link" target="_blank"
+                  rel="noopener noreferrer" href={value.url}
+                >Goto Website<i className="fas fa-arrow-right"></i></a>
               </p>
             </div>)
         })}
