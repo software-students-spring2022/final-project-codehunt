@@ -1,6 +1,8 @@
 import React from "react"
 import Form from "react-bootstrap/Form"
 import BootstrapSwitchButton from "bootstrap-switch-button-react"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 import {Button} from "react-bootstrap"
 import "./Settings.css"
 
@@ -13,35 +15,40 @@ export default function Settings() {
     <div className='settings'>
       <h1 className ="setting">User Settings</h1>
       <Form className="info">
-        <Form.Group controlId='name-info' size='lg'>
-          <Form.Label className="name">Name</Form.Label>
-          <br></br>
-          <div className="name-entry">
+        <Form.Label className="name">Name</Form.Label>
+        <br></br>
+        <Row className="name-info">
+          <Form.Group as={Col} controlId='name-info' size='lg'>
             <Form.Control type='name-change' placeholder="Enter name"/>
+          </Form.Group>
+          <Form.Group as={Col} controlId="nameButton">
             <Button variant="outline-light" size="sm">Edit</Button>
-          </div>
-        </Form.Group>
-        <Form.Group controlId='email' size='lg'>
-          <Form.Label>Email Address</Form.Label>
-          <br></br>
-          <div className="email-entry">
-            <Form.Control type="email" placeholder="Enter email"/>
+          </Form.Group>
+        </Row>
+        <Form.Label className="email">Email Address</Form.Label>
+        <br></br>
+        <Row className="email-info">
+          <Form.Group as={Col} controlId='email' size='lg'>
+            <Form.Control type="email-change" placeholder="Enter email"/>
+          </Form.Group>
+          <Form.Group as={Col} controlId="emailButton">
             <Button variant="outline-light" size="sm">Edit</Button>
-          </div>
-        </Form.Group>
-        <Form.Group controlId='password' size='lg'>
-          <Form.Label>Password</Form.Label>
-          <br></br>
-          <div className="password-entry">
-            <Form.Control type="password" placeholder="Enter password"/>
+          </Form.Group>
+        </Row>
+        <Form.Label className="password">Password</Form.Label>
+        <br></br>
+        <Row className="password-info">
+          <Form.Group as={Col} controlId='password' size='lg'>
+            <Form.Control type="password-change" placeholder="Enter password"/>
+          </Form.Group>
+          <Form.Group as={Col} controlId="passwordButton">
             <Button variant="outline-light" size="sm">Reset</Button>
-          </div>
-        </Form.Group>
+          </Form.Group>
+        </Row>
       </Form>
       <Form>
         <section className="container">
           <h2 className="subs">Subscriptions</h2>
-          <a href="/">Manage</a>
         </section>
 
         {["radio"].map((type) => (
@@ -64,7 +71,9 @@ export default function Settings() {
       <div className="bootbutton">
         <BootstrapSwitchButton checked={true} size="sm"/>
       </div>
-      <div className="sign-out"><a href="/">Sign Out</a></div>
+      <div className="col-md-10 text-center">
+        <Button variant="outline-light" size="sm">Save Changes</Button>
+      </div>
     </div>
   )
 }
