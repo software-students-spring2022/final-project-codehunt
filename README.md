@@ -26,6 +26,13 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 
 <h3> Build and launch the front end</h3>
 <ol>
+  <li>cd back-end</li>
+  <li>npm install</li>
+  <li>npm start</li>
+</ol>
+
+<h3> Build and launch the front end</h3>
+<ol>
   <li>cd front-end</li>
   <li>npm install</li>
   <li>npm start</li>

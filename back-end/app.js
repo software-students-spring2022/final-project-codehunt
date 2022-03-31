@@ -7,7 +7,6 @@ const passport = require("passport")
 const users = require("./user-data.js")
 // use this JWT strategy within passport for authentication handling
 const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
-require("dotenv").config({ silent: true })
 
 const app = express()
 
@@ -60,7 +59,7 @@ app.post("/login", (req, res) => {
 
   // assuming we found the user, check the password is correct
   // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
-  else if (req.body.password == user.password) {
+  else if (req.body.password === user.password) {
     // the password the user entered matches the password in our "database" (mock data in this case)
     // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
     const payload = { id: user.id } // some data we'll encode into the token

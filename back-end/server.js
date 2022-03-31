@@ -1,4 +1,7 @@
+#!/usr/bin/env node
+
 const server = require("./app")
+require('dotenv').config({ silent: true })
 const port = 3000
 
 const listener = server.listen(port, function() {
