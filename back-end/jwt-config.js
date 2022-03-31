@@ -1,4 +1,4 @@
-require("dotenv").config({silent: true}) // load environmental variables from a hidden file named .env
+require("dotenv").config({ silent: true }) // load environmental variables from a hidden file named .env
 const passportJWT = require("passport-jwt")
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 
@@ -9,10 +9,11 @@ const JwtStrategy = passportJWT.Strategy
 const jwtOptions = {}
 jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt") // look for the Authorization request header
 jwtOptions.secretOrKey = process.env.JWT_SECRET // an arbitrary string used during encryption - see the .env file
-// console.log(jwtOptions) // debug to make sure the secret from the .env file is loaded correctly
+console.log(jwtOptions) // debug to make sure the secret from the .env file is loaded correctly
+
 // passport can work with many authentication systems... here we are setting some middleware code for using JWT that we'll pass to passport to use
 const jwtStrategy = new JwtStrategy(jwtOptions, (jwtPayload, next) => {
-  // console.log("JWT payload received", jwtPayload) // debugging
+  console.log("JWT payload received", jwtPayload) // debugging
 
   // load up some mock user data in an array... we only need this because we're mocking the data from a database
   const users = require("./user_data.js")

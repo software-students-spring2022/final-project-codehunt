@@ -3,7 +3,9 @@ const morgan = require("morgan")
 const axios = require("axios")
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
+const cors = require('cors')
 const users = require("./user-data.js") // mock user data
+const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 require("dotenv").config({silent: true})
 
@@ -13,6 +15,8 @@ app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(passport.initialize())
+app.use(cors())
+
 passport.use(jwtStrategy)
 
 app.get(
@@ -25,8 +29,7 @@ app.get(
           id: req.user.id,
           username: req.user.username,
         },
-        message:
-        "Congratulations: you have accessed this route because you have a valid JWT token!",
+        message: "Congratulations: you have accessed this route because you have a valid JWT token!",
       })
     },
 )
