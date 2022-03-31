@@ -1,8 +1,8 @@
 ---
 name: User Story Template
 about: A template to use for User Stories
-title: ''
-labels: user story
+title: 'As a , I want , so that '
+labels: User Story
 assignees: ''
 
 ---
@@ -11,7 +11,4 @@ assignees: ''
 - TBD
 
 ## Acceptance criteria
-- [ ] foo
-- [ ] bar
-- [ ] baz
-- [ ] etc
+- TBD

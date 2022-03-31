@@ -31,8 +31,7 @@ const Header = (props) => {
                   width="22"
                   height="20"
                   className="d-inline-block align-top"
-                />{" "}
-                                Home</Nav.Link>
+                />{" "}Home</Nav.Link>
               <Nav.Link href="/list">
                 <img
                   alt="list"
@@ -40,8 +39,7 @@ const Header = (props) => {
                   width="24"
                   height="20"
                   className="d-inline-block align-top"
-                />{" "}
-                                List View</Nav.Link>
+                />{" "}List View</Nav.Link>
               <Nav.Link href="/settings">
                 <img
                   alt="setting"
@@ -49,8 +47,7 @@ const Header = (props) => {
                   width="20"
                   height="22"
                   className="d-inline-block align-top"
-                />{" "}
-                                Setting</Nav.Link>
+                />{" "}Setting</Nav.Link>
               <Nav.Link href="/about">
                 <img
                   alt="about"
@@ -58,8 +55,7 @@ const Header = (props) => {
                   width="20"
                   height="24"
                   className="d-inline-block align-top"
-                />{" "}
-                                About Us</Nav.Link>
+                />{" "}About Us</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
