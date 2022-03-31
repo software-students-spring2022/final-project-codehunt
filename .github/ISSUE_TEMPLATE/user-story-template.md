@@ -11,7 +11,4 @@ assignees: ''
 - TBD
 
 ## Acceptance criteria
-- [ ] foo
-- [ ] bar
-- [ ] baz
-- [ ] etc
+- TBD
