@@ -2,6 +2,11 @@ const express = require("express")
 const morgan = require("morgan")
 const axios = require("axios")
 const jwt = require("jsonwebtoken")
+const passport = require("passport")
+// load up some mock user data in an array... this would normally come from a database
+const users = require("./user-data.js")
+// use this JWT strategy within passport for authentication handling
+const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
 require("dotenv").config({ silent: true })
 
 const app = express()
@@ -9,6 +14,8 @@ const app = express()
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(passport.initialize())
+passport.use(jwtStrategy)
 
 app.get(
   "/protected",
