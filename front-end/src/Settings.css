@@ -1,6 +1,7 @@
 /* .settings {
   position: absolute;
 } */
+
 .settings .setting {
   color: white;
   display: flex;
@@ -21,12 +22,6 @@
   display: inline-flex;
   gap: 1rem;
   grid-auto-flow: column;
-}
-
-.settings .btn-outline-light {
-  display: inline-flex;
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
 }
 
 .settings .email-entry {
@@ -91,6 +86,11 @@
   padding-bottom: 10px;
 }
 
+.settings .container .btn {
+  color: white;
+  border-color: white;
+}
+
 .notifs {
   color: white;
   padding-left: 50px;
@@ -101,7 +101,7 @@
   padding-left: 60px;
 }
 
-.settings .sign-out {
+.settings .bootbutton .btn .btn-outline-light .btn-sm {
   display: flex;
   justify-content: center;
   align-items: center;
