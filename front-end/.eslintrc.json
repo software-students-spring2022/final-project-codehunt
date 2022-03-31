@@ -28,6 +28,11 @@
     "react/prop-types": "off",
     "require-jsdoc": "off",
     "semi": ["error", "never"],
-    "quotes": ["error", "double", { "avoidEscape": true }]
+    "quotes": ["error", "double", { "avoidEscape": true }],
+    "max-len": ["error", {
+      "ignoreComments": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }]
   }
 }
