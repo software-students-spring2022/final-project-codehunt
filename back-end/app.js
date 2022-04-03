@@ -3,57 +3,59 @@ const morgan = require("morgan")
 const axios = require("axios")
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
-// load up some mock user data in an array... this would normally come from a database
-const users = require("./user-data.js")
-// use this JWT strategy within passport for authentication handling
-const { jwtOptions, jwtStrategy } = require("./jwt-config.js") // import setup options for using JWT in passport
+const cors = require('cors')
+const users = require("./user-data.js") // mock user data
+const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
+const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
+require("dotenv").config({silent: true})
 
 const app = express()
 
 app.use(morgan("dev"))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
 app.use(passport.initialize())
+app.use(cors())
+
 passport.use(jwtStrategy)
 
 app.get(
-  "/protected",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    // our jwt passport config will send error responses to unauthenticated users will
-    // so we only need to worry about sending data to properly authenticated users!
-
-    res.json({
-      success: true,
-      user: {
-        id: req.user.id,
-        username: req.user.username,
-      },
-      message:
-        "Congratulations: you have accessed this route because you have a valid JWT token!",
-    })
-  }
+    "/protected",
+    passport.authenticate("jwt", {session: false}),
+    (req, res) => {
+      res.json({
+        success: true,
+        user: {
+          id: req.user.id,
+          username: req.user.username,
+        },
+        message: "Congratulations: you have accessed this route because you have a valid JWT token!",
+      })
+    },
 )
 
-// a route to handle a login attempt
 app.post("/login", (req, res) => {
-  // brab the name and password that were submitted as POST body data
   const username = req.body.username
   const password = req.body.password
   // console.log(`${username}, ${password}`)
+
   if (!username || !password) {
-    // no username or password received in the POST body... send an error
     res
       .status(401)
-      .json({ success: false, message: "no username or password supplied." })
+      .json({success: false, message: "no username or password supplied."})
   }
 
-  // usually this would be a database call, but here we look for a matching user in our mock data
-  const user = users[_.findIndex(users, { username: username })]
+  const user = users[_.findIndex(users, {username: username})]
   if (!user) {
-    // no user found with this name... send an error
     res
       .status(401)
+<<<<<<< HEAD
+      .json({success: false, message: `user not found: ${username}.`})
+  } else if (req.body.password == user.password) {
+    const payload = {id: user.id}
+    const token = jwt.sign(payload, jwtOptions.secretOrKey)
+    res.json({success: true, username: user.username, token: token})
+=======
       .json({ success: false, message: `user not found: ${username}.` })
   }
 
@@ -65,9 +67,10 @@ app.post("/login", (req, res) => {
     const payload = { id: user.id } // some data we'll encode into the token
     const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
     res.json({ success: true, username: user.username, token: token }) // send the token to the client to store
+>>>>>>> origin/master
   } else {
     // the password did not match
-    res.status(401).json({ success: false, message: "passwords did not match" })
+    res.status(401).json({success: false, message: "passwords did not match"})
   }
 })
 
