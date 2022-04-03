@@ -20,6 +20,7 @@ const About = (props) => {
         limited resources. We hope to expand this demographic through
         further developments and improvements.
       </div>
+      <h3 className="break">• • •</h3>
       <div className="credits">
         <h4>CodeHunt was created by:</h4>
         <div className="contributors">
