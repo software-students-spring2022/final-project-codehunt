@@ -49,25 +49,15 @@ app.post("/login", (req, res) => {
   if (!user) {
     res
       .status(401)
-<<<<<<< HEAD
       .json({success: false, message: `user not found: ${username}.`})
-  } else if (req.body.password == user.password) {
-    const payload = {id: user.id}
-    const token = jwt.sign(payload, jwtOptions.secretOrKey)
-    res.json({success: true, username: user.username, token: token})
-=======
-      .json({ success: false, message: `user not found: ${username}.` })
-  }
-
-  // assuming we found the user, check the password is correct
-  // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
-  else if (req.body.password === user.password) {
+  } else if (req.body.password === user.password) {
+    // assuming we found the user, check the password is correct
+    // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
     // the password the user entered matches the password in our "database" (mock data in this case)
     // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
     const payload = { id: user.id } // some data we'll encode into the token
     const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
     res.json({ success: true, username: user.username, token: token }) // send the token to the client to store
->>>>>>> origin/master
   } else {
     // the password did not match
     res.status(401).json({success: false, message: "passwords did not match"})
