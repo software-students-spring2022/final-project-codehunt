@@ -14,6 +14,11 @@
     padding: 10px;
 }
 
+.header{
+    font-weight: bold;
+    padding: 0px 0px 0px 10px;
+}
+
 .credits{
     padding: 30px;
 }
@@ -23,20 +28,20 @@
 }
 
 .titlelink{
-    text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
 .titlelink:hover{
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .link{
     text-decoration: none;
     color: black;
     font-weight: bold;
+    padding: 10px;
 }
 
 .link:hover{
@@ -57,18 +62,19 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
-    padding: 10px;
-
+    transition: 0.2s;
 }
 
 .nameButton:hover{
-    background: lightgray;
+    background: rgb(255, 164, 154);
     transform: scale(1.1);
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .nameButton:active{
-    background: lightslategray;
+    background: salmon;
+    transition: 0s;
+    transform: scale(1.07);
 }
 
 .copyright{
