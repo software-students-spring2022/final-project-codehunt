@@ -4,7 +4,7 @@ import "./About.css"
 const About = (props) => {
   return (
     <main className = "Home">
-      <h1>About CodeHunt</h1>
+      <h1 className="header">About CodeHunt</h1>
       <div className="primary"><a className="titlelink" href="https://github.com/software-assignments-spring2022/final-project-codehunt">CodeHunt</a> is a platform that assembles and organizes various coding contests’ information and details. Compatible with popular websites (including LeetCode, CodeForces, and Kaggle), CodeHunt eliminates the need to visit each individually to stay updated.</div>
       <div className="primary">
         Our goal? By simplifying how students search for coding contests,
@@ -20,6 +20,7 @@ const About = (props) => {
         limited resources. We hope to expand this demographic through
         further developments and improvements.
       </div>
+      <h3 className="break">• • •</h3>
       <div className="credits">
         <h4>CodeHunt was created by:</h4>
         <div className="contributors">
