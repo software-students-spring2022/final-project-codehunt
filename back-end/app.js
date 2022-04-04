@@ -9,7 +9,6 @@ const axios = require("axios")
 require("dotenv").config({ silent: true })
 const morgan = require("morgan")
 
-
 // additional middleware
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
@@ -26,10 +25,6 @@ app.use("/static", express.static("public"))
 app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
-
-app.get("/", (req,res) => {
-  res.send("Hello")
-})
 
 app.get(
     "/protected",
