@@ -39,8 +39,9 @@
 }
 
 .titlelink:hover{
-    color: white;
+    color: rgb(255, 164, 154);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .link{
@@ -89,4 +90,10 @@
     display: flex;
     justify-content: center;
     margin: 30px 0px 0px 0px;
+}
+
+.profilepic{
+    height: 10%;
+    width: 10%;
+    border-radius: 100px;
 }
