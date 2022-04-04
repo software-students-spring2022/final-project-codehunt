@@ -7,7 +7,10 @@ const path = require('path');
 require('sinon');
 
 const assert = require('assert');
+const server = require('../app')
 
-describe("Listen on port 3000", function () {
-    it("")
+describe("server", function () {
+    it("listen on port 3000", function () {
+        expect(req.ger('host')).equal.to.(3000)
+    })
 })
