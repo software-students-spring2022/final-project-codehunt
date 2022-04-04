@@ -11,6 +11,6 @@ const server = require('../app')
 
 describe("server", function () {
     it("listen on port 3000", function () {
-        expect(req.ger('host')).equal.to.(3000)
+
     })
 })
