@@ -41,14 +41,15 @@ export default function Login() {
         username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
         password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
       }
+      console.log("hi");
       // send a POST request with the data to the server api to authenticate
-      const response = await axios.post(
+      const responsePost = await axios.post(
           `${process.env.REACT_APP_BACKEND}/login`,
           requestData
       )
       // store the response data into the data state variable
-      console.log(`Server response: ${JSON.stringify(response.data, null, 0)}`)
-      setResponse(response.data)
+      console.log(`Server response: ${JSON.stringify(responsePost.data, null, 0)}`)
+      setResponse(responsePost.data)
     } catch (err) {
       // request failed... user entered invalid credentials
       setErrorMessage(
@@ -89,6 +90,6 @@ export default function Login() {
       </div>
     )
   } else {
-    return <Navigate to="/protected" />
+    return <Navigate to="/" />
   }
 }
