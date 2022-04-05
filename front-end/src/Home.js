@@ -7,6 +7,7 @@ import axios from "axios"
 const Home = () => {
   const [featuredContests, setData] = useState([])
 
+  /*
   useEffect(() => {
     const getContests = async () => {
       const pullContests = await axios("https://my.api.mockaroo.com/contests.json?key=a36447e0")
@@ -15,6 +16,17 @@ const Home = () => {
 
 
     getContests()
+    */
+
+
+    useEffect(() => {
+      console.log('effect')
+      axios
+        .get('http://localhost:3001/featuredContests')
+        .then(response => {
+          console.log('promise fulfilled')
+          setPeople(response.data)
+        })
   }, [])
 
 

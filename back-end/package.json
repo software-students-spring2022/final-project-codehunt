@@ -8,6 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "proxy": "httpw://localhost:3001",
   "dependencies": {
     "axios": "^0.26.1",
     "chai": "^4.3.6",
@@ -24,9 +25,9 @@
   },
   "description": "",
   "devDependencies": {
+    "chai": "*",
     "eslint": "^8.12.0",
     "eslint-config-google": "^0.14.0",
-    "chai": "*",
     "mocha": "*",
     "nodemon": "^2.0.15"
   }
