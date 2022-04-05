@@ -14,9 +14,9 @@ const Header = (props) => {
     user: {}
   }
 
-  function checkAuth() {
+  const checkAuth = () => {
     axios
-        .get(`${process.env.REACT_APP_BACKEND}/protected`, {withCredentials: true})
+        .get(`${process.env.REACT_APP_BACKEND}/protected`)
         .then(response => {
           if (response.data.success && state.authenticated === false) {
             state.authentication = true
@@ -27,11 +27,11 @@ const Header = (props) => {
             state.user = {}
           }
         })
-        .catch(err => {console.log(err)})
+        .catch(error => console.log(error))
   }
+    checkAuth()
 
-  checkAuth()
-  // if (state.authentication === false) {
+    const dummy = 1
     return (
         <>
           <Navbar bg="dark" variant="dark" expand="lg">
@@ -86,7 +86,6 @@ const Header = (props) => {
           </Navbar>
         </>
     )
-  // }
 }
 
 export default Header
