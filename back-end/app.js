@@ -71,4 +71,18 @@ app.post("/login", (req, res) => {
   }
 })
 
+//get mock api data for home page
+app.use("/featuredContests", (req, res, next) => {
+  axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
+  .then(apiResponse => res.json(apiResponse.data))
+  .catch(err => next(err))
+})
+
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
+
 module.exports = app
