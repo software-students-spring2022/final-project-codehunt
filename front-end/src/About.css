@@ -49,15 +49,16 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    height: 25vh;
 }
 
 .nameButton{
     border: 0px solid black;
     text-decoration: none;
-    max-width: (100/6) px;
     width: 25%;
+    height: 40%;
     background: white;
-    border-radius: 20px;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +70,7 @@
 
 .nameButton:hover{
     background: rgb(255, 164, 154);
-    transform: scale(1.07);
+    transform: scale(1.08);
     transition: 0.3s;
 }
 
@@ -95,6 +96,7 @@
 .name{
     color: black;
     font-weight: bold;
+    font-size: 18px;
     margin: 10px;
     display: flex;
     justify-content: center;
