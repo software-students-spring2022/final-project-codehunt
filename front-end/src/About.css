@@ -39,15 +39,16 @@
 }
 
 .titlelink:hover{
-    color: white;
+    color: rgb(255, 164, 154);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 .link{
     text-decoration: none;
     color: black;
     font-weight: bold;
-    padding: 10px;
+    margin: 10px;
     display: flex;
     justify-content: center;
 }
@@ -62,13 +63,23 @@
     align-items: center;
 }
 
+.profilepic{
+    max-height: 100%;
+    max-width: 100%;
+    height: 30px;
+    border-radius: 100px;
+    margin: 10px 0px 10px 10px;
+}
+
 .nameButton{
     border: 0px solid black;
+    max-width: (100/6) px;
     background: white;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     margin: 10px;
     transition: 0.2s;
 }
