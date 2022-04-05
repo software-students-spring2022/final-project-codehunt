@@ -65,14 +65,14 @@
 
 .nameButton:hover{
     background: rgb(255, 164, 154);
-    transform: scale(1.1);
+    transform: scale(1.07);
     transition: 0.3s;
 }
 
 .nameButton:active{
     background: salmon;
     transition: 0s;
-    transform: scale(1.07);
+    transform: scale(1.05);
 }
 
 .profilepic{
