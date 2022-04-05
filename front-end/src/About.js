@@ -22,7 +22,7 @@ const About = (props) => {
       </div>
       <h3 className="break">• • •</h3>
       <div className="credits">
-        <h4>CodeHunt was created by:</h4>
+        <h4 className="littleheader">CodeHunt was created by:</h4>
         <div className="contributors">
           <a className="nameButton" href="https://github.com/charliecai00">
             <img className="profilepic" src="https://avatars.githubusercontent.com/u/90638467?v=4"/>
