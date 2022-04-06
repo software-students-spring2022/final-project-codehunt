@@ -16,7 +16,7 @@ const Contest = (props) => {
       <div className="contestlist-cards"></div>
       <div className={"contestlist-card contestlist-card-0"}>
         <div className="contestlist-card__icon">
-          <img alt="logo" src="./../images/${props.platform}.png" ></img>
+          <img alt="logo" src={props.logo} ></img>
         </div>
         <p className="contestlist-card__exit"><i className="fas fa-times">
         </i></p>
