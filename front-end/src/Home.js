@@ -18,15 +18,19 @@ const Home = () => {
     getContests()
     */
 
-
+    
     useEffect(() => {
       console.log('effect')
       axios
         .get('http://localhost:3001/featuredContests')
         .then(response => {
           console.log('Get featured contests success')
-          setPeople(response.data)
+          setData(response.data)
         })
+        .catch(response => {
+          console.log("Failed to get featured contests")
+        })
+    
   }, [])
 
 
