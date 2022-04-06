@@ -24,7 +24,7 @@ const Home = () => {
       axios
         .get('http://localhost:3001/featuredContests')
         .then(response => {
-          console.log('promise fulfilled')
+          console.log('Get featured contests success')
           setPeople(response.data)
         })
   }, [])
@@ -45,6 +45,7 @@ const Home = () => {
             end_date={contest.end_date}
             description={contest.description}
             link={contest.link}
+            logo={contest.logo}
           />
         ))}
 
