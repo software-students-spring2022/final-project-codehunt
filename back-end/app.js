@@ -78,6 +78,16 @@ app.use("/featuredContests", (req, res, next) => {
   .catch(err => next(err))
 })
 
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Could not get featured contests')
+  next()
+})
+
+app.get("/featuredContests", (req, res) => {
+  res.send(apiResponse)
+})
+
 
 
 const PORT = 3001
