@@ -28,6 +28,9 @@ export default function Login() {
       console.log(`User successfully logged in: ${response.username}`)
       localStorage.setItem("token", response.token) // store the token into localStorage
     }
+    else{
+      localStorage.setItem("token", null);
+    }
   }, [response])
 
   // what to do when the user clicks the submit button on the form
@@ -50,6 +53,7 @@ export default function Login() {
       // store the response data into the data state variable
       console.log(`Server response: ${JSON.stringify(responsePost.data, null, 0)}`)
       setResponse(responsePost.data)
+      
     } catch (err) {
       // request failed... user entered invalid credentials
       setErrorMessage(

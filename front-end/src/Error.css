@@ -1,0 +1,22 @@
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.flex-container .back {
+  margin-left: 70px;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-center .p {
+  text-align: center;
+}
