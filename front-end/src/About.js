@@ -22,14 +22,32 @@ const About = (props) => {
       </div>
       <h3 className="break">• • •</h3>
       <div className="credits">
-        <h4>CodeHunt was created by:</h4>
+        <h4 className="littleheader">CodeHunt was created by:</h4>
         <div className="contributors">
-          <div className="nameButton"><a className="link" href="https://github.com/charliecai00">Charlie Cai</a></div>
-          <div className="nameButton"><a className="link" href="https://github.com/dinanz">Diana Zhao</a></div>
-          <div className="nameButton"><a className="link" href="https://github.com/b0ub0">Chengyang Song</a></div>
-          <div className="nameButton"><a className="link" href="https://github.com/kopokopok">Michael Zhou</a></div>
-          <div className="nameButton"><a className="link" href="https://github.com/dana-sun">Dana Sun</a></div>
-          <div className="nameButton"><a className="link" href="https://github.com/andrewshin02">Andrew Shin</a></div>
+          <a className="nameButton" href="https://github.com/charliecai00">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/90638467?v=4"/>
+            <div className="name">Charlie Cai</div>
+          </a>
+          <a className="nameButton" href="https://github.com/dinanz">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/60189142?v=4"/>
+            <div className="name">Diana Zhao</div>
+          </a>
+          <a className="nameButton" href="https://github.com/b0ub0">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/90593125?v=4"/>
+            <div className="name">Chengyang Song</div>
+          </a>
+          <a className="nameButton" href="https://github.com/kopokopok">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/59316474?v=4"/>
+            <div className="name">Michael Zhou</div>
+          </a>
+          <a className="nameButton" href="https://github.com/dana-sun">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/60711992?v=4"/>
+            <div className="name">Dana Sun</div>
+          </a>
+          <a className="nameButton" href="https://github.com/andrewshin02">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/59899452?v=4"/>
+            <div className="name">Andrew Shin</div>
+          </a>
         </div>
         <div className="copyright">© 2022 CodeHunt</div>
       </div>

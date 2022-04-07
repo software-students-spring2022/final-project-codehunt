@@ -1,22 +1,29 @@
+// import and instantiate express
 const express = require("express")
-const morgan = require("morgan")
+const app = express()
+const path = require("path")
+
+// import some useful middleware
+const multer = require("multer")
 const axios = require("axios")
+require("dotenv").config({ silent: true })
+const morgan = require("morgan")
+
+// additional middleware
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require('cors')
 const users = require("./user-data.js") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
-require("dotenv").config({silent: true})
-
-const app = express()
 
 app.use(morgan("dev"))
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
+app.use("/static", express.static("public"))
+
 app.use(passport.initialize())
 app.use(cors())
-
 passport.use(jwtStrategy)
 
 
@@ -64,5 +71,30 @@ app.post("/login", (req, res) => {
     res.status(401).json({success: false, message: "passwords did not match"})
   }
 })
+
+//get mock api data for home page
+app.use("/featuredContests", (req, res, next) => {
+  axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
+  .then(apiResponse => res.json(apiResponse.data))
+  .catch(err => next(err))
+})
+
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Could not get featured contests')
+  next()
+})
+
+app.get("/featuredContests", (req, res) => {
+  res.send(apiResponse)
+})
+
+
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
 
 module.exports = app
