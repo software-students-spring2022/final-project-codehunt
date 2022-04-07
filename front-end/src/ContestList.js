@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react"
 import "./ContestList.css"
 import axios from "axios"
+import { Navigate } from "react-router"
 
 
 function msToDHM(v) {
@@ -17,6 +18,9 @@ function ContestList(props) {
   // const { data } = props
   const [data, setData] = useState([])
   const [currentTime, setCurrentTime] = useState(Date.now())
+
+
+
 
   const getContestData = () => {
     axios.get("https://my.api.mockaroo.com/contests.json?key=e9f1c620")
@@ -35,36 +39,43 @@ function ContestList(props) {
     }, 1000)
   }, [])
 
-
-  return (
-    <div>
-      <meta className="viewport" content="width=device-width, initial-scale=1">
-      </meta>
-      <div className="contestlist-cards">
-        {data.map((value, index) => {
-          return (
-            <div className={`contestlist-card contestlist-card-${index % 5}`}>
-              <div className="contestlist-card__icon">
-                <img alt="logo" src={value.logo} ></img>
-              </div>
-              <p className="contestlist-card__exit"><i className="fas fa-times">
-              </i></p>
-              <h2 className="contestlist-card__title">{value.name}</h2>
-              <div className="contestlist-card__content">
-                <p>Time: {value.time}</p>
-                <p>{msToDHM(Date.parse(value.time) - currentTime)}</p>
-              </div>
-
-              <p className="contestlist-card__apply">
-                <a className="contestlist-card__link" target="_blank"
-                  rel="noopener noreferrer" href={value.url}
-                >Goto Website<i className="fas fa-arrow-right"></i></a>
-              </p>
-            </div>)
-        })}
+  const token = localStorage.getItem("token");
+  if (token === "null") {
+    return(
+      <Navigate to="../Error"/>
+    );
+  }
+  else{
+    return (
+      <div>
+        <meta className="viewport" content="width=device-width, initial-scale=1">
+        </meta>
+        <div className="contestlist-cards">
+          {data.map((value, index) => {
+            return (
+              <div className={`contestlist-card contestlist-card-${index % 5}`}>
+                <div className="contestlist-card__icon">
+                  <img alt="logo" src={value.logo} ></img>
+                </div>
+                <p className="contestlist-card__exit"><i className="fas fa-times">
+                </i></p>
+                <h2 className="contestlist-card__title">{value.name}</h2>
+                <div className="contestlist-card__content">
+                  <p>Time: {value.time}</p>
+                  <p>{msToDHM(Date.parse(value.time) - currentTime)}</p>
+                </div>
+  
+                <p className="contestlist-card__apply">
+                  <a className="contestlist-card__link" target="_blank"
+                    rel="noopener noreferrer" href={value.url}
+                  >Goto Website<i className="fas fa-arrow-right"></i></a>
+                </p>
+              </div>)
+          })}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default ContestList

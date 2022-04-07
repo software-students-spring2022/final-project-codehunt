@@ -26,6 +26,7 @@ app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
 
+
 app.get(
     "/protected",
     passport.authenticate("jwt", {session: false}),

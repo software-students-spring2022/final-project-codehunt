@@ -2,6 +2,29 @@
   position: absolute;
 } */
 
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.flex-container .back {
+  margin-left: 70px;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-center .p {
+  text-align: center;
+}
+
 .settings .setting {
   color: white;
   display: flex;
@@ -18,7 +41,7 @@
   margin-right: 250px;
 }
 
-.settings .name-entry {
+.settings .settings .name-entry {
   display: inline-flex;
   gap: 1rem;
   grid-auto-flow: column;

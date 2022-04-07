@@ -2,7 +2,7 @@
 const users = [
   {
     id: 1,
-    username: "foo",
+    username: "foo@gmail.com",
     password: "bar", // encrypt in future
   },
   {
