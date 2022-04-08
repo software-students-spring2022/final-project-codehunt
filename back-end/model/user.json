@@ -1,12 +1,10 @@
-{
-  "foo@gmail.com": {
-      "id": 1,
-      "username": "foo@gmail.com",
-      "password": "bar"
+[
+  {
+      "username": "codehunt@codehunt.com",
+      "password": "codehunt"
     },
-  "bar@gmail.com": {
-    "id": 2,
-    "username": "bar@gmail.com",
-    "password": "bar"
+  {
+    "username": "admin@codehunt.com",
+    "password": "admin"
   }
-}
+]
