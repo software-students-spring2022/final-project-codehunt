@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     console.log("effect")
     axios
-        .get("http://localhost:3001/featuredContests")
+        .get(`${process.env.REACT_APP_BACKEND}/featuredContests`)
         .then((response) => {
           console.log("Get featured contests success")
           setData(response.data)

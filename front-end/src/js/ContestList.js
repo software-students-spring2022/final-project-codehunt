@@ -18,7 +18,7 @@ function ContestList(props) {
   const [currentTime, setCurrentTime] = useState(Date.now())
 
   const getContestData = () => {
-    axios.get("http://localhost:3001/get/contests")
+    axios.get(`${process.env.REACT_APP_BACKEND}/get/contests`)
         .then((data) => {
           console.log(data.data)
           data.data.sort(function(a, b) {
