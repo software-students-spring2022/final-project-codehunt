@@ -43,7 +43,7 @@ export default function Login() {
         username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
         password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
       }
-      console.log("hi")
+      console.log(requestData)
       // send a POST request with the data to the server api to authenticate
       const responsePost = await axios.post(
           `${process.env.REACT_APP_BACKEND}/login`,
