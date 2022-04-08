@@ -1,20 +1,18 @@
-import React,{useState, useEffect} from "react"
 import Form from "react-bootstrap/Form"
 import BootstrapSwitchButton from "bootstrap-switch-button-react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import {Button} from "react-bootstrap"
 import "../stylesheets/Settings.css"
-import { Navigate } from 'react-router';
+import {Navigate} from "react-router"
 
 export default function Settings() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token")
   if (token === "null") {
-    return(
+    return (
       <Navigate to="../Error"/>
-    );
-  }
-  else{
+    )
+  } else {
     return (
       <div className='settings'>
         <h1 className ="setting">User Settings</h1>

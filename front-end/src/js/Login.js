@@ -27,14 +27,13 @@ export default function Login() {
     if (response.success && response.token) {
       console.log(`User successfully logged in: ${response.username}`)
       localStorage.setItem("token", response.token) // store the token into localStorage
-    }
-    else{
-      localStorage.setItem("token", null);
+    } else {
+      localStorage.setItem("token", null)
     }
   }, [response])
 
   // what to do when the user clicks the submit button on the form
-  const handleSubmit = async (e) => {    
+  const handleSubmit = async (e) => {
     // prevent the HTML form from actually submitting... we use React's javascript code instead
     e.preventDefault()
 
@@ -44,16 +43,15 @@ export default function Login() {
         username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
         password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
       }
-      console.log("hi");
+      console.log("hi")
       // send a POST request with the data to the server api to authenticate
       const responsePost = await axios.post(
           `${process.env.REACT_APP_BACKEND}/login`,
-          requestData
+          requestData,
       )
       // store the response data into the data state variable
       console.log(`Server response: ${JSON.stringify(responsePost.data, null, 0)}`)
       setResponse(responsePost.data)
-      
     } catch (err) {
       // request failed... user entered invalid credentials
       setErrorMessage(
