@@ -28,7 +28,7 @@ async function getLeetcodeContent() {
       name: value,
       timeStart: `${s.match(/.+@/)[0]} ${t[0]} ${tz}`,
       timeEnd: `${s.match(/.+@/)[0]} ${t[1]} ${tz}`,
-      url: "leetcode.com/contest",
+      url: "https://leetcode.com/contest/",
       logo: "https://assets.leetcode.com/static_assets/public/webpack_bundles/images/logo-dark.e99485d9b.svg",
     }
   })
