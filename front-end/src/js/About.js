@@ -1,4 +1,4 @@
-import "./About.css"
+import "../stylesheets/About.css"
 
 
 const About = (props) => {
