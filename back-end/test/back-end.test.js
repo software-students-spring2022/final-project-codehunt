@@ -18,11 +18,25 @@ describe("GET request to home", () => {
     it("the response should contain json data", done => {
         chai
             .request(server)
-            .get("http://localhost:3001/featuredContests")
+            .get("/featuredContests")
             .end((err,res) => {
                 assert.notEqual(res.json, undefined)
                 done()
             })
     })
 })
+
+describe("GET request to protected", () => {
+    it("should not have access to protected", done => {
+        chai
+            .request(server)
+            .get("/protected")
+            .end((err,res) => {
+                res.should.have.status(401)
+                done()
+            })
+    })
+})
+
+
 
