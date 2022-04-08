@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import "./ContestList.css"
+import "../stylesheets/ContestList.css"
 import axios from "axios"
 
 
@@ -18,7 +18,7 @@ function ContestList(props) {
   const [currentTime, setCurrentTime] = useState(Date.now())
 
   const getContestData = () => {
-    axios.get("http://localhost:3000/get/contests")
+    axios.get("http://localhost:3001/get/contests")
         .then((data) => {
           console.log(data.data)
           data.data.sort(function(a, b) {

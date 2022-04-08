@@ -10,12 +10,11 @@ require("dotenv").config({silent: true})
 const morgan = require("morgan")
 const fs = require("fs")
 
-
 // additional middleware
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
-const cors = require("cors")
-const users = require("./user-data.js") // mock user data
+const cors = require('cors')
+const users = require("../model/user.json") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 const { fstat } = require("fs")
@@ -78,8 +77,34 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/get/contests", (req, res) => {
-  const data = fs.readFileSync("./web-crawler/contests.json", "utf8")
+  const data = fs.readFileSync("../model/contests.json", "utf8")
+  console.log(data)
   res.status(200).send(JSON.parse(data))
 })
+
+//get mock api data for home page
+app.use("/featuredContests", (req, res, next) => {
+  axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
+  .then(apiResponse => res.status(200).json(apiResponse.data))
+  .catch(err => next(err))
+})
+
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Could not get featured contests')
+  next()
+})
+
+app.get("/featuredContests", (req, res) => {
+  res.send(apiResponse)
+})
+
+
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
 
 module.exports = app

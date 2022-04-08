@@ -1,5 +1,5 @@
 import React from "react"
-import "./App.css"
+import "../stylesheets/App.css"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {Helmet} from "react-helmet"
 import Header from "./Header"
@@ -10,6 +10,7 @@ import Login from "./Login"
 import SignUp from "./Signup"
 import AccRecovery from "./AccRecovery"
 import About from "./About"
+import Error from "./Error"
 
 const App = (props) => {
   return (
@@ -32,6 +33,7 @@ const App = (props) => {
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/account-recovery" element={<AccRecovery />}/>
           <Route path="/about" element={<About />}/>
+          <Route path="/error" element={<Error />}/>
         </Routes>
       </BrowserRouter>
     </div>
