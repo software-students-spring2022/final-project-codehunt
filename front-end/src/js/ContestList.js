@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react"
 import "../stylesheets/ContestList.css"
 import axios from "axios"
-import { Navigate } from "react-router"
+import {Navigate} from "react-router"
 
 
 function msToDHM(v) {
@@ -18,8 +18,6 @@ function ContestList(props) {
   // const { data } = props
   const [data, setData] = useState([])
   const [currentTime, setCurrentTime] = useState(Date.now())
-
-
 
 
   const getContestData = () => {
@@ -39,13 +37,12 @@ function ContestList(props) {
     }, 1000)
   }, [])
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token")
   if (token === "null") {
-    return(
+    return (
       <Navigate to="../Error"/>
-    );
-  }
-  else{
+    )
+  } else {
     return (
       <div>
         <meta className="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +61,7 @@ function ContestList(props) {
                   <p>Time: {value.time}</p>
                   <p>{msToDHM(Date.parse(value.time) - currentTime)}</p>
                 </div>
-  
+
                 <p className="contestlist-card__apply">
                   <a className="contestlist-card__link" target="_blank"
                     rel="noopener noreferrer" href={value.url}
