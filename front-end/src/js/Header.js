@@ -1,12 +1,12 @@
-import "./Header.css"
+import "../stylesheets/Header.css"
 import React from "react"
 import {Navbar, Container, Nav} from "react-bootstrap"
 import axios from "axios"
-import logo from "./Header-logo.png"
-import home from "./Header-home.png"
-import list from "./Header-list.png"
-import profile from "./Header-profile.png"
-import about from "./Header-about.png"
+import logo from "../img/Header-logo.png"
+import home from "../img/Header-home.png"
+import list from "../img/Header-list.png"
+import profile from "../img/Header-profile.png"
+import about from "../img/Header-about.png"
 
 const Header = (props) => {
   let state = {
