@@ -8,7 +8,7 @@ describe("GET request to home", () => {
     it("the response should contain status code 200", done => {
         chai
             .request(server)
-            .get("http://localhost:3001/featuredContests")
+            .get("/featuredContests")
             .end((err,res) => {
                 res.should.have.status(200)
                 done()
