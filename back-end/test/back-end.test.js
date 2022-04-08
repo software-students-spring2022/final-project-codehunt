@@ -38,5 +38,62 @@ describe("GET request to protected", () => {
     })
 })
 
+describe("Testing login", () => {
+    it("should return 401 for not providing username or password", done => {
+        chai
+            .request(server)
+            .post("/login")
+            .end((err,res) => {
+                res.should.have.status(401)
+                done()
+            })
+    })
+    it("should return 401 for providing wrong username", done => {
+        chai
+            .request(server)
+            .post("/login?username=fake&password=bar")
+            .end((err,res) => {
+                res.should.have.status(401)
+                done()
+            })
+    })
+    it("should return 401 for providing wrong username", done => {
+        chai
+            .request(server)
+            .post("/login?username=fake&password=bar")
+            .end((err,res) => {
+                res.should.have.status(401)
+                done()
+            })
+    })
+    it("should return 401 for providing wrong password", done => {
+        chai
+            .request(server)
+            .post("/login?username=foo@gmail.com&password=fake")
+            .end((err,res) => {
+                res.should.have.status(401)
+                done()
+            })
+    })
+    it("should return 200 for providing correct username and password", done => {
+        chai
+            .request(server)
+            .post("/login?username=foo@gmail.com&password=bar")
+            .end((err,res) => {
+                res.should.have.status(200)
+                done()
+            })
+    })
+    it("should return 200 for providing correct username and password", done => {
+        chai
+            .request(server)
+            .post("/login?username=foo@gmail.com&password=bar")
+            .end((err,res) => {
+                res.should.have.status(200)
+                done()
+            })
+    })
+})
+
 
 
