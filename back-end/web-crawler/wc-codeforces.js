@@ -19,10 +19,11 @@ async function getCodeForcesContent() {
   await browser.close()
   // return contestName.map((value, index) => [value, contestTime[index]]);
   return contestName.map((value, index) => {
+    const a = contestTime[index].split("UTC")
     return {
       platform: "Codeforces",
       name: contestName[index],
-      timeStart: contestTime[index],
+      timeStart: a[0] + " UTC" + a[1],
       timeEnd: undefined,
       url: "https://codeforces.com/contests",
       logo: "https://codeforces.org/s/0/apple-icon-114x114.png",

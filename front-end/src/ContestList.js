@@ -12,17 +12,18 @@ function msToDHM(v) {
   return `${days}d  ${z(hrs)}h ${z(mins)}min ${seconds}s`
 }
 
-// input should be the data above
 function ContestList(props) {
   // const { data } = props
   const [data, setData] = useState([])
   const [currentTime, setCurrentTime] = useState(Date.now())
 
   const getContestData = () => {
-    axios.get("https://my.api.mockaroo.com/contests.json?key=e9f1c620")
+    axios.get("http://localhost:3000/get/contests")
         .then((data) => {
           console.log(data.data)
-          data.data.sort((a, b) => Date.parse(a.time) - Date.parse(b.time))
+          data.data.sort(function(a, b) {
+            return Date.parse(a.timeStart) - Date.parse(b.timeStart)
+          })
           setData(data.data)
         })
         .catch((error) => console.log(error))
@@ -43,16 +44,17 @@ function ContestList(props) {
       <div className="contestlist-cards">
         {data.map((value, index) => {
           return (
-            <div className={`contestlist-card contestlist-card-${index % 5}`}>
+            <div key={index} className={`contestlist-card contestlist-card-${index % 5}`}>
               <div className="contestlist-card__icon">
                 <img alt="logo" src={value.logo} ></img>
               </div>
               <p className="contestlist-card__exit"><i className="fas fa-times">
               </i></p>
-              <h2 className="contestlist-card__title">{value.name}</h2>
+              <h2 className="contestlist-card__title">{value.platform}</h2>
               <div className="contestlist-card__content">
-                <p>Time: {value.time}</p>
-                <p>{msToDHM(Date.parse(value.time) - currentTime)}</p>
+                <p>{value.name}</p>
+                <p>{value.timeStart}</p>
+                <p>{msToDHM(Date.parse(value.timeStart) - currentTime)}</p>
               </div>
 
               <p className="contestlist-card__apply">
