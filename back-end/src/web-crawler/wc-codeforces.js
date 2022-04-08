@@ -4,7 +4,7 @@ const puppeteer = require("puppeteer")
 async function getCodeForcesContent() {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto("https://codeforces.com/contests", {waitUntil: "networkidle0"})
+  await page.goto("https://codeforces.com/contests?complete=true", {waitUntil: "networkidle0"})
 
   const contestName = await page.$$eval(
       "div.contestList > div.datatable > div > table > tbody > tr > td.left",
@@ -25,7 +25,7 @@ async function getCodeForcesContent() {
       name: contestName[index],
       timeStart: a[0] + " UTC" + a[1],
       timeEnd: undefined,
-      url: "https://codeforces.com/contests",
+      url: "https://codeforces.com/contests?complete=true",
       logo: "https://codeforces.org/s/0/apple-icon-114x114.png",
     }
   })
