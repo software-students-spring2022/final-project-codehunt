@@ -6,8 +6,9 @@ const path = require("path")
 // import some useful middleware
 const multer = require("multer")
 const axios = require("axios")
-require("dotenv").config({ silent: true })
+require("dotenv").config({silent: true})
 const morgan = require("morgan")
+const fs = require("fs")
 
 // additional middleware
 const jwt = require("jsonwebtoken")
@@ -16,19 +17,22 @@ const cors = require('cors')
 const users = require("../model/user.json") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
+const { fstat } = require("fs")
 
 app.use(morgan("dev"))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
 app.use("/static", express.static("public"))
 
 app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
 
+app.get("/", (req, res) => {
+  res.send("Hello")
+})
 
-app.get(
-    "/protected",
+app.get("/protected",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
       res.json({
@@ -63,13 +67,20 @@ app.post("/login", (req, res) => {
     // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
     // the password the user entered matches the password in our "database" (mock data in this case)
     // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
-    const payload = { id: user.id } // some data we'll encode into the token
+    const payload = {id: user.id} // some data we'll encode into the token
     const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
     res.status(200).json({ success: true, username: user.username, token: token }) // send the token to the client to store
+
   } else {
     // the password did not match
     res.status(401).json({success: false, message: "passwords did not match"})
   }
+})
+
+app.get("/get/contests", (req, res) => {
+  const data = fs.readFileSync("../model/contests.json", "utf8")
+  console.log(data)
+  res.status(200).send(JSON.parse(data))
 })
 
 //get mock api data for home page
