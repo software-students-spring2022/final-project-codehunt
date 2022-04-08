@@ -13,7 +13,7 @@ const morgan = require("morgan")
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require('cors')
-const users = require("./user-data.js") // mock user data
+const users = require("../model/user.json") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 
@@ -75,7 +75,7 @@ app.post("/login", (req, res) => {
 //get mock api data for home page
 app.use("/featuredContests", (req, res, next) => {
   axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
-  .then(apiResponse => res.json(apiResponse.data))
+  .then(apiResponse => res.status(200).json(apiResponse.data))
   .catch(err => next(err))
 })
 
