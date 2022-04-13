@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import Contest from "./Contest"
 import "../stylesheets/Home.css"
 import axios from "axios"
@@ -20,7 +20,6 @@ const Home = () => {
 
 
   useEffect(() => {
-    console.log("effect")
     axios
         .get(`${process.env.REACT_APP_BACKEND}/featuredContests`)
         .then((response) => {

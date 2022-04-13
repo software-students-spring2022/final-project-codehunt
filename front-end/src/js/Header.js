@@ -1,7 +1,7 @@
 import "../stylesheets/Header.css"
-import React, {useState, useEffect} from "react"
-import {useLocation} from 'react-router-dom'
-import {Navbar, Container, Nav} from "react-bootstrap"
+import React, { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import { Navbar, Container, Nav } from "react-bootstrap"
 import logo from "../img/Header-logo.png"
 import home from "../img/Header-home.png"
 import list from "../img/Header-list.png"
@@ -38,10 +38,11 @@ const Profile = (props) => {
 }
 
 const Header = (props) => {
+  const jwtToken = localStorage.getItem("token")
+
   const location = useLocation()
-  const [jwtToken, setJwtToken] = useState(localStorage.getItem("token"))
   const [isLoggedIn, setIsLoggedIn] = useState(
-    jwtToken !== "null" && jwtToken !== null
+      jwtToken !== "null" && jwtToken !== null,
   )
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import {Navigate, useLocation, useSearchParams} from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Navigate, useLocation, useSearchParams } from "react-router-dom"
 import axios from "axios"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
@@ -12,7 +12,7 @@ export default function Login() {
   const location = useLocation()
   const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
   const [response, setResponse] = useState({
-    success: jwtToken !== "null" && jwtToken !== null
+    success: jwtToken !== "null" && jwtToken !== null,
   })
   const [errorMessage, setErrorMessage] = useState("")
 
@@ -21,7 +21,7 @@ export default function Login() {
     if (qsError === "protected") {
       setErrorMessage("Please log in to view user content.")
     }
-  })
+  }, [])
 
   useEffect(() => {
     if (response.success && response.token) {
@@ -58,9 +58,7 @@ export default function Login() {
       setResponse(responsePost.data)
     } catch (err) {
       // request failed... user entered invalid credentials
-      setErrorMessage(
-          "You entered invalid credentials. Try harder! Check out the usernames in the server's user_data.js file.",
-      )
+      setErrorMessage("Username/password incorrect!")
     }
   }
 

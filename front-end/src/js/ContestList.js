@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import "../stylesheets/ContestList.css"
 import axios from "axios"
 

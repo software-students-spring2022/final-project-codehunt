@@ -1,9 +1,11 @@
 [
   {
-      "username": "codehunt@codehunt.com",
-      "password": "codehunt"
-    },
+    "id": 1,
+    "username": "codehunt@codehunt.com",
+    "password": "codehunt"
+  },
   {
+    "id": 2,
     "username": "admin@codehunt.com",
     "password": "admin"
   }
