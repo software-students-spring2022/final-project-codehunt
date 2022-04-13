@@ -77,7 +77,10 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/get/contests", (req, res) => {
-  const data = fs.readFileSync("../model/contests.json", "utf8")
+  const data = fs.readFileSync(
+    path.join(__dirname, "..", "model", "contests.json"),
+    "utf8"
+  )
   console.log(data)
   res.status(200).send(JSON.parse(data))
 })

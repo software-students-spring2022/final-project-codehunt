@@ -8,8 +8,10 @@ import profile from "../img/Header-profile.png"
 import about from "../img/Header-about.png"
 
 const Header = (props) => {
+
   const token = localStorage.getItem("token")
-  if (token === "null") {
+  console.log(token, token === null, token === "null")
+  if (token === "null" || token === null) {
     return (
       <>
         <Navbar bg="dark" variant="dark" expand="lg">

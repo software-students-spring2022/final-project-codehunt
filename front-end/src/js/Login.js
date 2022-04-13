@@ -92,6 +92,6 @@ export default function Login() {
       </div>
     )
   } else {
-    return <Navigate to="/" />
+    return <Navigate to="/" replace={true} />
   }
 }
