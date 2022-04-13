@@ -49,7 +49,6 @@ app.get("/protected",
 app.post("/login", (req, res) => {
   const username = req.body.username
   const password = req.body.password
-  console.log(username,password)
 
   if (!username || !password) {
     res
@@ -57,7 +56,7 @@ app.post("/login", (req, res) => {
       .json({success: false, message: "no username or password supplied."})
   }
 
-  const user = users[username]
+  const user = users[_.findIndex(users, { username: username })]
   if (!user) {
     res
       .status(401)
