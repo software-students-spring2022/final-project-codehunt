@@ -1,12 +1,13 @@
 import React from "react"
 import "../stylesheets/App.css"
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-import {Helmet} from "react-helmet"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Helmet } from "react-helmet"
 import Header from "./Header"
 import Home from "./Home"
 import List from "./ContestList"
 import Settings from "./Settings"
 import Login from "./Login"
+import Logout from "./Logout"
 import SignUp from "./Signup"
 import AccRecovery from "./AccRecovery"
 import About from "./About"
@@ -30,6 +31,7 @@ const App = (props) => {
           <Route path="/list" element={<List />}/>
           <Route path="/settings" element={<Settings />}/>
           <Route path="/login" element={<Login />}/>
+          <Route path="/logout" element={<Logout />}/>
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/account-recovery" element={<AccRecovery />}/>
           <Route path="/about" element={<About />}/>

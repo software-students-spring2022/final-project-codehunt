@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react"
-import {Navigate, useSearchParams} from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Navigate, useLocation, useSearchParams } from "react-router-dom"
 import axios from "axios"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
@@ -7,41 +7,45 @@ import Button from "react-bootstrap/Button"
 import "../stylesheets/Login.css"
 
 export default function Login() {
-  const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+  const jwtToken = localStorage.getItem("token")
 
-  // create state variables to hold username and password
-  const [response, setResponse] = useState({}) // the API will return an object with a JWT token, if the user logs in successfully
+  const location = useLocation()
+  const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+  const [response, setResponse] = useState({
+    success: jwtToken !== "null" && jwtToken !== null,
+  })
   const [errorMessage, setErrorMessage] = useState("")
 
-  // if the user got here by trying to access our Protected page, there will be a query string parameter called 'error' with the value 'protected'
   useEffect(() => {
-    const qsError = urlSearchParams.get("error") // get any 'error' field in the URL query string
+    const qsError = urlSearchParams.get("error")
     if (qsError === "protected") {
-      setErrorMessage("Please log in to view our fabulous protected content.")
+      setErrorMessage("Please log in to view user content.")
     }
   }, [])
 
-  // if the user's logged-in status changes, save the token we receive from the server
   useEffect(() => {
-    // if the user is logged-in, save the token to local storage
     if (response.success && response.token) {
       console.log(`User successfully logged in: ${response.username}`)
-      localStorage.setItem("token", response.token) // store the token into localStorage
-    } else {
-      localStorage.setItem("token", null)
+      localStorage.setItem("token", response.token)
     }
   }, [response])
 
-  // what to do when the user clicks the submit button on the form
+  useEffect(() => {
+    if (
+      location.state &&
+      location.state.hasOwnProperty("isLoggedIn")
+    ) {
+      setResponse({ success: location.state.isLoggedIn })
+    }
+  }, [location])
+
   const handleSubmit = async (e) => {
-    // prevent the HTML form from actually submitting... we use React's javascript code instead
     e.preventDefault()
 
     try {
-      // create an object with the data we want to send to the server
       const requestData = {
-        username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
-        password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
+        username: e.target.username.value,
+        password: e.target.password.value,
       }
       console.log(requestData)
       // send a POST request with the data to the server api to authenticate
@@ -54,13 +58,10 @@ export default function Login() {
       setResponse(responsePost.data)
     } catch (err) {
       // request failed... user entered invalid credentials
-      setErrorMessage(
-          "You entered invalid credentials. Try harder! Check out the usernames in the server's user_data.js file.",
-      )
+      setErrorMessage("Username/password incorrect!")
     }
   }
 
-  // if the user is not logged in, show the login form
   if (!response.success) {
     return (
       <div className="flex-container flex-center">
@@ -92,6 +93,6 @@ export default function Login() {
       </div>
     )
   } else {
-    return <Navigate to="/" />
+    return <Navigate to="/" replace={true} state={{ isLoggedIn: true }} />
   }
 }

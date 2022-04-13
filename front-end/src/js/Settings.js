@@ -1,16 +1,47 @@
+import React, { useState, useEffect } from "react"
 import Form from "react-bootstrap/Form"
 import BootstrapSwitchButton from "bootstrap-switch-button-react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import {Button} from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import "../stylesheets/Settings.css"
-import {Navigate} from "react-router"
+import { Navigate } from "react-router"
+import axios from "axios"
 
-export default function Settings() {
-  const token = localStorage.getItem("token")
-  if (token === "null") {
+export default function Settings(props) {
+  const jwtToken = localStorage.getItem("token")
+
+  const [response, setResponse] = useState({})
+  const [isLoggedIn, setIsLoggedIn] = useState(
+      jwtToken !== "null" && jwtToken !== null,
+  )
+
+  useEffect(() => {
+    let unmounted = false
+
+    axios
+        .get(`${process.env.REACT_APP_BACKEND}/protected`, {
+          headers: { Authorization: `JWT ${jwtToken}` },
+        })
+        .then((res) => {
+          setResponse(res.data)
+        })
+        .catch((err) => {
+          console.log(
+              "The server rejected the request for this protected resource... we probably do not have a valid JWT token.",
+          )
+          setIsLoggedIn(false)
+        })
+
+    return () => {
+      unmounted = true
+    }
+  }, [])
+
+  if (!isLoggedIn) {
+    localStorage.removeItem("token")
     return (
-      <Navigate to="../Error"/>
+      <Navigate to="/login?error=protected" replace={true} state={{ isLoggedIn: false }} />
     )
   } else {
     return (

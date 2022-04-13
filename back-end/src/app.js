@@ -13,11 +13,11 @@ const fs = require("fs")
 // additional middleware
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
-const cors = require('cors')
+const cors = require("cors")
 const users = require("../model/user.json") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
-const { fstat } = require("fs")
+const {fstat} = require("fs")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -32,7 +32,8 @@ app.get("/", (req, res) => {
   res.send("Hello")
 })
 
-app.get("/protected",
+app.get(
+    "/protected",
     passport.authenticate("jwt", {session: false}),
     (req, res) => {
       res.json({
@@ -52,15 +53,15 @@ app.post("/login", (req, res) => {
 
   if (!username || !password) {
     res
-      .status(401)
-      .json({success: false, message: "no username or password supplied."})
+        .status(401)
+        .json({success: false, message: "no username or password supplied."})
   }
 
-  const user = users[_.findIndex(users, { username: username })]
+  const user = users[_.findIndex(users, {username: username})]
   if (!user) {
     res
-      .status(401)
-      .json({success: false, message: `user not found: ${username}.`})
+        .status(401)
+        .json({success: false, message: `user not found: ${username}.`})
   } else if (req.body.password === user.password) {
     // assuming we found the user, check the password is correct
     // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
@@ -68,8 +69,7 @@ app.post("/login", (req, res) => {
     // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
     const payload = {id: user.id} // some data we'll encode into the token
     const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
-    res.status(200).json({ success: true, username: user.username, token: token }) // send the token to the client to store
-
+    res.status(200).json({success: true, username: user.username, token: token}) // send the token to the client to store
   } else {
     // the password did not match
     res.status(401).json({success: false, message: "passwords did not match"})
@@ -77,28 +77,30 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/get/contests", (req, res) => {
-  const data = fs.readFileSync("../model/contests.json", "utf8")
+  const data = fs.readFileSync(
+      path.join(__dirname, "..", "model", "contests.json"),
+      "utf8",
+  )
   console.log(data)
   res.status(200).send(JSON.parse(data))
 })
 
-//get mock api data for home page
+// get mock api data for home page
 app.use("/featuredContests", (req, res, next) => {
   axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
-  .then(apiResponse => res.status(200).json(apiResponse.data))
-  .catch(err => next(err))
+      .then((apiResponse) => res.status(200).json(apiResponse.data))
+      .catch((err) => next(err))
 })
 
 app.use((err, req, res, next) => {
   console.error(err.stack)
-  res.status(500).send('Could not get featured contests')
+  res.status(500).send("Could not get featured contests")
   next()
 })
 
 app.get("/featuredContests", (req, res) => {
   res.send(apiResponse)
 })
-
 
 
 const PORT = 3000 || process.env.PORT
