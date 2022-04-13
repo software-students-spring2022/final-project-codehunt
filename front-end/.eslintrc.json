@@ -33,6 +33,7 @@
       "ignoreComments": true,
       "ignoreStrings": true,
       "ignoreTemplateLiterals": true
-    }]
+    }],
+    "object-curly-spacing": ["error", "always"]
   }
 }

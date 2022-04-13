@@ -9,39 +9,35 @@ import "../stylesheets/Login.css"
 export default function Login() {
   const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
 
-  // create state variables to hold username and password
-  const [response, setResponse] = useState({}) // the API will return an object with a JWT token, if the user logs in successfully
+  const [response, setResponse] = useState({})
   const [errorMessage, setErrorMessage] = useState("")
 
-  // if the user got here by trying to access our Protected page, there will be a query string parameter called 'error' with the value 'protected'
   useEffect(() => {
-    const qsError = urlSearchParams.get("error") // get any 'error' field in the URL query string
+    const qsError = urlSearchParams.get("error")
     if (qsError === "protected") {
-      setErrorMessage("Please log in to view our fabulous protected content.")
+      setErrorMessage("Please log in to view user content.")
     }
-  }, [])
+  })
 
-  // if the user's logged-in status changes, save the token we receive from the server
   useEffect(() => {
-    // if the user is logged-in, save the token to local storage
-    if (response.success && response.token) {
+    const token = localStorage.getItem("token")
+    if (token !== "null" && token !== null) {
+      setResponse({ success: true, token: token })
+    } else if (response.success && response.token) {
       console.log(`User successfully logged in: ${response.username}`)
-      localStorage.setItem("token", response.token) // store the token into localStorage
+      localStorage.setItem("token", response.token)
     } else {
       localStorage.setItem("token", null)
     }
   }, [response])
 
-  // what to do when the user clicks the submit button on the form
   const handleSubmit = async (e) => {
-    // prevent the HTML form from actually submitting... we use React's javascript code instead
     e.preventDefault()
 
     try {
-      // create an object with the data we want to send to the server
       const requestData = {
-        username: e.target.username.value, // gets the value of the field in the submitted form with name='username'
-        password: e.target.password.value, // gets the value of the field in the submitted form with name='password',
+        username: e.target.username.value,
+        password: e.target.password.value,
       }
       console.log(requestData)
       // send a POST request with the data to the server api to authenticate
@@ -60,7 +56,6 @@ export default function Login() {
     }
   }
 
-  // if the user is not logged in, show the login form
   if (!response.success) {
     return (
       <div className="flex-container flex-center">
