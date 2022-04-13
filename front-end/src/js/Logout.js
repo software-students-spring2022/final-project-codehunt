@@ -6,9 +6,5 @@ export default function Logout(props) {
     localStorage.removeItem("token")
   })
 
-  return (
-    <>
-      <Navigate to="/" replace={true} />
-    </>
-  )
+  return <Navigate to="/" replace={true} state={{ isLoggedIn: false }} />
 }

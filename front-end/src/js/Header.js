@@ -1,5 +1,6 @@
 import "../stylesheets/Header.css"
 import React, {useState, useEffect} from "react"
+import {useLocation} from 'react-router-dom'
 import {Navbar, Container, Nav} from "react-bootstrap"
 import logo from "../img/Header-logo.png"
 import home from "../img/Header-home.png"
@@ -11,6 +12,18 @@ const Profile = (props) => {
   const isLoggedIn = props.isLoggedIn
   if (isLoggedIn) {
     return (
+      <Nav.Link href="/settings">
+        <img
+          alt="settings"
+          src={profile}
+          width="20"
+          height="22"
+          className="d-inline-block align-top"
+        />{" "}Settings
+      </Nav.Link>
+    )
+  } else {
+    return (
       <Nav.Link href="/login">
         <img
           alt="login"
@@ -21,29 +34,24 @@ const Profile = (props) => {
         />{" "}Login
       </Nav.Link>
     )
-  } else {
-    return (
-      <Nav.Link href="/settings">
-        <img
-          alt="setting"
-          src={profile}
-          width="20"
-          height="22"
-          className="d-inline-block align-top"
-        />{" "}Setting
-      </Nav.Link>
-    )
   }
 }
 
 const Header = (props) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
+  const location = useLocation()
+  const [jwtToken, setJwtToken] = useState(localStorage.getItem("token"))
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    jwtToken !== "null" && jwtToken !== null
+  )
+
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token !== "null" && token !== null)
-      setIsLoggedIn(true)
-  }, [isLoggedIn])
+    if (
+      location.state &&
+      location.state.hasOwnProperty("isLoggedIn")
+    ) {
+      setIsLoggedIn(location.state.isLoggedIn)
+    }
+  }, [location])
 
   return (
     <>

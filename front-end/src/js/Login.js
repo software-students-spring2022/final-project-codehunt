@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import {Navigate, useSearchParams} from "react-router-dom"
+import {Navigate, useLocation, useSearchParams} from "react-router-dom"
 import axios from "axios"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
@@ -7,9 +7,13 @@ import Button from "react-bootstrap/Button"
 import "../stylesheets/Login.css"
 
 export default function Login() {
-  const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+  const jwtToken = localStorage.getItem("token")
 
-  const [response, setResponse] = useState({})
+  const location = useLocation()
+  const [urlSearchParams] = useSearchParams() // get access to the URL query string parameters
+  const [response, setResponse] = useState({
+    success: jwtToken !== "null" && jwtToken !== null
+  })
   const [errorMessage, setErrorMessage] = useState("")
 
   useEffect(() => {
@@ -20,16 +24,20 @@ export default function Login() {
   })
 
   useEffect(() => {
-    const token = localStorage.getItem("token")
-    if (token !== "null" && token !== null) {
-      setResponse({ success: true, token: token })
-    } else if (response.success && response.token) {
+    if (response.success && response.token) {
       console.log(`User successfully logged in: ${response.username}`)
       localStorage.setItem("token", response.token)
-    } else {
-      localStorage.setItem("token", null)
     }
   }, [response])
+
+  useEffect(() => {
+    if (
+      location.state &&
+      location.state.hasOwnProperty("isLoggedIn")
+    ) {
+      setResponse({ success: location.state.isLoggedIn })
+    }
+  }, [location])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -87,6 +95,6 @@ export default function Login() {
       </div>
     )
   } else {
-    return <Navigate to="/" replace={true} />
+    return <Navigate to="/" replace={true} state={{ isLoggedIn: true }} />
   }
 }
