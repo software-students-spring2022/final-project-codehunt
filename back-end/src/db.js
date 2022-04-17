@@ -1,21 +1,12 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongoose = require("mongoose")
 
-const Schema = new mongoose.Schema({
-  username: String,
-  password: String,
-  LeetCode: Boolean,
-  CodeForces: Boolean
-});
+const User = new mongoose.Schema({
+  email: {type: String, required: true},
+  password: {type: String, required: true},
+  LeetCode: {type: Boolean, required: true},
+  CodeForces: {type: Boolean, required: true},
+})
 
-const Users = mongoose.model('Users', Schema);
+mongoose.model("User", User)
+mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas"))
 
-mongoose.connect(process.env.MONGODB_URI, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('connected to database');
-  }
-});
-
-module.exports = Users;
