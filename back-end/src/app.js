@@ -1,6 +1,7 @@
 require("dotenv").config({silent: true})
 const path = require("path")
 const fs = require("fs")
+const mongoose = require("mongoose")
 require("./db")
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 
@@ -27,29 +28,28 @@ app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
 
-const auth = passport.authenticate("jwt", { session: false });
+const User = mongoose.model("User")
+const auth = passport.authenticate("jwt", {session: false})
 
 app.get("/", (req, res) => {
   res.send("Hello")
 })
 
-app.get(
-    "/protected",
-    passport.authenticate("jwt", {session: false}),
-    (req, res) => {
-      res.json({
-        success: true,
-        user: {
-          id: req.user.id,
-          username: req.user.email,
-        },
-        message: "Congratulations: you have accessed this route because you have a valid JWT token!",
-      })
+app.get("/protected", auth, (req, res) => {
+  res.json({
+    success: true,
+    user: {
+      id: req.user.id,
+      email: req.user.email,
     },
-)
+    message: "Congratulations: you have accessed this route because you have a valid JWT token!",
+  })
+})
 
 app.post("/login", (req, res) => {
-  const email = req.body.username
+  console.log("testfdsafuhdsafa")
+
+  const email = req.body.email
   const password = req.body.password
 
   if (!email || !password) {
@@ -58,7 +58,7 @@ app.post("/login", (req, res) => {
         .json({success: false, message: "no email or password supplied."})
   }
 
-  User.findOne({email: email}, (err, user) => {
+  User.findOne({email}, (err, user) => {
     if (!user) {
       res
           .status(401)
@@ -70,11 +70,44 @@ app.post("/login", (req, res) => {
       // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
       const payload = {id: user.id} // some data we'll encode into the token
       const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
-      res.status(200).json({success: true, username: user.email, token: token}) // send the token to the client to store
+      res.status(200).json({success: true, email: user.email, token: token}) // send the token to the client to store
     } else {
-      // the password did not match
       res.status(401).json({success: false, message: "passwords did not match"})
     }
+  })
+})
+
+app.post("/signup", (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+  const confirmPassword = req.body.confirmPassword
+
+  if (!email || !password || !confirmPassword) {
+    res
+        .status(401)
+        .json({success: false, message: "No email or password supplied."})
+  } else if (password !== confirmPassword) {
+    res
+        .status(401)
+        .json({success: false, message: "Passwords do not match."})
+  }
+
+  User.findOne({email}, (err, oldUser) => {
+    if (oldUser) {
+      res
+          .status(401)
+          .json({success: false, message: "an account already exists for this email"})
+    }
+    const defaultSubscriptions = {
+      Leetcode: true,
+      Codeforces: true,
+    }
+    User.create(
+        {email, password, subscriptions: defaultSubscriptions},
+        (err, user) => {
+          res.status(200).json({success: true})
+        },
+    )
   })
 })
 

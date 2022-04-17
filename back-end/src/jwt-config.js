@@ -1,5 +1,8 @@
 const passportJWT = require("passport-jwt")
+const mongoose = require("mongoose")
 require("./db")
+
+const User = mongoose.model("User")
 
 const ExtractJwt = passportJWT.ExtractJwt
 const JwtStrategy = passportJWT.Strategy
