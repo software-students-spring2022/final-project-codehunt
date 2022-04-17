@@ -1,23 +1,26 @@
+require("dotenv").config({silent: true})
+const path = require("path")
+const fs = require("fs")
+const mongoose = require("mongoose")
+require("./db")
+
 // import and instantiate express
 const express = require("express")
 const app = express()
-const path = require("path")
 
 // import some useful middleware
 const multer = require("multer")
 const axios = require("axios")
-require("dotenv").config({silent: true})
 const morgan = require("morgan")
-const fs = require("fs")
 
 // additional middleware
 const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require("cors")
+
 const users = require("../model/user.json") // mock user data
 const _ = require("lodash") // the lodash module has some convenience functions for arrays that we use to sift through our mock user data... you don't need this if using a real database with user info
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
-const {fstat} = require("fs")
 
 app.use(morgan("dev"))
 app.use(express.json())

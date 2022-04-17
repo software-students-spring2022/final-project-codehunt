@@ -12,6 +12,7 @@
   },
   "rules": {
     "linebreak-style": "off",
+    "no-unused-vars": "warn",
     "require-jsdoc": "off",
     "semi": ["error", "never"],
     "quotes": ["error", "double", { "avoidEscape": true }],
