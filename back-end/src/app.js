@@ -18,10 +18,11 @@ const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require("cors")
 
-//Mongoose
+// Mongoose
 require("./db.js")
 const mongoose = require("mongoose")
-const Users = mongoose.model('Users')
+//const Users = mongoose.model('Users')
+const Contest = require("../model/Contest.js")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -78,12 +79,9 @@ app.post("/login", (req, res) => {
 })
 
 app.get("/get/contests", (req, res) => {
-  const data = fs.readFileSync(
-      path.join(__dirname, "..", "model", "contests.json"),
-      "utf8",
-  )
-  console.log(data)
-  res.status(200).send(JSON.parse(data))
+  Contest.find((err, data) => {
+    res.status(200).send(JSON.parse(JSON.stringify(data)))
+  })
 })
 
 // get mock api data for home page
