@@ -17,7 +17,7 @@ const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require("cors")
 
-//Mongoose
+// Mongoose
 require("./db.js")
 const mongoose = require("mongoose")
 const User = mongoose.model('User')
@@ -107,12 +107,12 @@ app.post("/signup", (req, res) => {
 })
 
 app.get("/get/contests", (req, res) => {
-  const data = fs.readFileSync(
-      path.join(__dirname, "..", "model", "contests.json"),
-      "utf8",
-  )
-  console.log(data)
-  res.status(200).send(JSON.parse(data))
+  Contest.find((err, data) => {
+    const filteredData = data.filter((value) => {
+      return Date.parse(value.timeStart) > Date.now()
+    })
+    res.status(200).send(JSON.parse(JSON.stringify(filteredData)))
+  })
 })
 
 // get mock api data for home page
