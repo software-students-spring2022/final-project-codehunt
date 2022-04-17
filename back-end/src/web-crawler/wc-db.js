@@ -11,14 +11,18 @@ mongoose.connect(process.env.MONGODB_URI)
       const data = JSON.parse(fs.readFileSync("contests.json"))
       console.log(data)
       data.forEach((element) => {
-        new Contest({
-          platform: element.platform,
-          name: element.name,
-          timeStart: element.timeStart,
-          timeEnd: element.timeEnd,
-          url: element.url,
-          logo: element.logo,
-        }).save()
+        Contest.count({name: element.name}, (err, count) => {
+          if (count == 0) {
+            new Contest({
+              platform: element.platform,
+              name: element.name,
+              timeStart: element.timeStart,
+              timeEnd: element.timeEnd,
+              url: element.url,
+              logo: element.logo,
+            }).save()
+          }
+        })
       })
       console.log("data saved, press ctrl+c to end")
     })

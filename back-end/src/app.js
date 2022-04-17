@@ -80,7 +80,10 @@ app.post("/login", (req, res) => {
 
 app.get("/get/contests", (req, res) => {
   Contest.find((err, data) => {
-    res.status(200).send(JSON.parse(JSON.stringify(data)))
+    const filteredData = data.filter((value) => {
+      return Date.parse(value.timeStart) > Date.now()
+    })
+    res.status(200).send(JSON.parse(JSON.stringify(filteredData)))
   })
 })
 
