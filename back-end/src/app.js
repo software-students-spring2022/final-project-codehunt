@@ -31,6 +31,8 @@ app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
 
+const auth = passport.authenticate("jwt", { session: false });
+
 app.get("/", (req, res) => {
   res.send("Hello")
 })
