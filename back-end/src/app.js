@@ -98,16 +98,9 @@ app.post("/signup", (req, res) => {
           .status(401)
           .json({success: false, message: "an account already exists for this email"})
     }
-    const defaultSubscriptions = {
-      Leetcode: true,
-      Codeforces: true,
-    }
-    User.create(
-        {email, password, subscriptions: defaultSubscriptions},
-        (err, user) => {
-          res.status(200).json({success: true})
-        },
-    )
+    User.create({email, password}, (err, user) => {
+      res.status(200).json({success: true})
+    })
   })
 })
 
