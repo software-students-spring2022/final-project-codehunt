@@ -9,6 +9,7 @@ const axios = require("axios")
 require("dotenv").config({silent: true})
 const morgan = require("morgan")
 const fs = require("fs")
+const file = require("./model/user.json");
 
 // additional middleware
 const jwt = require("jsonwebtoken")
@@ -32,20 +33,25 @@ app.get("/", (req, res) => {
   res.send("Hello")
 })
 
-app.get(
-    "/protected",
-    passport.authenticate("jwt", {session: false}),
+app.get("/userSettings", 
+  passport.authenticate("jwt", {session: false}),
     (req, res) => {
+      const user = users[_.findIndex(users, {id: req.user.id})]
       res.json({
         success: true,
         user: {
           id: req.user.id,
           username: req.user.username,
+          subscriptions: user.subscriptions,
         },
-        message: "Congratulations: you have accessed this route because you have a valid JWT token!",
       })
     },
 )
+
+app.post("/edit", (req, res) => {
+  const newSubs = req.body.subscriptions;
+ 
+})
 
 app.post("/login", (req, res) => {
   const username = req.body.username
@@ -70,11 +76,15 @@ app.post("/login", (req, res) => {
     const payload = {id: user.id} // some data we'll encode into the token
     const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
     res.status(200).json({success: true, username: user.username, token: token}) // send the token to the client to store
+    req.session.id = user.id;
+    req.session.subs = user.subscriptions;
   } else {
     // the password did not match
     res.status(401).json({success: false, message: "passwords did not match"})
   }
 })
+
+
 
 app.get("/get/contests", (req, res) => {
   const data = fs.readFileSync(

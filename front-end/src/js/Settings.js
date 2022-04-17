@@ -9,6 +9,7 @@ import { Navigate } from "react-router"
 import axios from "axios"
 
 export default function Settings(props) {
+  const [listOfItems, setListOfItems] = useState([]);
   const jwtToken = localStorage.getItem("token")
 
   const [response, setResponse] = useState({})
@@ -16,27 +17,57 @@ export default function Settings(props) {
       jwtToken !== "null" && jwtToken !== null,
   )
 
+  const updateListOfItems = (itemIndex, newsChecked) => {
+    const updatedListOfItems = [...listOfItems];
+    updatedListOfItems[itemIndex].isChecked = newsChecked;
+    setListOfItems(updatedListOfItems);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let index = 0;
+    for (const items of listOfItems){
+      if (items.isChecked === true){
+        listOfItems.splice(index, 1);
+        setListOfItems(listOfItems);
+      }
+      index++;
+    }
+    const changedData = {
+      subscriptions: listOfItems,
+    }
+
+    const responsePost = await axios.post(
+      `${process.env.REACT_APP_BACKEND}/edit`,
+      changedData,
+  )
+  setResponse(responsePost.data)
+  }
+  const handleChecked= async (e) => {
+    console.log(e.name)
+  }
+  
+
   useEffect(() => {
-    let unmounted = false
-
+    let unmounted = false;
     axios
-        .get(`${process.env.REACT_APP_BACKEND}/protected`, {
-          headers: { Authorization: `JWT ${jwtToken}` },
-        })
-        .then((res) => {
-          setResponse(res.data)
-        })
-        .catch((err) => {
-          console.log(
-              "The server rejected the request for this protected resource... we probably do not have a valid JWT token.",
-          )
-          setIsLoggedIn(false)
-        })
-
+    .get(`${process.env.REACT_APP_BACKEND}/userSettings`, {
+      headers: { Authorization: `JWT ${jwtToken}` },
+    })
+    .then((res) => {
+      console.log(res.data)
+      setListOfItems(res.data.user.subscriptions)
+    })
+    .catch((err) => {
+      console.log(
+          "The server rejected the request for this protected resource... we probably do not have a valid JWT token.",
+      )
+      setIsLoggedIn(false)
+    })
     return () => {
       unmounted = true
     }
-  }, [])
+  }, []);
 
   if (!isLoggedIn) {
     localStorage.removeItem("token")
@@ -47,65 +78,61 @@ export default function Settings(props) {
     return (
       <div className='settings'>
         <h1 className ="setting">User Settings</h1>
-        <Form className="info">
-          <Form.Label className="name">Name</Form.Label>
-          <br></br>
-          <Row className="name-info">
-            <Form.Group as={Col} controlId='name-info' size='lg'>
-              <Form.Control type='name-change' placeholder="Enter name"/>
-            </Form.Group>
-            <Form.Group as={Col} controlId="nameButton">
-              <Button variant="outline-light" size="sm">Edit</Button>
-            </Form.Group>
-          </Row>
-          <Form.Label className="email">Email Address</Form.Label>
-          <br></br>
-          <Row className="email-info">
-            <Form.Group as={Col} controlId='email' size='lg'>
-              <Form.Control type="email-change" placeholder="Enter email"/>
-            </Form.Group>
-            <Form.Group as={Col} controlId="emailButton">
-              <Button variant="outline-light" size="sm">Edit</Button>
-            </Form.Group>
-          </Row>
-          <Form.Label className="password">Password</Form.Label>
-          <br></br>
-          <Row className="password-info">
-            <Form.Group as={Col} controlId='password' size='lg'>
-              <Form.Control type="password-change" placeholder="Enter password"/>
-            </Form.Group>
-            <Form.Group as={Col} controlId="passwordButton">
-              <Button variant="outline-light" size="sm">Reset</Button>
-            </Form.Group>
-          </Row>
-        </Form>
-        <Form>
-          <section className="container">
-            <h2 className="subs">Subscriptions</h2>
-          </section>
-          {["radio"].map((type) => (
-            <div key={`default-${type}`} className="mb-3">
-              <Form.Check
-                type={type}
-                id={`default-${type}`}
-                label={"LeetCode"}
-              />
-              <Form.Check
-                disabled
-                type={type}
-                label={"HackerRank"}
-                id={`disabled-default-${type}`}
-              />
+        <Form id="info" onSubmit= { handleSubmit }>
+          <Form.Group className="info">
+            <Form.Label className="name">Name</Form.Label>
+            <br></br>
+            <Row className="name-info">
+              <Form.Group as={Col} controlId='name-info' size='lg'>
+                <Form.Control type='name-change' placeholder="Enter name"/>
+              </Form.Group>
+              <Form.Group as={Col} controlId="nameButton">
+                <Button variant="outline-light" size="sm">Edit</Button>
+              </Form.Group>
+            </Row>
+            <Form.Label className="email">Email Address</Form.Label>
+            <br></br>
+            <Row className="email-info">
+              <Form.Group as={Col} controlId='email' size='lg'>
+                <Form.Control type="email-change" placeholder="Enter email"/>
+              </Form.Group>
+              <Form.Group as={Col} controlId="emailButton">
+                <Button variant="outline-light" size="sm">Edit</Button>
+              </Form.Group>
+            </Row>
+            <Form.Label className="password">Password</Form.Label>
+            <br></br>
+            <Row className="password-info">
+              <Form.Group as={Col} controlId='password' size='lg'>
+                <Form.Control type="password-change" placeholder="Enter password"/>
+              </Form.Group>
+              <Form.Group as={Col} controlId="passwordButton">
+                <Button variant="outline-light" size="sm">Reset</Button>
+              </Form.Group>
+            </Row>
+          </Form.Group>
+          <Form.Group className="subs">
+            <section className="container">
+              <h2 className="subs">Subscriptions</h2>
+            </section>
+            <p>If you wish to unsubscribe, check the appropriate subscription and click save changes</p>
+            <div class="subscriptions">
+              <Form.Group>
+                {listOfItems.map((item, index) =>
+                <Form.Check key={index} label = {item.name} name = {item.name} checked={item.isChecked} onChange={() => updateListOfItems(index, !item.isChecked)} />)}
+                {/* <Form.Check onChange = { handleChecked } name = "leetcode" label="Leetcode"/>
+                <Form.Check label="Hackerrank"/> */}
+              </Form.Group>
             </div>
-          ))}
+          </Form.Group>
+          <h3 className="notifs">Email Notifications</h3>
+          <div className="bootbutton">
+            <BootstrapSwitchButton checked={true} size="sm"/>
+          </div>
+          <div className="col-md-10 text-center">
+          <Button variant="outline-light" size="sm" type="submit">Save Changes</Button>
+        </div>
         </Form>
-        <h3 className="notifs">Email Notifications</h3>
-        <div className="bootbutton">
-          <BootstrapSwitchButton checked={true} size="sm"/>
-        </div>
-        <div className="col-md-10 text-center">
-          <Button variant="outline-light" size="sm">Save Changes</Button>
-        </div>
       </div>
     )
   }
