@@ -1,8 +1,6 @@
 require("dotenv").config({silent: true})
 const path = require("path")
 const fs = require("fs")
-const mongoose = require("mongoose")
-require("./db")
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 
 // import and instantiate express
@@ -22,7 +20,7 @@ const cors = require("cors")
 //Mongoose
 require("./db.js")
 const mongoose = require("mongoose")
-const Users = mongoose.model('Users')
+const User = mongoose.model('User')
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -33,7 +31,6 @@ app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
 
-const User = mongoose.model("User")
 const auth = passport.authenticate("jwt", {session: false})
 
 app.get("/", (req, res) => {
