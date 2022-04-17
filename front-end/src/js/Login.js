@@ -25,7 +25,7 @@ export default function Login() {
 
   useEffect(() => {
     if (response.success && response.token) {
-      console.log(`User successfully logged in: ${response.username}`)
+      console.log(`User successfully logged in: ${response.email}`)
       localStorage.setItem("token", response.token)
     }
   }, [response])
@@ -44,7 +44,7 @@ export default function Login() {
 
     try {
       const requestData = {
-        username: e.target.username.value,
+        email: e.target.email.value,
         password: e.target.password.value,
       }
       console.log(requestData)
@@ -58,7 +58,7 @@ export default function Login() {
       setResponse(responsePost.data)
     } catch (err) {
       // request failed... user entered invalid credentials
-      setErrorMessage("Username/password incorrect!")
+      setErrorMessage("Email/password incorrect!")
     }
   }
 
@@ -73,7 +73,7 @@ export default function Login() {
               label="Email"
               className="mb-3"
             >
-              <Form.Control type="email" name="username" placeholder="Email" />
+              <Form.Control type="email" name="email" placeholder="Email" />
             </FloatingLabel>
             <FloatingLabel controlId="floatingPassword" label="Password">
               <Form.Control type="password" name="password" placeholder="Password" />
