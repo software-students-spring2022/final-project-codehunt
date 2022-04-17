@@ -18,6 +18,11 @@ const jwt = require("jsonwebtoken")
 const passport = require("passport")
 const cors = require("cors")
 
+//Mongoose
+require("./db.js")
+const mongoose = require("mongoose")
+const Users = mongoose.model('Users')
+
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -26,10 +31,6 @@ app.use("/static", express.static("public"))
 app.use(passport.initialize())
 app.use(cors())
 passport.use(jwtStrategy)
-
-app.get("/", (req, res) => {
-  res.send("Hello")
-})
 
 app.get(
     "/protected",
@@ -107,6 +108,5 @@ const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
-
 
 module.exports = app
