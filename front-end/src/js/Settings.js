@@ -118,11 +118,13 @@ export default function Settings(props) {
               <Form.Group>
                 {listOfItems.map((item, index) =>
                   <Form.Check
-                      key={index}
-                      label = {item.name}
-                      name = {item.name}
-                      checked={item.isChecked}
-                      onChange={() => updateListOfItems(index, !item.isChecked)} />
+                    key={index}
+                    label = {item.name}
+                    name = {item.name}
+                    checked={item.isChecked}
+                    onChange={() =>
+                      updateListOfItems(index, !item.isChecked)}
+                  />,
                 )}
                 {/* <Form.Check onChange = { handleChecked } name = "leetcode" label="Leetcode"/>
                 <Form.Check label="Hackerrank"/> */}
