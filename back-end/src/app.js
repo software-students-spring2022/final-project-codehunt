@@ -44,24 +44,23 @@ app.get("/userSettings", auth,(req, res) => {
         id: user._id,
         email: user.email,
         subscription: user.subscriptions,
+        password: user.password,
       },
     })
   })
 })
 
 app.post("/edit", (req, res) => {
-  const update = {subscriptions: req.body.subscriptions};
-  const opts = {new: true};
-
   User.findOne({_id: req.body.id}).then( x =>{
     x['subscriptions'] = req.body.subscriptions
+    x['password'] = req.body.password
     x.save()
-  })
+  });
+
 
   const current = User.find({_id:req.body.id}).then(
     data => {
-      console.log(data[0].subscriptions)
-
+      console.log(data[0])
     }
   );
 

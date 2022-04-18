@@ -17,6 +17,7 @@ export default function Settings(props) {
       jwtToken !== "null" && jwtToken !== null,
   )
   const [userID,setUserId] = useState('');
+  const [password, setPassword] = useState('');
   const updateListOfItems = (itemIndex, newsChecked) => {
     const updatedListOfItems = [...listOfItems];
     updatedListOfItems[itemIndex].isChecked = newsChecked;
@@ -26,11 +27,12 @@ export default function Settings(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let index = 0;
-    console.log(userID)
     const changedData = {
       subscriptions: listOfItems,
       id: userID,
+      password: e.target.password.value,
     }
+    setPassword(e.target.password.value)
     const responsePost = await axios.post(
       `${process.env.REACT_APP_BACKEND}/edit`,
       changedData,
@@ -51,9 +53,6 @@ export default function Settings(props) {
     .then((res) => {
       setListOfItems(res.data.user.subscription)
       setUserId(res.data.user.id)
-      console.log(userID)
-
-      console.log(listOfItems)
     })
     .catch((err) => {
       console.log(
