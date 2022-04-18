@@ -9,7 +9,10 @@ describe("GET request to home", () => {
     chai
         .request(app)
         .get("/featuredContests")
-        .then(res => chai.expect(res.status).to.equal(200))
+        .then(res => {
+            chai.expect(res.status).to.equal(200)
+            done()
+        })
         .catch(err => console.error(err))
   })
 
@@ -17,7 +20,10 @@ describe("GET request to home", () => {
     chai
         .request(app)
         .get("/featuredContests")
-        .then(res => chai.expect(res.body).to.be.an('json'))
+        .then(res => {
+            chai.expect(res.body).to.be.an('array')
+            done()
+        })
         .catch(err => console.error(err))
   })
 })
@@ -27,7 +33,10 @@ describe("GET request to protected", () => {
     chai
         .request(app)
         .get("/protected")
-        .then(res => chai.expect(res.status).to.equal(401))
+        .then(res => {
+            chai.expect(res.status).to.equal(401)
+            done()
+        })
         .catch(err => console.error(err))
   })
 })
@@ -57,6 +66,7 @@ describe("Testing login", () => {
             chai.expect(res.status).to.equal(401)
             chai.expect(res.body).to.be.an('json')
             chai.expect(res.body).to.equal({success: false, message: `user not found: wrong@wrong.com.`})
+            done()
         })
         .catch(err => console.error(err))
   })
@@ -72,6 +82,7 @@ describe("Testing login", () => {
             chai.expect(res.status).to.equal(401)
             chai.expect(res.body).to.be.an('json')
             chai.expect(res.body).to.equal({success: false, message: "passwords did not match"})
+            done()
         })
         .catch(err => console.error(err))
   })
@@ -86,6 +97,7 @@ describe("Testing login", () => {
         .then(res => {
             chai.expect(res.status).to.equal(200)
             chai.expect(res.body).to.be.an('json')
+            done()
         })
         .catch(err => console.error(err))
   })
@@ -98,7 +110,8 @@ describe("GET request to contests", () => {
             .get("/get/contests")
             .then(res => {
                 chai.expect(res.status).to.equal(200)
-                chai.expect(res.body).to.be.an('json')
+                chai.expect(res.body).to.be.an('array')
+                done()
             })
             .catch(err => console.error(err))
     })
@@ -154,14 +167,14 @@ describe("Testing signup", () => {
             .request(app)
             .post("/signup")
             .send({
-                email: 'codehunt@gmail.com',
+                email: 'test@test.com',
                 password: 'test',
                 confirmPassword: 'test'
             })
             .then(res => {
-                chai.expect(res.status).to.equal(401)
+                chai.expect(res.status).to.equal(200)
                 chai.expect(res.body).to.be.an('json')
-                chai.expect(res.body).to.equal({success: false, message: "an account already exists for this email"})
+                chai.expect(res.body).to.equal({success: true})
             })
             .catch(err => console.error(err))
     })
