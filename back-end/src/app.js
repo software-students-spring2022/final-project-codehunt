@@ -15,10 +15,9 @@ const passport = require("passport")
 const cors = require("cors")
 
 // Mongoose
-require("./db.js")
 const mongoose = require("mongoose")
-const User = mongoose.model("User")
 const Contest = require("../model/Contest.js")
+const User = require("../model/User.js")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -133,7 +132,9 @@ app.get("/featuredContests", (req, res) => {
 
 const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
+  mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas"))
   console.log(`Server running on port ${PORT}`)
 })
+
 
 module.exports = app
