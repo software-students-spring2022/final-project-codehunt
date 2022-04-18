@@ -31,7 +31,7 @@ passport.use(jwtStrategy)
 const auth = passport.authenticate("jwt", {session: false})
 
 app.get("/userSettings", auth,(req, res) => {
-  User.findOne({_id: req.user.id},(err, user) => {
+  User.findOne({_id: req.user.id}, (err, user) => {
     console.log("a " + req.user.id);
     res.json({
       success: true,
@@ -41,6 +41,9 @@ app.get("/userSettings", auth,(req, res) => {
         subscription: user.subscriptions,
       },
     })
+  })
+})
+
 app.get("/protected", auth, (req, res) => {
   res.json({
     success: true,
@@ -67,7 +70,6 @@ app.post("/edit", (req, res) => {
 
     }
   );
-
 })
 
 app.post("/login", (req, res) => {
