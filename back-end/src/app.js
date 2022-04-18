@@ -1,6 +1,4 @@
 require("dotenv").config({silent: true})
-const path = require("path")
-const fs = require("fs")
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 
 // import and instantiate express
@@ -8,7 +6,6 @@ const express = require("express")
 const app = express()
 
 // import some useful middleware
-const multer = require("multer")
 const axios = require("axios")
 const morgan = require("morgan")
 
@@ -20,8 +17,8 @@ const cors = require("cors")
 // Mongoose
 require("./db.js")
 const mongoose = require("mongoose")
-const User = mongoose.model('User')
-const Contest = mongoose.model('Contest')
+const User = mongoose.model("User")
+const Contest = require("../model/Contest.js")
 
 app.use(morgan("dev"))
 app.use(express.json())
