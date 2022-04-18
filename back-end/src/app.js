@@ -30,9 +30,9 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
-app.get("/userSettings", auth,(req, res) => {
+app.get("/userSettings", auth, (req, res) => {
   User.findOne({_id: req.user.id}, (err, user) => {
-    console.log("a " + req.user.id);
+    console.log("a " + req.user.id)
     res.json({
       success: true,
       user: {
@@ -56,20 +56,19 @@ app.get("/protected", auth, (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
-  const update = {subscriptions: req.body.subscriptions};
-  const opts = {new: true};
+  const update = {subscriptions: req.body.subscriptions}
+  const opts = {new: true}
 
-  User.findOne({_id: req.body.id}).then( x =>{
-    x['subscriptions'] = req.body.subscriptions
+  User.findOne({_id: req.body.id}).then( (x) =>{
+    x["subscriptions"] = req.body.subscriptions
     x.save()
   })
 
-  const current = User.find({_id:req.body.id}).then(
-    data => {
-      console.log(data[0].subscriptions)
-
-    }
-  );
+  const current = User.find({_id: req.body.id}).then(
+      (data) => {
+        console.log(data[0].subscriptions)
+      },
+  )
 })
 
 app.post("/login", (req, res) => {
@@ -129,7 +128,6 @@ app.post("/signup", (req, res) => {
     })
   })
 })
-
 
 
 app.get("/get/contests", (req, res) => {
