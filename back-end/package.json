@@ -4,7 +4,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "nodemon src/app.js",
-    "test": "npx mocha ./test/back-end.test.js"
+    "test": "JWT_SECRET=knowledge.kitchen && npx mocha ./test/back-end.test.js"
   },
   "keywords": [],
   "author": "",
