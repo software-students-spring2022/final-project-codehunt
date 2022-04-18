@@ -30,6 +30,17 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
+app.get("/userSettings", auth,(req, res) => {
+  User.findOne({_id: req.user.id},(err, user) => {
+    console.log("a " + req.user.id);
+    res.json({
+      success: true,
+      user: {
+        id: user._id,
+        email: user.email,
+        subscription: user.subscriptions,
+      },
+    })
 app.get("/protected", auth, (req, res) => {
   res.json({
     success: true,
@@ -39,6 +50,24 @@ app.get("/protected", auth, (req, res) => {
     },
     message: "Congratulations: you have accessed this route because you have a valid JWT token!",
   })
+})
+
+app.post("/edit", (req, res) => {
+  const update = {subscriptions: req.body.subscriptions};
+  const opts = {new: true};
+
+  User.findOne({_id: req.body.id}).then( x =>{
+    x['subscriptions'] = req.body.subscriptions
+    x.save()
+  })
+
+  const current = User.find({_id:req.body.id}).then(
+    data => {
+      console.log(data[0].subscriptions)
+
+    }
+  );
+
 })
 
 app.post("/login", (req, res) => {
@@ -63,7 +92,7 @@ app.post("/login", (req, res) => {
       // we would normally encrypt the password the user submitted to check it against an encrypted copy of the user's password we keep in the database... but here we just compare two plain text versions for simplicity
       // the password the user entered matches the password in our "database" (mock data in this case)
       // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
-      const payload = {id: user.id} // some data we'll encode into the token
+      const payload = {id: user._id} // some data we'll encode into the token
       const token = jwt.sign(payload, jwtOptions.secretOrKey) // create a signed token
       res.status(200).json({success: true, email: user.email, token: token}) // send the token to the client to store
     } else {
@@ -98,6 +127,8 @@ app.post("/signup", (req, res) => {
     })
   })
 })
+
+
 
 app.get("/get/contests", (req, res) => {
   Contest.find((err, data) => {

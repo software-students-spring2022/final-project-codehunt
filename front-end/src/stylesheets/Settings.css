@@ -63,6 +63,20 @@
   border-color: grey;
 }
 
+.settings .subscriptions {
+  margin-left: 60px;
+}
+
+.settings p {
+  margin-left: 60px;
+  font-size: 10px;
+  margin-bottom: 0%;
+}
+
+.settings .form-check .form-check-label {
+  font-size: 15px;
+}
+
 .settings .info div {
   color: white;
   padding-bottom: 15px;
