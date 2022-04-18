@@ -17,7 +17,7 @@ const cors = require("cors")
 // Mongoose
 require("./db.js")
 const mongoose = require("mongoose")
-const User = mongoose.model("User")
+const User = require("../model/User.js")
 const Contest = require("../model/Contest.js")
 
 app.use(morgan("dev"))
@@ -119,17 +119,6 @@ app.use("/featuredContests", (req, res, next) => {
       .then((apiResponse) => res.status(200).json(apiResponse.data))
       .catch((err) => next(err))
 })
-
-app.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(500).send("Could not get featured contests")
-  next()
-})
-
-app.get("/featuredContests", (req, res) => {
-  res.send(apiResponse)
-})
-
 
 const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
