@@ -16,7 +16,7 @@ export default function Settings(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(
       jwtToken !== "null" && jwtToken !== null,
   )
-
+  const [userID,setUserId] = useState('');
   const updateListOfItems = (itemIndex, newsChecked) => {
     const updatedListOfItems = [...listOfItems];
     updatedListOfItems[itemIndex].isChecked = newsChecked;
@@ -26,17 +26,11 @@ export default function Settings(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let index = 0;
-    for (const items of listOfItems){
-      if (items.isChecked === true){
-        listOfItems.splice(index, 1);
-        setListOfItems(listOfItems);
-      }
-      index++;
-    }
+    console.log(userID)
     const changedData = {
       subscriptions: listOfItems,
+      id: userID,
     }
-
     const responsePost = await axios.post(
       `${process.env.REACT_APP_BACKEND}/edit`,
       changedData,
@@ -55,8 +49,11 @@ export default function Settings(props) {
       headers: { Authorization: `JWT ${jwtToken}` },
     })
     .then((res) => {
-      console.log(res.data)
-      setListOfItems(res.data.user.subscriptions)
+      setListOfItems(res.data.user.subscription)
+      setUserId(res.data.user.id)
+      console.log(userID)
+
+      console.log(listOfItems)
     })
     .catch((err) => {
       console.log(
