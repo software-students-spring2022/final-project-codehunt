@@ -2,7 +2,6 @@ const app = require('../src/app')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 chai.use(chaiHttp)
-const mongoose = require("mongoose")
 
 describe("GET request to home", () => {
   it("the response should contain status code 200", (done) => {
