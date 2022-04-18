@@ -1,6 +1,4 @@
 require("dotenv").config({silent: true})
-const path = require("path")
-const fs = require("fs")
 const {jwtOptions, jwtStrategy} = require("./jwt-config.js")
 
 // import and instantiate express
@@ -8,7 +6,6 @@ const express = require("express")
 const app = express()
 
 // import some useful middleware
-const multer = require("multer")
 const axios = require("axios")
 const morgan = require("morgan")
 

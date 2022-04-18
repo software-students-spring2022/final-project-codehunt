@@ -4,12 +4,13 @@
   "main": "src/app.js",
   "scripts": {
     "start": "nodemon src/app.js",
-    "test": "JWT_SECRET=knowledge.kitchen && npx mocha ./test/back-end.test.js"
+    "test": "npx mocha ./test/back-end.test.js",
+    "lint": "eslint src/** && eslint src/web-crawler/**.js && test/**.js",
+    "lint-fix": "eslint src/** --fix && eslint src/web-crawler/**.js --fix && test/** --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "httpw://localhost:3001",
   "dependencies": {
     "axios": "^0.26.1",
     "chai-http": "^4.3.0",
