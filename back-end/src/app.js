@@ -30,10 +30,6 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
-app.get("/", (req, res) => {
-  res.send("Hello")
-})
-
 app.get("/protected", auth, (req, res) => {
   res.json({
     success: true,
