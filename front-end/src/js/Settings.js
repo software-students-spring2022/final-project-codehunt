@@ -112,11 +112,18 @@ export default function Settings(props) {
             <section className="container">
               <h2 className="subs">Subscriptions</h2>
             </section>
-            <p>If you wish to unsubscribe, check the appropriate subscription and click save changes</p>
+            <p>If you wish to unsubscribe,
+              check the appropriate subscription and click save changes</p>
             <div className="subscriptions">
               <Form.Group>
                 {listOfItems.map((item, index) =>
-                  <Form.Check key={index} label = {item.name} name = {item.name} checked={item.isChecked} onChange={() => updateListOfItems(index, !item.isChecked)} />)}
+                  <Form.Check
+                      key={index}
+                      label = {item.name}
+                      name = {item.name}
+                      checked={item.isChecked}
+                      onChange={() => updateListOfItems(index, !item.isChecked)} />
+                )}
                 {/* <Form.Check onChange = { handleChecked } name = "leetcode" label="Leetcode"/>
                 <Form.Check label="Hackerrank"/> */}
               </Form.Group>
