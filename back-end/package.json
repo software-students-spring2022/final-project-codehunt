@@ -4,7 +4,12 @@
   "main": "src/app.js",
   "scripts": {
     "start": "npm install && nodemon src/app.js",
+<<<<<<< Updated upstream
     "test": "npx mocha ./test/back-end.test.js",
+=======
+    "test": " nyc npx mocha ./test/back-end.test.js",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+>>>>>>> Stashed changes
     "lint": "eslint src/** && eslint src/web-crawler/**.js && test/**.js",
     "lint-fix": "eslint src/** --fix && eslint src/web-crawler/**.js --fix && test/** --fix"
   },
