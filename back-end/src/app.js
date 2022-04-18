@@ -139,23 +139,22 @@ app.get("/get/contests", (req, res) => {
   })
 })
 
-// get mock api data for home page
-app.use("/featuredContests", (req, res, next) => {
-  axios.get("https://my.api.mockaroo.com/contests.json?key=a36447e0")
-      .then((apiResponse) => res.status(200).json(apiResponse.data))
-      .catch((err) => next(err))
-})
 
-app.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(500).send("Could not get featured contests")
-  next()
+app.get('/featuredContests', async (req, res) => {
+  try {
+    const contests = await Contest.find(null, null, {limit: 3})
+    res.json({
+      contests: contests,
+      status: 'contests retrieved',
+    })
+  } catch (err) {
+    console.error(err)
+    res.status(400).json({
+      error: err,
+      status: 'contest retrieval failed',
+    })
+  }
 })
-
-app.get("/featuredContests", (req, res) => {
-  res.send(apiResponse)
-})
-
 
 const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
@@ -163,5 +162,9 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
+<<<<<<< HEAD
+module.exports = app
+=======
 
 module.exports = app
+>>>>>>> d0c69e2e273408b864a7847d14d5e1d780968944

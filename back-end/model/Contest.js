@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+
 const contestSchema = new mongoose.Schema({
   platform: {type: String, required: true},
   name: {type: String, required: true},
