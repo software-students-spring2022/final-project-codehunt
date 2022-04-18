@@ -15,10 +15,9 @@ const passport = require("passport")
 const cors = require("cors")
 
 // Mongoose
-require("./db.js")
 const mongoose = require("mongoose")
-const User = mongoose.model("User")
 const Contest = require("../model/Contest.js")
+const User = require("../model/User.js")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -31,10 +30,6 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
-app.get("/", (req, res) => {
-  res.send("Hello")
-})
-
 app.get("/userSettings", auth,(req, res) => {
   User.findOne({_id: req.user.id},(err, user) => {
     console.log("a " + req.user.id);
@@ -46,6 +41,14 @@ app.get("/userSettings", auth,(req, res) => {
         subscription: user.subscriptions,
       },
     })
+app.get("/protected", auth, (req, res) => {
+  res.json({
+    success: true,
+    user: {
+      id: req.user.id,
+      email: req.user.email,
+    },
+    message: "Congratulations: you have accessed this route because you have a valid JWT token!",
   })
 })
 
@@ -156,7 +159,9 @@ app.get("/featuredContests", (req, res) => {
 
 const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
+  mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas"))
   console.log(`Server running on port ${PORT}`)
 })
+
 
 module.exports = app
