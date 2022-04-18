@@ -21,6 +21,7 @@ const cors = require("cors")
 require("./db.js")
 const mongoose = require("mongoose")
 const User = mongoose.model('User')
+const Contest = mongoose.model('Contest')
 
 app.use(morgan("dev"))
 app.use(express.json())
