@@ -15,10 +15,9 @@ const passport = require("passport")
 const cors = require("cors")
 
 // Mongoose
-require("./db.js")
 const mongoose = require("mongoose")
-const User = mongoose.model("User")
 const Contest = require("../model/Contest.js")
+const User = require("../model/User.js")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -31,13 +30,9 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
-app.get("/", (req, res) => {
-  res.send("Hello")
-})
-
-app.get("/userSettings", auth,(req, res) => {
-  User.findOne({_id: req.user.id},(err, user) => {
-    console.log("a " + req.user.id);
+app.get("/userSettings", auth, (req, res) => {
+  User.findOne({_id: req.user.id}, (err, user) => {
+    console.log("a " + req.user.id)
     res.json({
       success: true,
       user: {
@@ -50,20 +45,47 @@ app.get("/userSettings", auth,(req, res) => {
   })
 })
 
+app.get("/protected", auth, (req, res) => {
+  res.json({
+    success: true,
+    user: {
+      id: req.user.id,
+      email: req.user.email,
+    },
+    message: "Congratulations: you have accessed this route because you have a valid JWT token!",
+  })
+})
+
 app.post("/edit", (req, res) => {
+<<<<<<< HEAD
   User.findOne({_id: req.body.id}).then( x =>{
     x['subscriptions'] = req.body.subscriptions
     x['password'] = req.body.password
+=======
+  const update = {subscriptions: req.body.subscriptions}
+  const opts = {new: true}
+
+  User.findOne({_id: req.body.id}).then( (x) =>{
+    x["subscriptions"] = req.body.subscriptions
+>>>>>>> origin
     x.save()
   });
 
 
+<<<<<<< HEAD
   const current = User.find({_id:req.body.id}).then(
     data => {
       console.log(data[0])
     }
   );
 
+=======
+  const current = User.find({_id: req.body.id}).then(
+      (data) => {
+        console.log(data[0].subscriptions)
+      },
+  )
+>>>>>>> origin
 })
 
 app.post("/login", (req, res) => {
@@ -125,7 +147,6 @@ app.post("/signup", (req, res) => {
 })
 
 
-
 app.get("/get/contests", (req, res) => {
   Contest.find((err, data) => {
     const filteredData = data.filter((value) => {
@@ -155,7 +176,9 @@ app.get("/featuredContests", (req, res) => {
 
 const PORT = 3000 || process.env.PORT
 app.listen(PORT, () => {
+  mongoose.connect(process.env.MONGODB_URI).then(() => console.log("Connected to MongoDB Atlas"))
   console.log(`Server running on port ${PORT}`)
 })
+
 
 module.exports = app

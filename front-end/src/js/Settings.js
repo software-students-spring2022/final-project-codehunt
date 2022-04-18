@@ -9,24 +9,34 @@ import { Navigate } from "react-router"
 import axios from "axios"
 
 export default function Settings(props) {
-  const [listOfItems, setListOfItems] = useState([]);
+  const [listOfItems, setListOfItems] = useState([])
   const jwtToken = localStorage.getItem("token")
 
   const [response, setResponse] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(
       jwtToken !== "null" && jwtToken !== null,
   )
+<<<<<<< HEAD
   const [userID,setUserId] = useState('');
   const [password, setPassword] = useState('');
+=======
+  const [userID, setUserId] = useState("")
+>>>>>>> origin
   const updateListOfItems = (itemIndex, newsChecked) => {
-    const updatedListOfItems = [...listOfItems];
-    updatedListOfItems[itemIndex].isChecked = newsChecked;
-    setListOfItems(updatedListOfItems);
+    const updatedListOfItems = [...listOfItems]
+    updatedListOfItems[itemIndex].isChecked = newsChecked
+    setListOfItems(updatedListOfItems)
   }
 
   const handleSubmit = async (e) => {
+<<<<<<< HEAD
     e.preventDefault();
     let index = 0;
+=======
+    e.preventDefault()
+    const index = 0
+    console.log(userID)
+>>>>>>> origin
     const changedData = {
       subscriptions: listOfItems,
       id: userID,
@@ -34,19 +44,20 @@ export default function Settings(props) {
     }
     setPassword(e.target.password.value)
     const responsePost = await axios.post(
-      `${process.env.REACT_APP_BACKEND}/edit`,
-      changedData,
-  )
-  setResponse(responsePost.data)
+        `${process.env.REACT_APP_BACKEND}/edit`,
+        changedData,
+    )
+    setResponse(responsePost.data)
   }
   const handleChecked= async (e) => {
     console.log(e.name)
   }
-  
+
 
   useEffect(() => {
-    let unmounted = false;
+    let unmounted = false
     axios
+<<<<<<< HEAD
     .get(`${process.env.REACT_APP_BACKEND}/userSettings`, {
       headers: { Authorization: `JWT ${jwtToken}` },
     })
@@ -60,10 +71,28 @@ export default function Settings(props) {
       )
       setIsLoggedIn(false)
     })
+=======
+        .get(`${process.env.REACT_APP_BACKEND}/userSettings`, {
+          headers: { Authorization: `JWT ${jwtToken}` },
+        })
+        .then((res) => {
+          setListOfItems(res.data.user.subscription)
+          setUserId(res.data.user.id)
+          console.log(userID)
+
+          console.log(listOfItems)
+        })
+        .catch((err) => {
+          console.log(
+              "The server rejected the request for this protected resource... we probably do not have a valid JWT token.",
+          )
+          setIsLoggedIn(false)
+        })
+>>>>>>> origin
     return () => {
       unmounted = true
     }
-  }, []);
+  }, [])
 
   if (!isLoggedIn) {
     localStorage.removeItem("token")
@@ -111,11 +140,20 @@ export default function Settings(props) {
             <section className="container">
               <h2 className="subs">Subscriptions</h2>
             </section>
-            <p>If you wish to unsubscribe, check the appropriate subscription and click save changes</p>
-            <div class="subscriptions">
+            <p>If you wish to unsubscribe,
+              check the appropriate subscription and click save changes</p>
+            <div className="subscriptions">
               <Form.Group>
                 {listOfItems.map((item, index) =>
-                <Form.Check key={index} label = {item.name} name = {item.name} checked={item.isChecked} onChange={() => updateListOfItems(index, !item.isChecked)} />)}
+                  <Form.Check
+                    key={index}
+                    label = {item.name}
+                    name = {item.name}
+                    checked={item.isChecked}
+                    onChange={() =>
+                      updateListOfItems(index, !item.isChecked)}
+                  />,
+                )}
                 {/* <Form.Check onChange = { handleChecked } name = "leetcode" label="Leetcode"/>
                 <Form.Check label="Hackerrank"/> */}
               </Form.Group>
@@ -126,8 +164,8 @@ export default function Settings(props) {
             <BootstrapSwitchButton checked={true} size="sm"/>
           </div>
           <div className="col-md-10 text-center">
-          <Button variant="outline-light" size="sm" type="submit">Save Changes</Button>
-        </div>
+            <Button variant="outline-light" size="sm" type="submit">Save Changes</Button>
+          </div>
         </Form>
       </div>
     )
