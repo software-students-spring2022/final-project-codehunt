@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "username": "codehunt@codehunt.com",
+    "password": "codehunt",
+    "subscriptions": {
+        "leetcode": true,
+        "codeforces": false,
+        "hackerrank": false
+  }
+},
+  {
+    "id": 2,
+    "username": "admin@codehunt.com",
+    "password": "admin"
+  }
+]
