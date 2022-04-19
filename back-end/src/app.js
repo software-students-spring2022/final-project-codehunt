@@ -6,7 +6,6 @@ const express = require("express")
 const app = express()
 
 // import some useful middleware
-const axios = require("axios")
 const morgan = require("morgan")
 
 // additional middleware
@@ -57,15 +56,15 @@ app.get("/protected", auth, (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
-  User.findOne({_id: req.body.id}).then( x =>{
-    x['subscriptions'] = req.body.subscriptions
-    x['password'] = req.body.password
+  User.findOne({_id: req.body.id}).then( (x) =>{
+    x["subscriptions"] = req.body.subscriptions
+    x["password"] = req.body.password
     x.save()
   })
-  const current = User.find({_id:req.body.id}).then(
-    data => {
-      console.log(data[0])
-    }
+  const current = User.find({_id: req.body.id}).then(
+      (data) => {
+        console.log(data[0])
+      },
   )
 })
 
@@ -138,18 +137,18 @@ app.get("/get/contests", (req, res) => {
 })
 
 
-app.get('/featuredContests', async (req, res) => {
+app.get("/featuredContests", async (req, res) => {
   try {
     const contests = await Contest.find(null, null, {limit: 3})
     res.json({
       contests: contests,
-      status: 'contests retrieved',
+      status: "contests retrieved",
     })
   } catch (err) {
     console.error(err)
     res.status(400).json({
       error: err,
-      status: 'contest retrieval failed',
+      status: "contest retrieval failed",
     })
   }
 })

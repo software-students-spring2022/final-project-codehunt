@@ -16,8 +16,8 @@ export default function Settings(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(
       jwtToken !== "null" && jwtToken !== null,
   )
-  const [userID,setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [userID, setUserId] = useState("")
+  const [password, setPassword] = useState("")
   const updateListOfItems = (itemIndex, newsChecked) => {
     const updatedListOfItems = [...listOfItems]
     updatedListOfItems[itemIndex].isChecked = newsChecked
@@ -25,8 +25,8 @@ export default function Settings(props) {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    let index = 0;
+    e.preventDefault()
+    const index = 0
     const changedData = {
       subscriptions: listOfItems,
       id: userID,
