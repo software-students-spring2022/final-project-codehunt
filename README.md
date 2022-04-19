@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/software-assignments-spring2022/final-project-codehunt/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/final-project-codehunt/tree/master)
+
 <h2>Product Vision Statement</h2>
 <h4>What and why?</h4>
 CodeHunt is a information hub for users in the Computer Science field. In the information age, information overload slows our productivity. There are excessive events/contest occurring on multiple web contest websites, such as LeetCode, CodeForces, Kaggle. It's time-consuming to keep track of all the events by bouncing from website to websites. Our goal is to build a webapp that collects and aggregates information on the user's behalf. All they need to do is login to CodeHunt and see the pages that they have subscribed to and feature events. 
