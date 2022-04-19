@@ -16,12 +16,8 @@ export default function Settings(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(
       jwtToken !== "null" && jwtToken !== null,
   )
-<<<<<<< HEAD
   const [userID,setUserId] = useState('');
   const [password, setPassword] = useState('');
-=======
-  const [userID, setUserId] = useState("")
->>>>>>> origin
   const updateListOfItems = (itemIndex, newsChecked) => {
     const updatedListOfItems = [...listOfItems]
     updatedListOfItems[itemIndex].isChecked = newsChecked
@@ -29,14 +25,8 @@ export default function Settings(props) {
   }
 
   const handleSubmit = async (e) => {
-<<<<<<< HEAD
     e.preventDefault();
     let index = 0;
-=======
-    e.preventDefault()
-    const index = 0
-    console.log(userID)
->>>>>>> origin
     const changedData = {
       subscriptions: listOfItems,
       id: userID,
@@ -57,21 +47,6 @@ export default function Settings(props) {
   useEffect(() => {
     let unmounted = false
     axios
-<<<<<<< HEAD
-    .get(`${process.env.REACT_APP_BACKEND}/userSettings`, {
-      headers: { Authorization: `JWT ${jwtToken}` },
-    })
-    .then((res) => {
-      setListOfItems(res.data.user.subscription)
-      setUserId(res.data.user.id)
-    })
-    .catch((err) => {
-      console.log(
-          "The server rejected the request for this protected resource... we probably do not have a valid JWT token.",
-      )
-      setIsLoggedIn(false)
-    })
-=======
         .get(`${process.env.REACT_APP_BACKEND}/userSettings`, {
           headers: { Authorization: `JWT ${jwtToken}` },
         })
@@ -88,7 +63,6 @@ export default function Settings(props) {
           )
           setIsLoggedIn(false)
         })
->>>>>>> origin
     return () => {
       unmounted = true
     }

@@ -57,35 +57,16 @@ app.get("/protected", auth, (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
-<<<<<<< HEAD
   User.findOne({_id: req.body.id}).then( x =>{
     x['subscriptions'] = req.body.subscriptions
     x['password'] = req.body.password
-=======
-  const update = {subscriptions: req.body.subscriptions}
-  const opts = {new: true}
-
-  User.findOne({_id: req.body.id}).then( (x) =>{
-    x["subscriptions"] = req.body.subscriptions
->>>>>>> origin
     x.save()
-  });
-
-
-<<<<<<< HEAD
+  })
   const current = User.find({_id:req.body.id}).then(
     data => {
       console.log(data[0])
     }
-  );
-
-=======
-  const current = User.find({_id: req.body.id}).then(
-      (data) => {
-        console.log(data[0].subscriptions)
-      },
   )
->>>>>>> origin
 })
 
 app.post("/login", (req, res) => {
@@ -179,9 +160,4 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
-<<<<<<< HEAD
 module.exports = app
-=======
-
-module.exports = app
->>>>>>> d0c69e2e273408b864a7847d14d5e1d780968944
