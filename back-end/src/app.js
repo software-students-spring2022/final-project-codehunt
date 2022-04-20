@@ -29,6 +29,10 @@ passport.use(jwtStrategy)
 
 const auth = passport.authenticate("jwt", {session: false})
 
+app.get("/", (req, res) => {
+  res.send("This is the back-end api for the codehunt app")
+})
+
 app.get("/userSettings", auth, (req, res) => {
   User.findOne({_id: req.user.id}, (err, user) => {
     console.log("a " + req.user.id)

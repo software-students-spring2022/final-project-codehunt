@@ -36,6 +36,10 @@ function ContestList(props) {
     }, 1000)
   }, [])
 
+  // convert string to int
+  const convertToInt = (str) => {
+    return parseInt(str.replace(/[^0-9]/g, ""))
+  }
 
   return (
     <div>
@@ -44,7 +48,7 @@ function ContestList(props) {
       <div className="contestlist-cards">
         {data.map((value, index) => {
           return (
-            <div key={index} className={`contestlist-card contestlist-card-${index % 5}`}>
+            <div key={index} className={`contestlist-card contestlist-card-${convertToInt(value.name) % 5}`}>
               <div className="contestlist-card__icon">
                 <img alt="logo" src={value.logo} ></img>
               </div>
