@@ -28,7 +28,7 @@ const Home = () => {
 
       <section className = "ContestsBlock">
 
-         {featuredContests.map((contest) => (
+        {featuredContests.map((contest) => (
           <Contest key={contest.id}
             name = {contest.name}
             platform={contest.platform}
@@ -38,7 +38,7 @@ const Home = () => {
             link={contest.url}
             logo={contest.logo}
           />
-        ))} 
+        ))}
 
       </section>
     </div>
