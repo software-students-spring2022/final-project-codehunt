@@ -4,7 +4,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "npm install && nodemon src/app.js",
-    "test": " nyc npx mocha ./test/back-end.test.js",
+    "test": " nyc npx mocha ./test/*.test.js --exit",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
     "lint": "eslint src/** && eslint src/web-crawler/** && test/**",
     "lint-fix": "eslint src/** --fix && eslint src/web-crawler/** --fix && test/** --fix"
