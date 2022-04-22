@@ -9,6 +9,7 @@ const Contest = (props) => {
   // contest start_date
   // contest end_date
   // contest description
+  //<p>Details: {props.description}</p>
   return (
     <div>
       <meta className="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +24,6 @@ const Contest = (props) => {
           <h2 className="contestlist-card__title">{props.name}</h2>
           <div className="contestlist-card__content">
             <p>Time: {props.start_date} - {props.end_date}</p>
-            <p>Details: {props.description}</p>
           </div>
           <p className="contestlist-card__apply">
             <a className="contestlist-card__link" target="_blank"

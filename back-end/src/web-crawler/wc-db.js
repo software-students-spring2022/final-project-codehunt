@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGODB_URI)
       console.log(data)
       data.forEach((element) => {
         Contest.count({name: element.name}, (err, count) => {
-          if (count == 0) {
+          if (count == 0 && Date.parse(element.timeEnd) > Date.now()) {
             new Contest({
               platform: element.platform,
               name: element.name,
