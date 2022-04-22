@@ -146,7 +146,7 @@ app.get("/featuredContests", async (req, res) => {
     const filteredData = featuredContests.filter((value) => {
       return Date.parse(value.timeStart) > Date.now()
     })
-    resData = filteredData.slice(0,3)
+    resData = filteredData.slice(0, 3)
     res.status(200).send(JSON.parse(JSON.stringify(resData)))
   })
 })

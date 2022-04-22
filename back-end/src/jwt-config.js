@@ -1,3 +1,4 @@
+require("dotenv").config({silent: true})
 const passportJWT = require("passport-jwt")
 const User = require("../model/User.js")
 
