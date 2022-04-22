@@ -15,8 +15,8 @@ const Home = () => {
           console.log(response.data)
           setData(response.data)
         })
-        .catch((response) => {
-          console.log("Failed to get featured contests")
+        .catch((error) => {
+          console.log(error)
         })
   }, [])
 
