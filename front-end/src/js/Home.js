@@ -35,7 +35,7 @@ const Home = () => {
             start_date={contest.timeStart}
             end_date={contest.timeEnd}
             description={contest.description}
-            link={contest.link}
+            link={contest.url}
             logo={contest.logo}
           />
         ))}
