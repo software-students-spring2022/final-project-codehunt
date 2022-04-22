@@ -7,24 +7,13 @@ import axios from "axios"
 const Home = () => {
   const [featuredContests, setData] = useState([])
 
-  /*
-  useEffect(() => {
-    const getContests = async () => {
-      const pullContests = await axios("https://my.api.mockaroo.com/contests.json?key=a36447e0")
-      setData(pullContests.data)
-    }
-
-
-    getContests()
-    */
-
 
   useEffect(() => {
     axios
         .get(`${process.env.REACT_APP_BACKEND}/featuredContests`)
         .then((response) => {
           console.log("Get featured contests success")
-          setData(response.data)
+          setData(response.data.contests)
         })
         .catch((response) => {
           console.log("Failed to get featured contests")
@@ -43,8 +32,8 @@ const Home = () => {
           <Contest key={contest.id}
             name = {contest.name}
             platform={contest.platform}
-            start_date={contest.start_date}
-            end_date={contest.end_date}
+            start_date={contest.timeStart}
+            end_date={contest.timeEnd}
             description={contest.description}
             link={contest.link}
             logo={contest.logo}
