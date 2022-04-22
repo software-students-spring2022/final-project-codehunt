@@ -138,19 +138,13 @@ app.get("/get/contests", (req, res) => {
 
 
 app.get("/featuredContests", async (req, res) => {
-  try {
-    const contests = await Contest.find(null, null, {limit: 3})
-    res.json({
-      contests: contests,
-      status: "contests retrieved",
+  Contest.find((err, featuredContests) => {
+    const filteredData = featuredContests.filter((value) => {
+      return Date.parse(value.timeStart) > Date.now()
     })
-  } catch (err) {
-    console.error(err)
-    res.status(400).json({
-      error: err,
-      status: "contest retrieval failed",
-    })
-  }
+    resData = filteredData.slice(0,3)
+    res.status(200).send(JSON.parse(JSON.stringify(resData)))
+  })
 })
 
 const PORT = 3000 || process.env.PORT

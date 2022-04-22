@@ -12,8 +12,8 @@ const Home = () => {
     axios
         .get(`${process.env.REACT_APP_BACKEND}/featuredContests`)
         .then((response) => {
-          console.log("Get featured contests success")
-          setData(response.data.contests)
+          console.log(response.data)
+          setData(response.data)
         })
         .catch((response) => {
           console.log("Failed to get featured contests")
