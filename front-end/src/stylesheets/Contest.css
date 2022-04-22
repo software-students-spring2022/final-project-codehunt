@@ -1,54 +1,55 @@
-.contestlist * {
+.contest * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.contestlist-body {
+.contest-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.contestlist-main-container {
+.contest-main-container {
   padding: 30px;
 }
 
 
 /* HEADING */
 
-.contestlist-heading {
+.contest-heading {
   text-align: center;
 }
 
-.contestlist-heading__title {
+.contest-heading__title {
   font-weight: 600;
 }
 
-.contestlist-heading__credits {
+.contest-heading__credits {
   margin: 10px 0px;
   color: #888888;
   font-size: 25px;
   transition: all 0.5s;
 }
 
-.contestlist-heading__link {
+.contest-heading__link {
+  color:rgba(0, 0, 0, 0.4);
   text-decoration: none;
 }
 
-.contestlist-heading__credits .heading__link {
+.contest-heading__credits .heading__link {
   color: inherit;
 }
 
 
 /* CARDS */
 
-.contestlist-cards {
+.contest-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.contestlist-card {
+.contest-card {
   margin: 20px;
   padding: 20px;
   width: 380px;
@@ -61,13 +62,13 @@
   transition: all 0.2s;
 }
 
-.contestlist-card:hover {
+.contest-card:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.01);
 }
 
-.contestlist-card__link,
-.contestlist-card__icon {
+.contest-card__link,
+.contest-card__icon {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
@@ -75,18 +76,18 @@
   height: 80px;
 }
 
-.contestlist-card__exit {
+.contest-card__exit {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.contestlist-card__icon img {
+.contest-card__icon img {
   width: 100%;
   height: auto;
 }
 
-.contestlist-card__link::after {
+.contest-card__link::after {
   position: absolute;
   top: 25px;
   left: 0;
@@ -97,36 +98,36 @@
   transition: all 0.5s;
 }
 
-.contestlist-card__link:hover::after {
+.contest-card__link:hover::after {
   width: 100%;
 }
 
-.contestlist-card__exit {
+.contest-card__exit {
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
 }
 
-.contestlist-card__icon {
+.contest-card__icon {
   grid-row: 1 / 4;
   font-size: 30px;
 }
 
-.contestlist-card__title {
+.contest-card__title {
   grid-row: 1;
   grid-column: 2;
   font-weight: 400;
   color: #ffffff;
 }
 
-.contestlist-card__content {
+.contest-card__content {
   grid-column: 2;
   grid-row: 2;
   font-weight: 400;
   color: #ffffff;
 }
 
-.contestlist-card__apply {
+.contest-card__apply {
   grid-row: 4;
   align-self: center;
 }
@@ -134,15 +135,15 @@
 
 /* CARD BACKGROUNDS */
 
-.contestlist-card-0 {
-  background: radial-gradient(#1fe4f5, #3fbafe);
+.contest-card-0 {
+  background: radial-gradient(#1f4baa, #9ef4ff);
 }
 
 
 /* RESPONSIVE */
 
 @media (max-width: 1600px) {
-  .contestlist-cards {
+  .contest-cards {
       justify-content: center;
   }
 }
