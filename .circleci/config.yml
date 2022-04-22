@@ -10,6 +10,8 @@ jobs:
         # auth:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    environment:
+      JWT_SECRET: test
     steps:
       - checkout
       - run: echo "this is the build and test express.js job"
@@ -27,8 +29,6 @@ jobs:
         # auth:
         #   username: mydockerhub-user
         #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    environment:
-      JWT_SECRET: test
     steps:
       - checkout
       - run: echo "this is the build react.js job"
