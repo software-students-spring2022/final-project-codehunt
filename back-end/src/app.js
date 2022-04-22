@@ -17,6 +17,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const Contest = require("../model/Contest.js")
 const User = require("../model/User.js")
+const { ConsoleMessage } = require("puppeteer")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -142,13 +143,18 @@ app.get("/get/contests", (req, res) => {
 
 
 app.get("/featuredContests", async (req, res) => {
-  Contest.find((err, featuredContests) => {
-    const filteredData = featuredContests.filter((value) => {
-      return Date.parse(value.timeStart) > Date.now()
+  try{
+    Contest.find((err, featuredContests) => {
+      const filteredData = featuredContests.filter((value) => {
+        return Date.parse(value.timeStart) > Date.now()
+      })
+      resData = filteredData.slice(0,3)
+      res.status(200).json(JSON.parse(JSON.stringify(resData)))
     })
-    resData = filteredData.slice(0,3)
-    res.status(200).send(JSON.parse(JSON.stringify(resData)))
-  })
+  } catch {
+    res.json(err)
+  }
+  
 })
 
 const PORT = 3000 || process.env.PORT
