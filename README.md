@@ -31,7 +31,7 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
   <li>Navigate into the project directory</li>
 </ol>
 
-<h3> Build and launch the front end</h3>
+<h3> Build and launch the back end</h3>
 <ol>
   <li>cd back-end</li>
   <li>npm install</li>
