@@ -1,8 +1,5 @@
 [![CircleCI](https://circleci.com/gh/software-assignments-spring2022/final-project-codehunt/tree/master.svg?style=shield)](https://circleci.com/gh/software-assignments-spring2022/final-project-codehunt/tree/master)
 ![last commit](https://img.shields.io/github/last-commit/software-assignments-spring2022/final-project-codehunt?logo=Github)
-![open issues](https://img.shields.io/github/issues-raw/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
-![closed issues](https://img.shields.io/github/issues-closed-raw/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
-![closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
 ![license](https://img.shields.io/github/license/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
 
 <h2>Product Vision Statement</h2>
