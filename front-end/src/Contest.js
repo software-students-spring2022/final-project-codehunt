@@ -1,5 +1,5 @@
 import React from "react"
-import "../stylesheets/Contest.css"
+import "./Contest.css"
 
 
 const Contest = (props) => {

@@ -4,7 +4,7 @@ import BootstrapSwitchButton from "bootstrap-switch-button-react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Button } from "react-bootstrap"
-import "../stylesheets/Settings.css"
+import "./Settings.css"
 import { Navigate } from "react-router"
 import axios from "axios"
 

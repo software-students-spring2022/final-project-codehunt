@@ -1,5 +1,5 @@
 import React from "react"
-import "../stylesheets/App.css"
+import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import Header from "./Header"

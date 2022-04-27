@@ -1,12 +1,12 @@
-import "../stylesheets/Header.css"
+import "./Header.css"
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { Navbar, Container, Nav } from "react-bootstrap"
-import logo from "../img/Header-logo.png"
-import home from "../img/Header-home.png"
-import list from "../img/Header-list.png"
-import profile from "../img/Header-profile.png"
-import about from "../img/Header-about.png"
+import logo from "./Header-logo.png"
+import home from "./Header-home.png"
+import list from "./Header-list.png"
+import profile from "./Header-profile.png"
+import about from "./Header-about.png"
 
 const Profile = (props) => {
   const isLoggedIn = props.isLoggedIn

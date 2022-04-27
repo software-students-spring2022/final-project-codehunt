@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import "../stylesheets/ContestList.css"
+import "./ContestList.css"
 import axios from "axios"
 
 

@@ -4,7 +4,7 @@ import axios from "axios"
 import FloatingLabel from "react-bootstrap/FloatingLabel"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import "../stylesheets/Signup.css"
+import "./Signup.css"
 
 export default function Signup() {
   const jwtToken = localStorage.getItem("token")

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Contest from "./Contest"
-import "../stylesheets/Home.css"
+import "./Home.css"
 import axios from "axios"
 
 
