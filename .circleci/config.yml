@@ -42,7 +42,7 @@ jobs:
       - run: echo "this is the continuous integration job"
       - run: |
           ssh admin@206.189.180.175
-          yes | ./script
+          yes | command-that-asks-for-input
           git clone https://github.com/software-assignments-spring2022/final-project-codehunt.git
           
           cd final-project-codehunt/back-end
