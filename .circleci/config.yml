@@ -7,9 +7,6 @@ jobs:
   build-and-test-express-js:
     docker:
       - image: cimg/node:16.13.0 # latest stable node at the time of writing
-        # auth:
-        #   username: mydockerhub-user
-        #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     environment:
       JWT_SECRET: test
     steps:
@@ -26,9 +23,6 @@ jobs:
   build-react-js:
     docker:
       - image: cimg/node:16.13.0 # latest stable node at the time of writing
-        # auth:
-        #   username: mydockerhub-user
-        #   password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
       - run: echo "this is the build react.js job"
@@ -40,6 +34,25 @@ jobs:
           cd front-end
           npm install # install all dependencies listed in package.json
           npm run build # have react build the stand-alone front-end code
+  continuous-integration:
+    docker:
+      - image: cimg/node:16.13.0 # latest stable node at the time of writing
+    steps:
+      - checkout
+      - run: echo "this is the continuous integration job"
+      - run: |
+          ssh admin@206.189.180.175
+          git clone https://github.com/software-assignments-spring2022/final-project-codehunt.git
+          
+          cd final-project-codehunt/back-end
+          pm2 start npm -- start
+          cd final-project-codehunt/front-end
+          pm2 start npm -- start
+          
+          cd final-project-codehunt/front-end
+          npm run build
+          rm -rf final-project-codehunt/back-end/client
+          cp -R ./build final-project-codehunt/back-end/client
 
 # Orchestrate our job run sequence
 workflows:
@@ -49,3 +62,6 @@ workflows:
   build-front-end:
     jobs:
       - build-react-js
+  continuous-integration:
+    jobs:
+      - continuous-integration
