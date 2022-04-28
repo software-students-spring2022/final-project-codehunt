@@ -42,7 +42,7 @@ jobs:
       - run: echo "this is the continuous integration job"
       - run: |
           admin@206.189.180.175
-          echo "yes"
+#          echo "yes"
           git clone https://github.com/software-assignments-spring2022/final-project-codehunt.git
           
           cd final-project-codehunt/back-end
