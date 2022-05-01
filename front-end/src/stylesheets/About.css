@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+.Home {
+    /* some spacing around the entire contents of the app */
+    margin: 20px;
+    color:white;
+}
+
+.header{
+    font-weight: bold;
+    padding: 0px 0px 0px 10px;
+}
+
+.primary{
+    text-align: justify;
+    color: white;
+    padding: 10px;
+}
+
+.titlelink{
+    color: white;
+    font-weight: bold;
+}
+
+.titlelink:hover{
+    color: rgb(255, 164, 154);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.break{
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.credits{
+    padding: 10px 10px 30px 10px;;
+}
+
+.littleheader{
+    font-weight: bold;
+}
+
+.contributors{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 25vh;
+}
+
+.nameButton{
+    border: 0px solid black;
+    text-decoration: none;
+    width: 30%;
+    height: 40%;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    transition: 0.2s;
+}
+
+.nameButton:hover{
+    background: rgb(255, 164, 154);
+    transform: scale(1.08);
+    transition: 0.3s;
+}
+
+.nameButton:active{
+    background: salmon;
+    transition: 0s;
+    transform: scale(1.05);
+}
+
+.profilepic{
+    border: 0px solid black;
+    max-height: 100%;
+    max-width: 100%;
+    height: 30px;
+    border-radius: 100px;
+    margin: 10px 0px 10px 10px;
+}
+
+.name{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.name:hover{
+    color: black;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px 0px 0px;
+}
