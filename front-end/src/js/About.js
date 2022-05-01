@@ -22,7 +22,7 @@ const About = (props) => {
       </div>
       <h3 className="break">• • •</h3>
       <div className="credits">
-        <h4 className="littleheader">CodeHunt was created by:</h4>
+        <h3 className="littleheader">CodeHunt was created by:</h3>
         <div className="contributors">
           <a className="nameButton" href="https://github.com/charliecai00">
             <img className="profilepic" src="https://avatars.githubusercontent.com/u/90638467?v=4"/>
@@ -31,10 +31,6 @@ const About = (props) => {
           <a className="nameButton" href="https://github.com/dinanz">
             <img className="profilepic" src="https://avatars.githubusercontent.com/u/60189142?v=4"/>
             <div className="name">Diana Zhao</div>
-          </a>
-          <a className="nameButton" href="https://github.com/b0ub0">
-            <img className="profilepic" src="https://avatars.githubusercontent.com/u/90593125?v=4"/>
-            <div className="name">Chengyang Song</div>
           </a>
           <a className="nameButton" href="https://github.com/kopokopok">
             <img className="profilepic" src="https://avatars.githubusercontent.com/u/59316474?v=4"/>
@@ -47,6 +43,10 @@ const About = (props) => {
           <a className="nameButton" href="https://github.com/andrewshin02">
             <img className="profilepic" src="https://avatars.githubusercontent.com/u/59899452?v=4"/>
             <div className="name">Andrew Shin</div>
+          </a>
+          <a className="nameButton" href="https://github.com/b0ub0">
+            <img className="profilepic" src="https://avatars.githubusercontent.com/u/90593125?v=4"/>
+            <div className="name-quit">Chengyang Song</div>
           </a>
         </div>
         <div className="copyright">© 2022 CodeHunt</div>
