@@ -20,7 +20,6 @@ function ContestList(props) {
   const getContestData = () => {
     axios.get(`${process.env.REACT_APP_BACKEND}/get/contests`)
         .then((data) => {
-          console.log(data.data)
           data.data.sort(function(a, b) {
             return Date.parse(a.timeStart) - Date.parse(b.timeStart)
           })
@@ -67,7 +66,7 @@ function ContestList(props) {
                 >Go to {value.platform} <i className="fas fa-arrow-right"></i></a>
               </p>
             </div>
-            )
+          )
         })}
       </div>
     </div>

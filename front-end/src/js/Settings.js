@@ -53,9 +53,6 @@ export default function Settings(props) {
         .then((res) => {
           setListOfItems(res.data.user.subscription)
           setUserId(res.data.user.id)
-          console.log(userID)
-
-          console.log(listOfItems)
         })
         .catch((err) => {
           console.log(
