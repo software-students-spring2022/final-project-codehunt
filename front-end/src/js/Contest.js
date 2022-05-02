@@ -9,7 +9,7 @@ const Contest = (props) => {
   // contest start_date
   // contest end_date
   // contest description
-  //<p>Details: {props.description}</p>
+  // <p>Details: {props.description}</p>
   return (
     <div>
       <meta className="viewport" content="width=device-width, initial-scale=1">
