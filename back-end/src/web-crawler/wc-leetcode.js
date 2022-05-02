@@ -4,7 +4,7 @@ const puppeteer = require("puppeteer")
 async function getLeetcodeContent() {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto("http://www.leetcode.com/contest", {waitUntil: "networkidle0"})
+  await page.goto("http://www.leetcode.com/contest", {waitUntil: "networkidle0", timeout: 0})
 
   // const websiteContent = await page.content();
   const contestName = await page.$$eval(

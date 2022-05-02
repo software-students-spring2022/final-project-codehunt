@@ -1,12 +1,14 @@
 const fs = require("fs")
 const {getLeetcodeContent} = require("./wc-leetcode.js")
 const {getCodeForcesContent} = require("./wc-codeforces.js")
+const {getCodeChefContent} = require("./wc-codechef.js")
 
 
 Promise
     .all([
       getLeetcodeContent(),
       getCodeForcesContent(),
+      getCodeChefContent()
     ])
     .then((data) => {
       const contests = []
