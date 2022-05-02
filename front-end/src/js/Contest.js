@@ -23,12 +23,12 @@ const Contest = (props) => {
           </i></p>
           <h2 className="contest-card__title">{props.name}</h2>
           <div className="contest-card__content">
-            <p>Time: {props.start_date} - {props.end_date}</p>
+            <p>{props.start_date} - {props.end_date}</p>
           </div>
           <p className="contest-card__apply">
             <a className="contest-card__link" target="_blank"
               rel="noopener noreferrer" href={props.link}>
-              Go to Website <i className="fas fa-arrow-right"></i></a>
+              Go to {props.platform} <i className="fas fa-arrow-right"></i></a>
           </p>
         </div>
       </div>

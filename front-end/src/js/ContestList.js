@@ -58,15 +58,16 @@ function ContestList(props) {
               <div className="contestlist-card__content">
                 <p>{value.name}</p>
                 <p>{value.timeStart}</p>
-                <p>{msToDHM(Date.parse(value.timeStart) - currentTime)}</p>
+                <p>Countdown: {msToDHM(Date.parse(value.timeStart) - currentTime)}</p>
               </div>
 
               <p className="contestlist-card__apply">
                 <a className="contestlist-card__link" target="_blank"
                   rel="noopener noreferrer" href={value.url}
-                >Goto Website<i className="fas fa-arrow-right"></i></a>
+                >Go to {value.platform} <i className="fas fa-arrow-right"></i></a>
               </p>
-            </div>)
+            </div>
+            )
         })}
       </div>
     </div>

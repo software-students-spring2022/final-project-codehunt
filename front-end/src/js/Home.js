@@ -24,6 +24,9 @@ const Home = () => {
   return (
     <div className = "ContestsHome">
 
+      <h1>Welcome to CodeHunt!</h1>
+      <p>Explore all live and upcoming coding contests across popular platforms.</p>
+      <p></p>
       <h1>Featured Contests</h1>
 
       <section className = "ContestsBlock">

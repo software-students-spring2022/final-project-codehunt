@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-const app = require('../src/app.js')
-const chai = require('chai')
-const chaiHttp = require('chai-http')
-=======
 const app = require("../src/app")
 const chai = require("chai")
 const chaiHttp = require("chai-http")
->>>>>>> fe3cc1644c73b32888a93c03814b0606d276a9da
 chai.use(chaiHttp)
 
 describe("GET request to home", () => {
