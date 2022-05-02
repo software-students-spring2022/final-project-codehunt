@@ -13,7 +13,6 @@ function msToDHM(v) {
 }
 
 function ContestList(props) {
-  // const { data } = props
   const [data, setData] = useState([])
   const [currentTime, setCurrentTime] = useState(Date.now())
 
