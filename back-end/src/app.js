@@ -35,7 +35,6 @@ app.get("/", (req, res) => {
 })
 
 app.get("/userSettings", auth, (req, res) => {
-  console.log("here")
   User.findOne({_id: req.user.id}, (err, user) => {
     res.json({
       success: true,
