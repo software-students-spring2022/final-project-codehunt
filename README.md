@@ -2,8 +2,8 @@
 ![last commit](https://img.shields.io/github/last-commit/software-assignments-spring2022/final-project-codehunt?logo=Github)
 ![license](https://img.shields.io/github/license/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
 
-<h2>Presentation Slides</h2>
-https://docs.google.com/presentation/d/1kdVeGxkYYRgLFozx8yp_TGhsAz2TZM2E2bksKq68o_0/edit#slide=id.g126b633247f_0_279
+<h2>Deployed URL</h2>
+<a href="http://157.245.90.75:4000/">Clike me</a>
 
 <h2>Product Vision Statement</h2>
 <h4>What and why?</h4>
