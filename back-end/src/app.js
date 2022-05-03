@@ -117,7 +117,6 @@ app.post("/signup", (req, res) => {
   }
 })
 
-
 app.get("/get/contests", (req, res) => {
   Contest.find((err, data) => {
     const filteredData = data.filter((value) => {

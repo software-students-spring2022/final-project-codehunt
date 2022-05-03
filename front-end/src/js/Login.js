@@ -25,7 +25,6 @@ export default function Login() {
 
   useEffect(() => {
     if (response.success && response.token) {
-      console.log(`User successfully logged in: ${response.email}`)
       localStorage.setItem("token", response.token)
     }
   }, [response])
@@ -47,14 +46,12 @@ export default function Login() {
         email: e.target.email.value,
         password: e.target.password.value,
       }
-      console.log(requestData)
       // send a POST request with the data to the server api to authenticate
       const responsePost = await axios.post(
           `${process.env.REACT_APP_BACKEND}/login`,
           requestData,
       )
       // store the response data into the data state variable
-      console.log(`Server response: ${JSON.stringify(responsePost.data, null, 0)}`)
       setResponse(responsePost.data)
     } catch (err) {
       // request failed... user entered invalid credentials
