@@ -12,7 +12,7 @@ const Home = () => {
     axios
         .get(`${process.env.REACT_APP_BACKEND}/featuredContests`)
         .then((response) => {
-          console.log(response.data)
+          // console.log(response.data)
           setData(response.data)
         })
         .catch((error) => {
@@ -24,6 +24,9 @@ const Home = () => {
   return (
     <div className = "ContestsHome">
 
+      <h1>Welcome to CodeHunt!</h1>
+      <p>Explore all live and upcoming coding contests across popular platforms.</p>
+      <p></p>
       <h1>Featured Contests</h1>
 
       <section className = "ContestsBlock">

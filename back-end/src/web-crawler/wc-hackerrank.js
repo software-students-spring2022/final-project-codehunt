@@ -4,7 +4,7 @@ const puppeteer = require("puppeteer")
 async function getCodeChefContent() {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.goto("https://www.codechef.com/contests?itm_medium=navmenu&itm_campaign=allcontests", {waitUntil: "networkidle0"})
+  await page.goto("https://www.codechef.com/contests?itm_medium=navmenu&itm_campaign=allcontests", {waitUntil: "networkidle0", timeout: 0})
 
   // const websiteContent = await page.content();
   const contestName = await page.$$eval(

@@ -53,9 +53,6 @@ export default function Settings(props) {
         .then((res) => {
           setListOfItems(res.data.user.subscription)
           setUserId(res.data.user.id)
-          console.log(userID)
-
-          console.log(listOfItems)
         })
         .catch((err) => {
           console.log(
@@ -76,30 +73,17 @@ export default function Settings(props) {
   } else {
     return (
       <div className='settings'>
-        <h1 className ="setting">User Settings</h1>
+        <h1 className ="setting">Change password</h1>
         <Form id="info" onSubmit= { handleSubmit }>
           <Form.Group className="info">
-            <Form.Label className="name">Name</Form.Label>
+            <Form.Label className="new Password">New password</Form.Label>
             <br></br>
-            <Row className="name-info">
-              <Form.Group as={Col} controlId='name-info' size='lg'>
-                <Form.Control type='name-change' placeholder="Enter name"/>
-              </Form.Group>
-              <Form.Group as={Col} controlId="nameButton">
-                <Button variant="outline-light" size="sm">Edit</Button>
-              </Form.Group>
-            </Row>
-            <Form.Label className="email">Email Address</Form.Label>
-            <br></br>
-            <Row className="email-info">
-              <Form.Group as={Col} controlId='email' size='lg'>
-                <Form.Control type="email-change" placeholder="Enter email"/>
-              </Form.Group>
-              <Form.Group as={Col} controlId="emailButton">
-                <Button variant="outline-light" size="sm">Edit</Button>
-              </Form.Group>
-            </Row>
-            <Form.Label className="password">Password</Form.Label>
+            <Form.Group as={Col} controlId='password' size='lg'>
+              <Form.Control type="password-change" placeholder="Enter password"/>
+            </Form.Group>
+          </Form.Group>
+          <Form.Group className="info">
+            <Form.Label className="password">Confirm new password</Form.Label>
             <br></br>
             <Row className="password-info">
               <Form.Group as={Col} controlId='password' size='lg'>
@@ -110,10 +94,8 @@ export default function Settings(props) {
               </Form.Group>
             </Row>
           </Form.Group>
+          <h1 className="setting">Subscriptions</h1>
           <Form.Group className="subs">
-            <section className="container">
-              <h2 className="subs">Subscriptions</h2>
-            </section>
             <p>If you wish to unsubscribe,
               check the appropriate subscription and click save changes</p>
             <div className="subscriptions">
@@ -133,14 +115,25 @@ export default function Settings(props) {
               </Form.Group>
             </div>
           </Form.Group>
-          <h3 className="notifs">Email Notifications</h3>
-          <div className="bootbutton">
-            <BootstrapSwitchButton checked={true} size="sm"/>
-          </div>
           <div className="col-md-10 text-center">
             <Button variant="outline-light" size="sm" type="submit">Save Changes</Button>
           </div>
+          <br></br>
+          <h1 className="setting">Email Notifications</h1>
+          <div className="bootbutton">
+            <BootstrapSwitchButton checked={true} size="sm"/>
+          </div>
         </Form>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     )
   }

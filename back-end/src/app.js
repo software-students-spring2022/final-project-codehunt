@@ -117,7 +117,6 @@ app.post("/signup", (req, res) => {
   }
 })
 
-
 app.get("/get/contests", (req, res) => {
   User.findOne({_id: req.body.id}).then( (x) =>{
     console.log("Subscription is: " + req.body.subscriptions);
