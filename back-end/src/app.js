@@ -119,6 +119,9 @@ app.post("/signup", (req, res) => {
 
 
 app.get("/get/contests", (req, res) => {
+  User.findOne({_id: req.body.id}).then( (x) =>{
+    console.log("Subscription is: " + req.body.subscriptions);
+  })
   Contest.find((err, data) => {
     const filteredData = data.filter((value) => {
       return Date.parse(value.timeStart) > Date.now()
