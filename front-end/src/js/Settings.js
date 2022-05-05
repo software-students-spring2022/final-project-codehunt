@@ -44,6 +44,20 @@ export default function Settings(props) {
   }
 
 
+  const handlePassword = async(e) => {
+    e.preventDefault()
+    const changedData = {
+      id: userID,
+      password: e.target.password2.value,
+    }
+    setPassword(e.target.password2.value)
+    const responsePost = await axios.post(
+      `${process.env.REACT_APP_BACKEND}/editPass`,
+      changedData,
+    )
+    setResponse(responsePost.data)
+  }
+
   useEffect(() => {
     let unmounted = false
     axios
@@ -74,11 +88,12 @@ export default function Settings(props) {
     return (
       <div className='settings'>
         <h1 className ="setting">Change password</h1>
-        <Form id="info" onSubmit= { handleSubmit }>
+      
+        <Form id="info" onSubmit= { handlePassword }>
           <Form.Group className="info">
             <Form.Label className="new Password">New password</Form.Label>
             <br></br>
-            <Form.Group as={Col} controlId='password' size='lg'>
+            <Form.Group as={Col} controlId='password1' size='lg'>
               <Form.Control type="password-change" placeholder="Enter password"/>
             </Form.Group>
           </Form.Group>
@@ -86,14 +101,17 @@ export default function Settings(props) {
             <Form.Label className="password">Confirm new password</Form.Label>
             <br></br>
             <Row className="password-info">
-              <Form.Group as={Col} controlId='password' size='lg'>
+              <Form.Group as={Col} controlId='password2' size='lg'>
                 <Form.Control type="password-change" placeholder="Enter password"/>
               </Form.Group>
-              <Form.Group as={Col} controlId="passwordButton">
-                <Button variant="outline-light" size="sm">Reset</Button>
-              </Form.Group>
+              <p></p>
             </Row>
           </Form.Group>
+          <div className="col-md-10 text-center">
+                <Button variant="outline-light" size="sm" type="submit">Reset</Button>
+          </div>
+        </Form>
+        <Form id="info" onSubmit= { handleSubmit }>
           <h1 className="setting">Subscriptions</h1>
           <Form.Group className="subs">
             <p>If you wish to unsubscribe,
@@ -124,6 +142,7 @@ export default function Settings(props) {
             <BootstrapSwitchButton checked={true} size="sm"/>
           </div>
         </Form>
+      
         <br></br>
         <br></br>
         <br></br>

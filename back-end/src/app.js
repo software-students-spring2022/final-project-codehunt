@@ -61,6 +61,15 @@ app.post("/edit", (req, res) => {
   )
 })
 
+app.post("/editPass", (req, res) => {
+  User.findOne({_id: req.body.id}).then( (x) =>{
+    console.log(req.body.password)
+    x["password"] = req.body.password
+    x.save()
+  })
+})
+
+
 app.post("/login", (req, res) => {
   const email = req.body.email
   const password = req.body.password
