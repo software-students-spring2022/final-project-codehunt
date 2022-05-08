@@ -33,96 +33,96 @@ chai.use(chaiHttp)
 //   })
 // })
 
-// describe("Testing login", () => {
-//   it("should return 401 for not providing username or password", (done) => {
-//     chai
-//         .request(app)
-//         .post("/login")
-//         .send()
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(401)
-//           chai.expect(res.body).to.be.an("object")
-//           chai.expect(res.body).to.eql({success: false, message: "no email or password supplied."})
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-//   it("should return 401 for providing wrong username", (done) => {
-//     chai
-//         .request(app)
-//         .post("/login")
-//         .send({
-//           email: "wrong@wrong.com",
-//           password: "wrong",
-//         })
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(401)
-//           chai.expect(res.body).to.be.an("object")
-//           chai.expect(res.body).to.eql({success: false, message: "user not found: wrong@wrong.com."})
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-//   it("should return 401 for providing wrong password", (done) => {
-//     chai
-//         .request(app)
-//         .post("/login")
-//         .send({
-//           email: "codehunt@gmail.com",
-//           password: "wrong",
-//         })
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(401)
-//           chai.expect(res.body).to.be.an("object")
-//           chai.expect(res.body).to.eql({success: false, message: "passwords did not match"})
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-//   it("should return 200 for providing correct username and password", (done) => {
-//     chai
-//         .request(app)
-//         .post("/login")
-//         .send({
-//           email: "codehunt@gmail.com",
-//           password: "abc",
-//         })
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(200)
-//           chai.expect(res.body).to.be.an("object")
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-// })
-//
-// describe("GET request to contests", () => {
-//   it("the response should contain status code 200", (done) => {
-//     chai
-//         .request(app)
-//         .get("/get/contests")
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(200)
-//           chai.expect(res.body).to.be.an("array")
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-// })
+describe("Testing login", () => {
+  it("should return 401 for not providing username or password", (done) => {
+    chai
+        .request(app)
+        .post("/login")
+        .send()
+        .then((res) => {
+          chai.expect(res.status).to.equal(401)
+          chai.expect(res.body).to.be.an("object")
+          chai.expect(res.body).to.eql({success: false, message: "no email or password supplied."})
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+  it("should return 401 for providing wrong username", (done) => {
+    chai
+        .request(app)
+        .post("/login")
+        .send({
+          email: "wrong@wrong.com",
+          password: "wrong",
+        })
+        .then((res) => {
+          chai.expect(res.status).to.equal(401)
+          chai.expect(res.body).to.be.an("object")
+          chai.expect(res.body).to.eql({success: false, message: "user not found: wrong@wrong.com."})
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+  it("should return 401 for providing wrong password", (done) => {
+    chai
+        .request(app)
+        .post("/login")
+        .send({
+          email: "codehunt@gmail.com",
+          password: "wrong",
+        })
+        .then((res) => {
+          chai.expect(res.status).to.equal(401)
+          chai.expect(res.body).to.be.an("object")
+          chai.expect(res.body).to.eql({success: false, message: "passwords did not match"})
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+  it("should return 200 for providing correct username and password", (done) => {
+    chai
+        .request(app)
+        .post("/login")
+        .send({
+          email: "codehunt@gmail.com",
+          password: "abc",
+        })
+        .then((res) => {
+          chai.expect(res.status).to.equal(200)
+          chai.expect(res.body).to.be.an("object")
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+})
+
+describe("GET request to contests", () => {
+  it("the response should contain status code 200", (done) => {
+    chai
+        .request(app)
+        .get("/get/contests")
+        .then((res) => {
+          chai.expect(res.status).to.equal(200)
+          chai.expect(res.body).to.be.an("array")
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+})
 
 describe("Testing signup", () => {
   it("request does not include email, password, or confirmPassword", () => {
