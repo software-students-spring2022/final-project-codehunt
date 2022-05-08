@@ -44,7 +44,7 @@ export default function Settings(props) {
   }
 
 
-  const handlePassword = async(e) => {
+  const handlePassword = async (e) => {
     e.preventDefault()
     const changedData = {
       id: userID,
@@ -52,8 +52,8 @@ export default function Settings(props) {
     }
     setPassword(e.target.password2.value)
     const responsePost = await axios.post(
-      `${process.env.REACT_APP_BACKEND}/editPass`,
-      changedData,
+        `${process.env.REACT_APP_BACKEND}/editPass`,
+        changedData,
     )
     setResponse(responsePost.data)
   }
@@ -88,7 +88,7 @@ export default function Settings(props) {
     return (
       <div className='settings'>
         <h1 className ="setting">Change password</h1>
-      
+
         <Form id="info" onSubmit= { handlePassword }>
           <Form.Group className="info">
             <Form.Label className="new Password">New password</Form.Label>
@@ -108,7 +108,7 @@ export default function Settings(props) {
             </Row>
           </Form.Group>
           <div className="col-md-10 text-center">
-                <Button variant="outline-light" size="sm" type="submit">Reset</Button>
+            <Button variant="outline-light" size="sm" type="submit">Reset</Button>
           </div>
         </Form>
         <Form id="info" onSubmit= { handleSubmit }>
@@ -128,8 +128,6 @@ export default function Settings(props) {
                       updateListOfItems(index, !item.isChecked)}
                   />,
                 )}
-                {/* <Form.Check onChange = { handleChecked } name = "leetcode" label="Leetcode"/>
-                <Form.Check label="Hackerrank"/> */}
               </Form.Group>
             </div>
           </Form.Group>
@@ -142,7 +140,7 @@ export default function Settings(props) {
             <BootstrapSwitchButton checked={true} size="sm"/>
           </div>
         </Form>
-      
+
         <br></br>
         <br></br>
         <br></br>

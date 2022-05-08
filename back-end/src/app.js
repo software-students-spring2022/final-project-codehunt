@@ -17,7 +17,6 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const Contest = require("../model/Contest.js")
 const User = require("../model/User.js")
-const { ConsoleMessage } = require("puppeteer")
 
 app.use(morgan("dev"))
 app.use(express.json())
@@ -128,7 +127,7 @@ app.post("/signup", (req, res) => {
 
 app.get("/get/contests", (req, res) => {
   User.findOne({_id: req.body.id}).then( (x) =>{
-    console.log("Subscription is: " + req.body.subscriptions);
+    console.log("Subscription is: " + req.body.subscriptions)
   })
   Contest.find((err, data) => {
     const filteredData = data.filter((value) => {
@@ -140,12 +139,12 @@ app.get("/get/contests", (req, res) => {
 
 
 app.get("/featuredContests", async (req, res) => {
-  try{
+  try {
     Contest.find((err, featuredContests) => {
       const filteredData = featuredContests.filter((value) => {
         return Date.parse(value.timeStart) > Date.now()
       })
-      resData = filteredData.slice(0,3)
+      resData = filteredData.slice(0, 3)
       res.status(200).json(JSON.parse(JSON.stringify(resData)))
     })
   } catch {

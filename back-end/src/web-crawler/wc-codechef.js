@@ -1,7 +1,6 @@
 const axios = require("axios")
 
 async function getCodeChefContent() {
-
   const response = await axios("https://kontests.net/api/v1/code_chef")
   codeChefData = response.data
 

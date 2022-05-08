@@ -2,7 +2,8 @@ const mongoose = require("mongoose")
 
 const defaultSubscriptions = [
   {name: "Leetcode", isChecked: true},
-  {name: "Hackerank", isChecked: true},
+  {name: "Codeforces", isChecked: true},
+  {name: "CodeChef", isChecked: true}
 ]
 
 const userSchema = new mongoose.Schema({

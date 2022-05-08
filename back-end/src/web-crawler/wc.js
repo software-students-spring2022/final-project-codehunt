@@ -8,7 +8,7 @@ Promise
     .all([
       getLeetcodeContent(),
       getCodeForcesContent(),
-      getCodeChefContent()
+      getCodeChefContent(),
     ])
     .then((data) => {
       const contests = []
