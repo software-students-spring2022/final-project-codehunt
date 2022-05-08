@@ -3,35 +3,35 @@ const chai = require("chai")
 const chaiHttp = require("chai-http")
 chai.use(chaiHttp)
 
-// describe("GET request to home", () => {
-//   it("the response should contain status code 200", (done) => {
-//     chai
-//         .request(app)
-//         .get("/featuredContests")
-//         .then((res) => {
-//           chai.expect(res.status).to.equal(200)
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-//
-//   it("the response should contain json data", (done) => {
-//     chai
-//         .request(app)
-//         .get("/featuredContests")
-//         .then((res) => {
-//           chai.expect(res.body).to.be.an("array")
-//           done()
-//         })
-//         .catch((err) => {
-//           console.error(err)
-//           done()
-//         })
-//   })
-// })
+describe("GET request to home", () => {
+  it("the response should contain status code 200", (done) => {
+    chai
+        .request(app)
+        .get("/featuredContests")
+        .end((res) => {
+          chai.expect(res.status).to.equal(200)
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+
+  it("the response should contain json data", (done) => {
+    chai
+        .request(app)
+        .get("/featuredContests")
+        .end((res) => {
+          chai.expect(res.body).to.be.an("array")
+          done()
+        })
+        .catch((err) => {
+          console.error(err)
+          done()
+        })
+  })
+})
 
 describe("Testing login", () => {
   it("should return 401 for not providing username or password", (done) => {
@@ -39,7 +39,7 @@ describe("Testing login", () => {
         .request(app)
         .post("/login")
         .send()
-        .then((res) => {
+        .end((res) => {
           chai.expect(res.status).to.equal(401)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "no email or password supplied."})
@@ -58,7 +58,7 @@ describe("Testing login", () => {
           email: "wrong@wrong.com",
           password: "wrong",
         })
-        .then((res) => {
+        .end((res) => {
           chai.expect(res.status).to.equal(401)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "user not found: wrong@wrong.com."})
@@ -77,7 +77,7 @@ describe("Testing login", () => {
           email: "codehunt@gmail.com",
           password: "wrong",
         })
-        .then((res) => {
+        .end((res) => {
           chai.expect(res.status).to.equal(401)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "passwords did not match"})
@@ -96,7 +96,7 @@ describe("Testing login", () => {
           email: "codehunt@gmail.com",
           password: "abc",
         })
-        .then((res) => {
+        .end((res) => {
           chai.expect(res.status).to.equal(200)
           chai.expect(res.body).to.be.an("object")
         })
@@ -112,7 +112,7 @@ describe("GET request to contests", () => {
     chai
         .request(app)
         .get("/get/contests")
-        .then((res) => {
+        .end((res) => {
           chai.expect(res.status).to.equal(200)
           chai.expect(res.body).to.be.an("array")
           done()
