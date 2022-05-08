@@ -1,0 +1,145 @@
+/* .settings {
+  position: absolute;
+} */
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.flex-container .back {
+  margin-left: 70px;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-center .p {
+  text-align: center;
+}
+
+.settings .setting {
+  color: white;
+  display: flex;
+  align-items: left;
+  margin-left: 30px;
+  font-size: 27px;
+}
+
+.settings .info {
+  color: white;
+  position: relative;
+  text-align: justify;
+  margin-left: 50px;
+  margin-right: 250px;
+}
+
+.settings .settings .name-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .email-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+
+.settings .password-entry {
+  display: inline-flex;
+  gap: 1rem;
+  grid-auto-flow: column;
+}
+.settings .form-control {
+  background-color: rgb(34, 37, 41);
+  border-color: grey;
+}
+
+.settings .subscriptions {
+  margin-left: 60px;
+}
+
+.settings p {
+  margin-left: 60px;
+  font-size: 10px;
+  margin-bottom: 0%;
+}
+
+.settings .form-check .form-check-label {
+  font-size: 15px;
+}
+
+.settings .info div {
+  color: white;
+  padding-bottom: 15px;
+  font-size: 15px;
+}
+
+.settings .info div br {
+  padding-top: 10px;
+}
+
+.settings .info div a {
+  padding-left: 2px;
+  font-size: 10px;
+}
+
+.settings .container {
+  display: flex;
+  margin-left: 37px;
+}
+.settings .container .subs {
+  flex: 0 0 65%;
+}
+.settings .container a {
+  flex: 1;
+}
+
+.settings .subs {
+  color: white;
+  position: relative;
+  font-size: 15px;
+}
+
+.settings .container a {
+  color: white;
+  font-size: 10px;
+}
+
+.settings .mb-3 {
+  color: white;
+  padding-left: 60px;
+  font-size: 15px;
+}
+.settings .mb-3 .form-check {
+  padding-bottom: 10px;
+}
+
+.settings .container .btn {
+  color: white;
+  border-color: white;
+}
+
+.notifs {
+  color: white;
+  padding-left: 50px;
+  font-size: 15px;
+}
+
+.settings .bootbutton {
+  padding-left: 60px;
+}
+
+.settings .bootbutton .btn .btn-outline-light .btn-sm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

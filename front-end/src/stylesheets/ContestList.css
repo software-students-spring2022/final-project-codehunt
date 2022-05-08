@@ -1,0 +1,168 @@
+.contestlist * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contestlist-body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.contestlist-main-container {
+    padding: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADING */
+
+.contestlist-heading {
+    text-align: center;
+}
+
+.contestlist-heading__title {
+    font-weight: 600;
+}
+
+.contestlist-heading__credits {
+    margin: 10px 0px;
+    color: #888888;
+    font-size: 25px;
+    transition: all 0.5s;
+}
+
+.contestlist-heading__link {
+    text-decoration: none;
+}
+
+.contestlist-heading__credits .heading__link {
+    color: inherit;
+}
+
+
+
+
+/* CARDS */
+
+.contestlist-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contestlist-card {
+    margin: 20px;
+    padding: 20px;
+    width: 380px;
+    min-height: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+}
+
+.contestlist-card:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+.contestlist-card__link,
+.contestlist-card__icon {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    width: 80px;
+    height: 80px;
+}
+
+.contestlist-card__exit {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contestlist-card__icon img {
+    width: 100%;
+    height: auto;
+}
+
+.contestlist-card__link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+}
+
+.contestlist-card__link:hover::after {
+    width: 100%;
+}
+
+.contestlist-card__exit {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.contestlist-card__icon {
+    grid-row: 1 / 4;
+    font-size: 30px;
+}
+
+.contestlist-card__title {
+    grid-row: 1;
+    grid-column: 2;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.contestlist-card__content {
+    grid-column: 2;
+    grid-row: 2;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.contestlist-card__apply {
+    grid-row: 4;
+    align-self: center;
+}
+
+
+/* CARD BACKGROUNDS */
+
+.contestlist-card-0 {
+    background: radial-gradient(#00b8c9, #005786);
+}
+
+.contestlist-card-1 {
+    background: radial-gradient(#ee516d, #9e0b30);
+}
+
+.contestlist-card-2 {
+    background: radial-gradient(#0c5ec9, #21037e);
+}
+
+.contestlist-card-3 {
+    background: radial-gradient(#00b173, #006345);
+}
+
+.contestlist-card-4 {
+    background: radial-gradient(#d42aa7, #3f0788);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1600px) {
+    .contestlist-cards {
+        justify-content: center;
+    }
+}

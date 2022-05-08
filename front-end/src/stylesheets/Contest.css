@@ -1,0 +1,149 @@
+.contest * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contest-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.contest-main-container {
+  padding: 30px;
+}
+
+
+/* HEADING */
+
+.contest-heading {
+  text-align: center;
+}
+
+.contest-heading__title {
+  font-weight: 600;
+}
+
+.contest-heading__credits {
+  margin: 10px 0px;
+  color: #888888;
+  font-size: 25px;
+  transition: all 0.5s;
+}
+
+.contest-heading__link {
+  color:rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+.contest-heading__credits .heading__link {
+  color: inherit;
+}
+
+
+/* CARDS */
+
+.contest-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contest-card {
+  margin: 20px;
+  padding: 20px;
+  width: 380px;
+  min-height: 100px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+
+.contest-card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.contest-card__link,
+.contest-card__icon {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  width: 80px;
+  height: 80px;
+}
+
+.contest-card__exit {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contest-card__icon img {
+  width: 100%;
+  height: auto;
+}
+
+.contest-card__link::after {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.5s;
+}
+
+.contest-card__link:hover::after {
+  width: 100%;
+}
+
+.contest-card__exit {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.contest-card__icon {
+  grid-row: 1 / 4;
+  font-size: 30px;
+}
+
+.contest-card__title {
+  grid-row: 1;
+  grid-column: 2;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.contest-card__content {
+  grid-column: 2;
+  grid-row: 2;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.contest-card__apply {
+  grid-row: 4;
+  align-self: center;
+}
+
+
+/* CARD BACKGROUNDS */
+
+.contest-card-0 {
+  background-color: rgb(79, 190, 255);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1600px) {
+  .contest-cards {
+      justify-content: center;
+  }
+}
