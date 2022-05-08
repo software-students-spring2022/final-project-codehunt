@@ -12,10 +12,6 @@ describe("GET request to home", () => {
           chai.expect(res.status).to.equal(200)
           done()
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
 
   it("the response should contain json data", (done) => {
@@ -24,10 +20,6 @@ describe("GET request to home", () => {
         .get("/featuredContests")
         .end((res) => {
           chai.expect(res.body).to.be.an("array")
-          done()
-        })
-        .catch((err) => {
-          console.error(err)
           done()
         })
   })
@@ -45,10 +37,6 @@ describe("Testing login", () => {
           chai.expect(res.body).to.eql({success: false, message: "no email or password supplied."})
           done()
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
   it("should return 401 for providing wrong username", (done) => {
     chai
@@ -62,10 +50,6 @@ describe("Testing login", () => {
           chai.expect(res.status).to.equal(401)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "user not found: wrong@wrong.com."})
-          done()
-        })
-        .catch((err) => {
-          console.error(err)
           done()
         })
   })
@@ -83,10 +67,6 @@ describe("Testing login", () => {
           chai.expect(res.body).to.eql({success: false, message: "passwords did not match"})
           done()
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
   it("should return 200 for providing correct username and password", (done) => {
     chai
@@ -100,10 +80,6 @@ describe("Testing login", () => {
           chai.expect(res.status).to.equal(200)
           chai.expect(res.body).to.be.an("object")
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
 })
 
@@ -115,10 +91,6 @@ describe("GET request to contests", () => {
         .end((res) => {
           chai.expect(res.status).to.equal(200)
           chai.expect(res.body).to.be.an("array")
-          done()
-        })
-        .catch((err) => {
-          console.error(err)
           done()
         })
   })
@@ -135,10 +107,6 @@ describe("Testing signup", () => {
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "No email or password supplied."})
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
   it("password does not equal to confirmPassword", () => {
     chai
@@ -153,10 +121,6 @@ describe("Testing signup", () => {
           chai.expect(res.status).to.equal(401)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "Passwords do not match."})
-        })
-        .catch((err) => {
-          console.error(err)
-          done()
         })
   })
   it("user already exist", () => {
@@ -173,10 +137,6 @@ describe("Testing signup", () => {
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: false, message: "an account already exists for this email"})
         })
-        .catch((err) => {
-          console.error(err)
-          done()
-        })
   })
   it("create new user", () => {
     chai
@@ -191,10 +151,6 @@ describe("Testing signup", () => {
           chai.expect(res.status).to.equal(200)
           chai.expect(res.body).to.be.an("object")
           chai.expect(res.body).to.eql({success: true})
-        })
-        .catch((err) => {
-          console.error(err)
-          done()
         })
   })
 })
