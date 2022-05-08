@@ -17,7 +17,6 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <ul>
 <li><a href="https://github.com/charliecai00"> Charlie Cai</a></li>
 <li><a href="https://github.com/dinanz">Diana Zhao</a></li>
-<li><a href="https://github.com/b0ub0">Chengyang Song</a></li>
 <li><a href="https://github.com/kopokopok">Michael Zhou</a></li>
 <li><a href="https://github.com/dana-sun">Dana Sun</a></li>
 <li><a href="https://github.com/andrewshin02">Andrew Shin</a></li>
@@ -34,6 +33,8 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <h3> Build and launch the back end</h3>
 <ol>
   <li>cd back-end</li>
+  <li>touch .env</li>
+  <li>copy code from .env.example to .env</li>
   <li>npm install</li>
   <li>npm start</li>
 </ol>
@@ -41,6 +42,8 @@ The end-users are Computer Science enthusiasts and students. Due to limited reso
 <h3> Build and launch the front end</h3>
 <ol>
   <li>cd front-end</li>
+  <li>touch .env</li>
+  <li>copy code from .env.example to .env</li>
   <li>npm install</li>
   <li>npm start</li>
 </ol>
