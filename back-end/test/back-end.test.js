@@ -9,7 +9,7 @@ describe("GET request to home", () => {
         .request(app)
         .get("/featuredContests")
         .end((res) => {
-          chai.expect(res.status).to.equal(200)
+          res.should.have.status(200)
           done()
         })
   })
@@ -105,7 +105,7 @@ describe("GET request to contests", () => {
         .request(app)
         .get("/get/contests")
         .end((res) => {
-          chai.expect(res.status).to.equal(200)
+          res.should.have.status(200)
           // chai.expect(res.body).to.be.an("array")
           done()
         })
