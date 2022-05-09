@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/software-assignments-spring2022/final-project-codehunt?logo=GitHub)
 
 <h2>Deployed URL</h2>
-<a href="http://157.245.90.75:4000/">Clike me</a>
+<a href="http://157.245.90.75:4000/">Click me</a>
 
 <h2>Product Vision Statement</h2>
 <h4>What and why?</h4>

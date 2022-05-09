@@ -46,7 +46,7 @@ function ContestList(props) {
       <div className="contestlist-cards">
         {data.map((value, index) => {
           return (
-            <div key={index} className={`contestlist-card contestlist-card-${convertToInt(value.name) % 5}`}>
+            <div key={index} className={`contestlist-card contestlist-card-${value.platform}`}>
               <div className="contestlist-card__icon">
                 <img alt="logo" src={value.logo} ></img>
               </div>
