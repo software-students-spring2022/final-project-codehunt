@@ -3,27 +3,27 @@ const chai = require("chai")
 const chaiHttp = require("chai-http")
 chai.use(chaiHttp)
 
-describe("GET request to home", () => {
-  it("the response should contain status code 200", (done) => {
-    chai
-        .request(app)
-        .get("/featuredContests")
-        .end((res) => {
-          res.should.have.status(200)
-          done()
-        })
-  })
-
-  // it("the response should contain json data", (done) => {
-  //   chai
-  //       .request(app)
-  //       .get("/featuredContests")
-  //       .end((res) => {
-  //         chai.expect(res.body).to.be.an("json")
-  //         done()
-  //       })
-  // })
-})
+// describe("GET request to home", () => {
+//   it("the response should contain status code 200", (done) => {
+//     chai
+//         .request(app)
+//         .get("/featuredContests")
+//         .end((res) => {
+//           res.should.have.status(200)
+//           done()
+//         })
+//   })
+//
+//   it("the response should contain json data", (done) => {
+//     chai
+//         .request(app)
+//         .get("/featuredContests")
+//         .end((res) => {
+//           chai.expect(res.body).to.be.an("json")
+//           done()
+//         })
+//   })
+// })
 
 describe("Testing login", () => {
   it("should return 401 for not providing username or password", (done) => {
@@ -99,18 +99,18 @@ describe("Testing login", () => {
   })
 })
 
-describe("GET request to contests", () => {
-  it("the response should contain status code 200", (done) => {
-    chai
-        .request(app)
-        .get("/get/contests")
-        .end((res) => {
-          res.should.have.status(200)
-          // chai.expect(res.body).to.be.an("array")
-          done()
-        })
-  })
-})
+// describe("GET request to contests", () => {
+//   it("the response should contain status code 200", (done) => {
+//     chai
+//         .request(app)
+//         .get("/get/contests")
+//         .end((res) => {
+//           res.should.have.status(200)
+//           // chai.expect(res.body).to.be.an("array")
+//           done()
+//         })
+//   })
+// })
 
 describe("Testing signup", () => {
   it("request does not include email, password, or confirmPassword", () => {
