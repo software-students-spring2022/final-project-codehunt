@@ -7,6 +7,7 @@ import home from "../img/Header-home.png"
 import list from "../img/Header-list.png"
 import profile from "../img/Header-profile.png"
 import about from "../img/Header-about.png"
+import "../stylesheets/Header.css"
 
 const Profile = (props) => {
   const isLoggedIn = props.isLoggedIn
@@ -57,7 +58,7 @@ const Header = (props) => {
   return (
     <>
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
+        <Container position="fixed">
           <Navbar.Brand href="/">
             <img
               alt="site logo"

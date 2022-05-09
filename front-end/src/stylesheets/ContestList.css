@@ -138,11 +138,11 @@ a {
 
 /* CARD BACKGROUNDS */
 
-.contestlist-card-0 {
+.contestlist-card-CodeChef {
     background: radial-gradient(#00b8c9, #005786);
 }
 
-.contestlist-card-1 {
+.contestlist-card-Codeforces {
     background: radial-gradient(#ee516d, #9e0b30);
 }
 
@@ -150,7 +150,7 @@ a {
     background: radial-gradient(#0c5ec9, #21037e);
 }
 
-.contestlist-card-3 {
+.contestlist-card-Leetcode {
     background: radial-gradient(#00b173, #006345);
 }
 
